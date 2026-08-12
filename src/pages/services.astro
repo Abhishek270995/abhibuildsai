@@ -1,0 +1,51 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={`Services | ${SITE_TITLE}`}
+            description="What I can help with — data quality, analytics, and applied AI."
+        />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <h1>What I can help with</h1>
+
+            <h2>1. Data Quality &amp; SSOT Systems</h2>
+            <p>
+                Stop firefighting bad numbers. I design monitoring and
+                reconciliation systems that catch data issues automatically —
+                before they hit a dashboard or a decision.
+            </p>
+
+            <h2>2. Revenue &amp; Pipeline Analytics</h2>
+            <p>
+                Forecasting models, KPI frameworks, and dashboards (SQL,
+                BigQuery, Power BI, Metabase) built for teams that need numbers
+                they can actually trust.
+            </p>
+
+            <h2>3. Applied AI Tooling</h2>
+            <p>
+                Practical AI agents and utilities — not proofs of concept that
+                never ship. If you need something that turns a manual data
+                process into an automated one, this is where I can help.
+            </p>
+
+            <p>
+                Not sure which of these fits your problem?
+                <a href="mailto:abhishekkumar.singh0197@gmail.com"
+                    >Get in touch →</a
+                >
+            </p>
+        </main>
+        <Footer />
+    </body>
+</html>

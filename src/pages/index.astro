@@ -1,8 +1,8 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
@@ -13,36 +13,85 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<h1>Turning messy data into decisions you can trust.</h1>
+				<p>
+					I'm Abhishek — a data analyst and AI builder with 6.5+ years
+					across ad-tech, ed-tech, and digital commerce. I help teams
+					build reliable data foundations, forecast with confidence,
+					and ship practical AI tools — not hype.
+				</p>
+				<p>
+					<a href="/work">See my work</a> &nbsp;·&nbsp; <a
+						href="/blog">Read the newsletter</a
+					>
+				</p>
+			</section>
+
+			<section>
+				<h2>What I Do</h2>
+				<p>
+					I work at the intersection of revenue analytics, data
+					quality, and applied AI.
+				</p>
+				<ul>
+					<li>
+						<strong>Analytics & Forecasting</strong> — pipeline forecasting,
+						KPI governance, dashboarding (SQL, BigQuery, Power BI, Metabase)
+					</li>
+					<li>
+						<strong>Data Quality & SSOT Systems</strong> — building single-source-of-truth
+						frameworks and anomaly detection that teams actually trust
+					</li>
+					<li>
+						<strong>Applied AI Tooling</strong> — practical, lightweight
+						AI agents and utilities, including tools that run without
+						sending your data anywhere
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Featured Work</h2>
+				<h3>Revenue Data Reconciliation & Anomaly Agent</h3>
+				<p>
+					A monitoring system that catches data quality issues before
+					they reach a dashboard — combining rule-based detection with
+					AI-generated narrative summaries.
+				</p>
+				<p><a href="/work">Read the case study →</a></p>
+			</section>
+
+			<section>
+				<h2>Try It Yourself</h2>
+				<p>
+					A free AI tool, right in your browser. No sign-up, no cloud,
+					no data leaving your device.
+				</p>
+				<p><a href="/tool">Try the tool →</a></p>
+			</section>
+
+			<section>
+				<h2>Newsletter</h2>
+				<p>
+					Weekly notes on data, AI, and building in public. Short,
+					practical, no fluff.
+				</p>
+				<p><a href="/blog">Subscribe →</a></p>
+			</section>
+
+			<section>
+				<h2>Let's Talk</h2>
+				<p>
+					Working on a data problem, or want a second pair of eyes on
+					your analytics stack?
+				</p>
+				<p>
+					<a href="mailto:abhiibuildsai@gmail.com"
+						>abhiibuildsai@gmail.com</a
+					>
+				</p>
+			</section>
 		</main>
 		<Footer />
 	</body>

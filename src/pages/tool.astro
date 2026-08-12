@@ -1,0 +1,91 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={`Free AI Tool | ${SITE_TITLE}`}
+            description="A free sentiment analysis tool that runs entirely in your browser."
+        />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <h1>Sentiment &amp; Tone Analyzer</h1>
+            <p>
+                🔒 <strong>Runs entirely in your browser.</strong> Nothing is uploaded
+                — your text never leaves your device.
+            </p>
+
+            <p>
+                Paste any text below — a review, an email, a message you're
+                unsure about the tone of — and see how it reads.
+            </p>
+
+            <textarea
+                id="input-text"
+                rows="6"
+                style="width:100%; max-width:600px; padding:10px; font-size:16px;"
+                placeholder="Paste your text here..."></textarea>
+            <br /><br />
+            <button
+                id="analyze-btn"
+                style="padding:10px 20px; font-size:16px; cursor:pointer;"
+                >Analyze</button
+            >
+
+            <p id="status" style="color:#666;"></p>
+            <div
+                id="result"
+                style="font-size:20px; font-weight:bold; margin-top:10px;"
+            >
+            </div>
+        </main>
+        <Footer />
+
+        <script type="module">
+            import { pipeline } from "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2";
+
+            const statusEl = document.getElementById("status");
+            const resultEl = document.getElementById("result");
+            const btn = document.getElementById("analyze-btn");
+            const input = document.getElementById("input-text");
+
+            let classifier = null;
+
+            btn.addEventListener("click", async () => {
+                const text = input.value.trim();
+                if (!text) {
+                    resultEl.textContent = "Please paste some text first.";
+                    return;
+                }
+
+                btn.disabled = true;
+                resultEl.textContent = "";
+
+                if (!classifier) {
+                    statusEl.textContent =
+                        "Loading AI model (first time only, ~70MB)...";
+                    classifier = await pipeline(
+                        "sentiment-analysis",
+                        "Xenova/distilbert-base-uncased-finetuned-sst-2-english",
+                    );
+                }
+
+                statusEl.textContent = "Analyzing...";
+                const output = await classifier(text);
+                const { label, score } = output[0];
+                const confidence = Math.round(score * 100);
+
+                statusEl.textContent = "";
+                resultEl.textContent = `${label === "POSITIVE" ? "😊" : "😔"} ${label} (${confidence}% confidence)`;
+                btn.disabled = false;
+            });
+        </script>
+    </body>
+</html>

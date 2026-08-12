@@ -1,0 +1,105 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead
+            title={`Work | ${SITE_TITLE}`}
+            description="Case study: Revenue Data Reconciliation & Anomaly Agent."
+        />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <h1>Revenue Data Reconciliation &amp; Anomaly Agent</h1>
+            <p>
+                <em
+                    >Catching bad data before it reaches a dashboard — with a
+                    system that explains why, not just what.</em
+                >
+            </p>
+
+            <h2>The Problem</h2>
+            <p>
+                Revenue teams don't lose trust in their data all at once — it
+                erodes one silent error at a time. A single mis-flagged row in a
+                source sheet can ripple into a forecast, a board deck, or a KPI
+                review before anyone notices. Most monitoring stops at
+                "something's wrong" — it rarely tells you what, why, or how
+                urgent.
+            </p>
+            <p>
+                This project started as a simple monitoring workflow and grew
+                into a full reconciliation and anomaly-detection system — one
+                that doesn't just flag issues, but explains them in plain
+                language.
+            </p>
+
+            <h2>What I Built</h2>
+            <h3>1. A rule-based detection layer</h3>
+            <p>
+                A monitoring workflow built on Google Apps Script that watches a
+                live revenue extract sheet, flags rows failing validation
+                checks, and highlights them directly in the source — no separate
+                tool for the team to check.
+            </p>
+
+            <h3>2. A synthetic test dataset with planted anomalies</h3>
+            <p>
+                To validate detection accuracy without touching real business
+                data, I built a synthetic dataset with known, deliberately
+                planted errors — then scored the detection layer against that
+                ground truth to measure precision and recall.
+            </p>
+
+            <h3>3. An AI reasoning layer</h3>
+            <p>
+                On top of rule-based detection, I added a narrative layer that
+                explains why a flagged row looks anomalous in plain language —
+                turning a red cell into an actual explanation a non-technical
+                stakeholder can act on.
+            </p>
+
+            <h3>4. Automated delivery</h3>
+            <p>
+                Alerts route to Slack and email automatically, so the right
+                people see issues the moment they're detected — not during a
+                weekly review when the damage is already done.
+            </p>
+
+            <h2>Why It Matters</h2>
+            <p>
+                This isn't a proof-of-concept — it's built the way I'd want a
+                production data-quality system to work: rule-based checks you
+                can fully trust, paired with AI-generated explanations that save
+                someone the job of digging through rows manually. It's the same
+                discipline I bring to revenue analytics work day to day —
+                validate first, automate second, explain always.
+            </p>
+
+            <h2>Tech Stack</h2>
+            <p>
+                Google Apps Script · Python · Claude (reasoning layer) · Slack
+                &amp; Email APIs
+            </p>
+
+            <h2>Have a similar data trust problem?</h2>
+            <p>
+                Whether it's a revenue sheet, a pipeline dashboard, or a KPI
+                that nobody fully trusts anymore — this is exactly the kind of
+                problem I like solving.
+            </p>
+            <p>
+                <a href="mailto:abhishekkumar.singh0197@gmail.com"
+                    >Get in touch →</a
+                >
+            </p>
+        </main>
+        <Footer />
+    </body>
+</html>
