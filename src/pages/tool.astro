@@ -430,14 +430,31 @@ import { SITE_TITLE } from "../consts";
 				clearSqlBtn.addEventListener("click", () => {
 					sqlInput.value = "";
 					optimizerStatus.textContent = "Editor cleared";
+					codeOutput.textContent = "-- Enter a query or English prompt and click 'Optimize & Audit SQL'";
 				});
 
-				// Auto-re-optimize on text input with 250ms debounce
+				// Optimize button click handler
+				if (optimizeBtn) {
+					optimizeBtn.addEventListener("click", (e) => {
+						e.preventDefault();
+						runSqlOptimization();
+					});
+				}
+
+				// Keyboard shortcut: Cmd+Enter or Ctrl+Enter to optimize
+				sqlInput.addEventListener("keydown", (e) => {
+					if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+						e.preventDefault();
+						runSqlOptimization();
+					}
+				});
+
+				// Auto-re-optimize on text input with 300ms debounce
 				let debounceTimer;
 				sqlInput.addEventListener("input", () => {
 					clearTimeout(debounceTimer);
 					debounceTimer = setTimeout(() => {
-						if (sqlInput.value.trim().length > 5) {
+						if (sqlInput.value.trim().length > 3) {
 							runSqlOptimization();
 						}
 					}, 300);
