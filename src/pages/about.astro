@@ -13,38 +13,167 @@ import { SITE_TITLE } from "../consts";
 			description="About Abhishek — data analyst and AI builder."
 		/>
 	</head>
-	<body>
+	<body class="bg-grid">
+		<canvas id="bg-canvas" class="fixed-canvas" aria-hidden="true"></canvas>
+		<div class="ambient-glow-1" aria-hidden="true"></div>
+		<div class="ambient-glow-2" aria-hidden="true"></div>
+
 		<Header />
 		<main>
-			<h1>About</h1>
-			<p>
-				I'm Abhishek. Over the past 6.5+ years, I've worked across
-				ad-tech, ed-tech, and digital commerce — currently as a Senior
-				Data Analyst focused on revenue analytics and data governance.
-			</p>
-			<p>
-				My work sits at a specific intersection: making sure the numbers
-				a business relies on are actually correct, and then turning
-				those numbers into forecasts and decisions people can act on.
-				I've built pipeline forecasting models, KPI governance
-				frameworks, and single-source-of-truth systems that catch data
-				errors before they become expensive mistakes.
-			</p>
-			<p>
-				More recently, I've been applying that same rigor to AI —
-				building lightweight tools and agents that solve real, narrow
-				problems instead of chasing hype. This site is where that work
-				lives: case studies, a running blog on data and AI in practice,
-				and free tools you can use directly.
-			</p>
-			<p>
-				When I'm not deep in a dataset, I'm usually behind a camera — I
-				run a mobile photography page, <a
-					href="https://instagram.com/the_photographwala"
-					>the_photographwala</a
-				>, on the side.
-			</p>
+			<div class="page-container">
+				<div class="badge-pill mb-4">
+					<span class="pulse-dot"></span>
+					<span>BACKGROUND &amp; PHILOSOPHY</span>
+				</div>
+
+				<h1 class="gradient-text page-title">About</h1>
+
+				<div class="spotlight-card glass-panel about-card">
+					<p class="lead-text">
+						I'm Abhishek, a Senior Data Analyst with 5.5+ years turning
+						messy, high-volume data into decisions people actually trust.
+						I've worked across ad-tech (currently supporting Reddit's
+						revenue analytics at iOPEX Technologies), ed-tech (Novatr), and
+						digital commerce (magicpin) — three very different data
+						environments, one consistent discipline: <strong class="text-white">validate first,
+						automate second, explain always.</strong>
+					</p>
+
+					<!-- Experience Highlights -->
+					<div class="companies-row">
+						<span class="company-tag">Reddit (via iOPEX)</span>
+						<span class="company-tag">Novatr</span>
+						<span class="company-tag">magicpin</span>
+						<span class="company-tag">Anthropic AI Certified</span>
+					</div>
+
+					<p>
+						Along the way that's meant building forecasting and
+						variance-analysis frameworks that catch quota risk before it
+						becomes a missed quarter, designing cohort dashboards that
+						reduced learner drop-off and lifted course completion by 25%,
+						and building the single-source-of-truth systems that stop "whose
+						number is right?" from derailing a stakeholder meeting.
+					</p>
+					<p>
+						More recently, I've been applying that same rigor to applied AI
+						— completing Anthropic's AI Fluency Framework and Claude 101
+						certifications, and building lightweight, practical AI tools
+						(including one running live on this site's <a href="/tool" class="highlight-link"
+							>Tool page</a
+						>) that solve real, narrow problems instead of chasing hype.
+					</p>
+
+					<div class="action-banner glass-panel">
+						<p class="banner-text">
+							If you're dealing with a revenue number nobody fully trusts, a
+							dashboard that's gone stale, or a process that's still manual
+							because "we haven't gotten to automating it yet" — that's
+							exactly the kind of problem I like solving.
+						</p>
+						<a href="/services" class="btn-primary">
+							<span>See how I can help →</span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.fixed-canvas {
+		position: fixed;
+		inset: 0;
+		width: 100vw;
+		height: 100vh;
+		pointer-events: none;
+		z-index: 0;
+		opacity: 0.5;
+	}
+
+	.page-container {
+		max-width: 860px;
+		margin: 0 auto;
+	}
+
+	.page-title {
+		margin-bottom: 2rem;
+	}
+
+	.about-card {
+		padding: 3rem 2.5rem;
+	}
+
+	.lead-text {
+		font-size: 1.18rem;
+		line-height: 1.8;
+		color: #e2e8f0;
+		margin-bottom: 1.75rem;
+	}
+
+	.text-white {
+		color: #ffffff;
+	}
+
+	.companies-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 2rem;
+		padding-bottom: 1.75rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.company-tag {
+		padding: 0.35rem 0.85rem;
+		border-radius: 0.5rem;
+		background: var(--bg-dark-900);
+		border: 1px solid rgba(99, 102, 241, 0.25);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--brand-cyan-light);
+	}
+
+	.about-card p {
+		font-size: 1.05rem;
+		line-height: 1.75;
+		color: #cbd5e1;
+		margin-bottom: 1.5rem;
+	}
+
+	.highlight-link {
+		color: var(--brand-400);
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.action-banner {
+		margin-top: 2.5rem;
+		padding: 2rem;
+		background: rgba(11, 13, 20, 0.8);
+		border: 1px solid rgba(99, 102, 241, 0.3);
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		align-items: flex-start;
+	}
+
+	.banner-text {
+		margin: 0 !important;
+		font-size: 1.05rem;
+		color: #e2e8f0 !important;
+	}
+
+	@media (max-width: 640px) {
+		.about-card {
+			padding: 2rem 1.5rem;
+		}
+		.action-banner {
+			padding: 1.5rem;
+		}
+	}
+</style>

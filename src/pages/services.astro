@@ -13,39 +13,273 @@ import { SITE_TITLE } from "../consts";
             description="What I can help with — data quality, analytics, and applied AI."
         />
     </head>
-    <body>
+    <body class="bg-grid">
+        <canvas id="bg-canvas" class="fixed-canvas" aria-hidden="true"></canvas>
+        <div class="ambient-glow-1" aria-hidden="true"></div>
+        <div class="ambient-glow-2" aria-hidden="true"></div>
+
         <Header />
         <main>
-            <h1>What I can help with</h1>
+            <div class="services-container">
+                <div class="badge-pill mb-4">
+                    <span class="pulse-dot"></span>
+                    <span>CORE OFFERINGS</span>
+                </div>
 
-            <h2>1. Data Quality &amp; SSOT Systems</h2>
-            <p>
-                Stop firefighting bad numbers. I design monitoring and
-                reconciliation systems that catch data issues automatically —
-                before they hit a dashboard or a decision.
-            </p>
+                <h1 class="gradient-text page-title">What I can help with</h1>
+                <p class="page-intro">
+                    Specialized analytics, data integrity engineering, and practical AI tooling tailored to fast-moving teams.
+                </p>
 
-            <h2>2. Revenue &amp; Pipeline Analytics</h2>
-            <p>
-                Forecasting models, KPI frameworks, and dashboards (SQL,
-                BigQuery, Power BI, Metabase) built for teams that need numbers
-                they can actually trust.
-            </p>
+                <!-- 4 Service Spotlight Cards Grid -->
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                        <div class="service-icon-wrap icon-indigo">
+                            <span class="service-num">01</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                        </div>
+                        <span class="badge-category">REVENUE &amp; PIPELINE</span>
+                        <h2>1. Revenue &amp; Pipeline Analytics</h2>
+                        <p>
+                            Forecasting models, variance analysis (Actual vs. Booked vs.
+                            Pipeline), and KPI dashboards built in SQL, BigQuery, Power BI,
+                            and Metabase — the same frameworks I use to catch quota
+                            shortfall risk before it costs a quarter.
+                        </p>
+                        <div class="tags-row">
+                            <span class="badge-tag">SQL</span>
+                            <span class="badge-tag">BigQuery</span>
+                            <span class="badge-tag">Power BI</span>
+                            <span class="badge-tag">Metabase</span>
+                        </div>
+                    </div>
 
-            <h2>3. Applied AI Tooling</h2>
-            <p>
-                Practical AI agents and utilities — not proofs of concept that
-                never ship. If you need something that turns a manual data
-                process into an automated one, this is where I can help.
-            </p>
+                    <!-- Service 2 -->
+                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                        <div class="service-icon-wrap icon-emerald">
+                            <span class="service-num">02</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <span class="badge-category">SSOT &amp; MONITORING</span>
+                        <h2>2. Data Quality &amp; SSOT Systems</h2>
+                        <p>
+                            Stop firefighting conflicting numbers. I design automated
+                            validation and reconciliation workflows that establish a single
+                            source of truth — cutting manual reporting effort and catching
+                            errors before they reach a dashboard.
+                        </p>
+                        <div class="tags-row">
+                            <span class="badge-tag">Single Source of Truth</span>
+                            <span class="badge-tag">Anomaly Detection</span>
+                            <span class="badge-tag">Automated Auditing</span>
+                        </div>
+                    </div>
 
-            <p>
-                Not sure which of these fits your problem?
-                <a href="mailto:abhishekkumar.singh0197@gmail.com"
-                    >Get in touch →</a
-                >
-            </p>
+                    <!-- Service 3 -->
+                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                        <div class="service-icon-wrap icon-cyan">
+                            <span class="service-num">03</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <span class="badge-category">USER BEHAVIOR</span>
+                        <h2>3. Product &amp; Behavioral Analytics</h2>
+                        <p>
+                            Funnel analysis, cohort tracking, and drop-off diagnostics — the
+                            kind of work that took course completion from stalled to +25% by
+                            finding exactly where users disengage and why.
+                        </p>
+                        <div class="tags-row">
+                            <span class="badge-tag">Cohort Tracking</span>
+                            <span class="badge-tag">Funnel Optimization</span>
+                            <span class="badge-tag">Drop-off Diagnostics</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                        <div class="service-icon-wrap icon-violet">
+                            <span class="service-num">04</span>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                            </svg>
+                        </div>
+                        <span class="badge-category">PRACTICAL AI</span>
+                        <h2>4. Applied AI Tooling</h2>
+                        <p>
+                            Practical AI agents and utilities — not proofs-of-concept that
+                            never ship. Backed by Anthropic's AI Fluency and Claude 101
+                            certifications, focused on tools that turn manual processes into
+                            automated ones.
+                        </p>
+                        <div class="tags-row">
+                            <span class="badge-tag">Claude 101 Certified</span>
+                            <span class="badge-tag">Agentic Workflows</span>
+                            <span class="badge-tag">Process Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOW WE'D WORK TOGETHER SECTION -->
+                <div class="spotlight-card glass-panel collaboration-card">
+                    <div class="badge-pill mb-3">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 14 14"></polyline>
+                        </svg>
+                        <span>ENGAGEMENT PROCESS</span>
+                    </div>
+                    <h2>How we'd work together</h2>
+                    <p class="collab-desc">
+                        Every engagement starts with a short intro call to understand
+                        the actual problem — not just the dashboard request on the
+                        surface. From there, I typically work project-based for defined
+                        builds (a dashboard, an SSOT system, an audit) or on a part-time
+                        retainer for ongoing analytics support.
+                    </p>
+                    <div class="collab-action">
+                        <span>Not sure which of these fits your problem?</span>
+                        <a href="mailto:abhiibuildsai@gmail.com" class="btn-primary">
+                            <span>Get in touch →</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </main>
         <Footer />
     </body>
 </html>
+
+<style>
+    .fixed-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+    }
+
+    .services-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        margin-bottom: 0.75rem;
+    }
+
+    .page-intro {
+        font-size: 1.15rem;
+        color: var(--text-secondary);
+        max-width: 750px;
+        margin-bottom: 3rem;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .service-card {
+        padding: 2.5rem 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service-card h2 {
+        font-size: 1.45rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+    .service-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #cbd5e1;
+        flex-grow: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    .service-icon-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+    }
+
+    .service-num {
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .icon-indigo svg { color: var(--brand-400); }
+    .icon-emerald svg { color: var(--brand-emerald); }
+    .icon-cyan svg { color: var(--brand-cyan-light); }
+    .icon-violet svg { color: var(--brand-violet-light); }
+
+    .tags-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .collaboration-card {
+        padding: 3rem 2.5rem;
+        background: linear-gradient(135deg, rgba(16, 19, 29, 0.85), rgba(11, 13, 20, 0.95));
+        border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .collab-desc {
+        font-size: 1.1rem;
+        line-height: 1.75;
+        color: #e2e8f0;
+        margin-bottom: 2rem;
+    }
+
+    .collab-action {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+        .service-card {
+            padding: 2rem 1.5rem;
+        }
+        .collaboration-card {
+            padding: 2rem 1.5rem;
+        }
+    }
+</style>

@@ -13,93 +13,325 @@ import { SITE_TITLE } from "../consts";
             description="Case study: Revenue Data Reconciliation & Anomaly Agent."
         />
     </head>
-    <body>
+    <body class="bg-grid">
+        <canvas id="bg-canvas" class="fixed-canvas" aria-hidden="true"></canvas>
+        <div class="ambient-glow-1" aria-hidden="true"></div>
+        <div class="ambient-glow-2" aria-hidden="true"></div>
+
         <Header />
         <main>
-            <h1>Revenue Data Reconciliation &amp; Anomaly Agent</h1>
-            <p>
-                <em
-                    >Catching bad data before it reaches a dashboard — with a
-                    system that explains why, not just what.</em
-                >
-            </p>
+            <div class="case-study-container">
+                <div class="badge-pill mb-4">
+                    <span class="pulse-dot"></span>
+                    <span>PRODUCTION CASE STUDY</span>
+                </div>
 
-            <h2>The Problem</h2>
-            <p>
-                Revenue teams don't lose trust in their data all at once — it
-                erodes one silent error at a time. A single mis-flagged row in a
-                source sheet can ripple into a forecast, a board deck, or a KPI
-                review before anyone notices. Most monitoring stops at
-                "something's wrong" — it rarely tells you what, why, or how
-                urgent.
-            </p>
-            <p>
-                This project started as a simple monitoring workflow and grew
-                into a full reconciliation and anomaly-detection system — one
-                that doesn't just flag issues, but explains them in plain
-                language.
-            </p>
+                <h1 class="gradient-text case-title">
+                    Revenue Data Reconciliation &amp; Anomaly Agent
+                </h1>
+                
+                <p class="case-tagline">
+                    <em>Catching bad data before it reaches a dashboard — with a
+                    system that explains why, not just what.</em>
+                </p>
 
-            <h2>What I Built</h2>
-            <h3>1. A rule-based detection layer</h3>
-            <p>
-                A monitoring workflow built on Google Apps Script that watches a
-                live revenue extract sheet, flags rows failing validation
-                checks, and highlights them directly in the source — no separate
-                tool for the team to check.
-            </p>
+                <!-- Problem Card -->
+                <div class="spotlight-card glass-panel section-box mb-8">
+                    <div class="box-header">
+                        <div class="box-icon icon-indigo">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
+                        <h2>The Problem</h2>
+                    </div>
+                    <p>
+                        Revenue teams don't lose trust in their data all at once — it
+                        erodes one silent error at a time. A single mis-flagged row in a
+                        source sheet can ripple into a forecast, a board deck, or a KPI
+                        review before anyone notices. Most monitoring stops at
+                        "something's wrong" — it rarely tells you what, why, or how
+                        urgent.
+                    </p>
+                    <p class="mb-0">
+                        This project started as a simple monitoring workflow and grew
+                        into a full reconciliation and anomaly-detection system — one
+                        that doesn't just flag issues, but explains them in plain
+                        language.
+                    </p>
+                </div>
 
-            <h3>2. A synthetic test dataset with planted anomalies</h3>
-            <p>
-                To validate detection accuracy without touching real business
-                data, I built a synthetic dataset with known, deliberately
-                planted errors — then scored the detection layer against that
-                ground truth to measure precision and recall.
-            </p>
+                <!-- What I Built: Architecture Breakdown -->
+                <div class="section-box mb-8">
+                    <div class="box-header mb-6">
+                        <div class="box-icon icon-cyan">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <h2>What I Built</h2>
+                    </div>
 
-            <h3>3. An AI reasoning layer</h3>
-            <p>
-                On top of rule-based detection, I added a narrative layer that
-                explains why a flagged row looks anomalous in plain language —
-                turning a red cell into an actual explanation a non-technical
-                stakeholder can act on.
-            </p>
+                    <div class="steps-grid">
+                        <!-- Step 1 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
+                            <div class="step-badge">LAYER 01</div>
+                            <h3>1. A rule-based detection layer</h3>
+                            <p>
+                                A monitoring workflow built on Google Apps Script that watches a
+                                live revenue extract sheet, flags rows failing validation
+                                checks, and highlights them directly in the source — no separate
+                                tool for the team to check.
+                            </p>
+                        </div>
 
-            <h3>4. Automated delivery</h3>
-            <p>
-                Alerts route to Slack and email automatically, so the right
-                people see issues the moment they're detected — not during a
-                weekly review when the damage is already done.
-            </p>
+                        <!-- Step 2 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
+                            <div class="step-badge">LAYER 02</div>
+                            <h3>2. A synthetic test dataset with planted anomalies</h3>
+                            <p>
+                                To validate detection accuracy without touching real business
+                                data, I built a synthetic dataset with known, deliberately
+                                planted errors — then scored the detection layer against that
+                                ground truth to measure precision and recall.
+                            </p>
+                        </div>
 
-            <h2>Why It Matters</h2>
-            <p>
-                This isn't a proof-of-concept — it's built the way I'd want a
-                production data-quality system to work: rule-based checks you
-                can fully trust, paired with AI-generated explanations that save
-                someone the job of digging through rows manually. It's the same
-                discipline I bring to revenue analytics work day to day —
-                validate first, automate second, explain always.
-            </p>
+                        <!-- Step 3 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
+                            <div class="step-badge">LAYER 03</div>
+                            <h3>3. An AI reasoning layer</h3>
+                            <p>
+                                On top of rule-based detection, I added a narrative layer that
+                                explains why a flagged row looks anomalous in plain language —
+                                turning a red cell into an actual explanation a non-technical
+                                stakeholder can act on.
+                            </p>
+                        </div>
 
-            <h2>Tech Stack</h2>
-            <p>
-                Google Apps Script · Python · Claude (reasoning layer) · Slack
-                &amp; Email APIs
-            </p>
+                        <!-- Step 4 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
+                            <div class="step-badge">LAYER 04</div>
+                            <h3>4. Automated delivery</h3>
+                            <p>
+                                Alerts route to Slack and email automatically, so the right
+                                people see issues the moment they're detected — not during a
+                                weekly review when the damage is already done.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-            <h2>Have a similar data trust problem?</h2>
-            <p>
-                Whether it's a revenue sheet, a pipeline dashboard, or a KPI
-                that nobody fully trusts anymore — this is exactly the kind of
-                problem I like solving.
-            </p>
-            <p>
-                <a href="mailto:abhishekkumar.singh0197@gmail.com"
-                    >Get in touch →</a
-                >
-            </p>
+                <!-- Why It Matters -->
+                <div class="spotlight-card glass-panel section-box mb-8">
+                    <div class="box-header">
+                        <div class="box-icon icon-emerald">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h2>Why It Matters</h2>
+                    </div>
+                    <p class="mb-0">
+                        This isn't a proof-of-concept — it's built the way I'd want a
+                        production data-quality system to work: rule-based checks you
+                        can fully trust, paired with AI-generated explanations that save
+                        someone the job of digging through rows manually. It's the same
+                        discipline I bring to revenue analytics work day to day —
+                        <strong class="text-white">validate first, automate second, explain always.</strong>
+                    </p>
+                </div>
+
+                <!-- Tech Stack Bar -->
+                <div class="spotlight-card glass-panel section-box mb-8">
+                    <h2>Tech Stack</h2>
+                    <div class="tech-tags-list">
+                        <span class="badge-tag">Google Apps Script</span>
+                        <span class="badge-tag">Python</span>
+                        <span class="badge-tag">Claude (Reasoning Layer)</span>
+                        <span class="badge-tag">Slack API</span>
+                        <span class="badge-tag">Email APIs</span>
+                    </div>
+                </div>
+
+                <!-- CTA Banner -->
+                <div class="glass-panel case-cta-box">
+                    <h2>Have a similar data trust problem?</h2>
+                    <p class="cta-text">
+                        Whether it's a revenue sheet, a pipeline dashboard, or a KPI
+                        that nobody fully trusts anymore — this is exactly the kind of
+                        problem I like solving.
+                    </p>
+                    <a href="mailto:abhiibuildsai@gmail.com" class="btn-primary">
+                        <span>Get in touch →</span>
+                    </a>
+                </div>
+            </div>
         </main>
         <Footer />
     </body>
 </html>
+
+<style>
+    .fixed-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+    }
+
+    .case-study-container {
+        max-width: 920px;
+        margin: 0 auto;
+    }
+
+    .case-title {
+        margin-bottom: 0.75rem;
+        line-height: 1.15;
+    }
+
+    .case-tagline {
+        font-size: 1.2rem;
+        color: var(--brand-cyan-light);
+        margin-bottom: 2.75rem;
+    }
+
+    .section-box {
+        padding: 2.75rem 2.25rem;
+    }
+
+    .box-header {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .box-header h2 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .box-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 0.65rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-indigo {
+        background: rgba(99, 102, 241, 0.15);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        color: var(--brand-400);
+    }
+
+    .icon-cyan {
+        background: rgba(6, 182, 212, 0.15);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        color: var(--brand-cyan-light);
+    }
+
+    .icon-emerald {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: var(--brand-emerald);
+    }
+
+    .section-box p {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: #cbd5e1;
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .step-card {
+        padding: 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .step-badge {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--brand-400);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.75rem;
+    }
+
+    .step-card h3 {
+        font-size: 1.18rem;
+        margin-bottom: 0.75rem;
+        color: #ffffff;
+    }
+
+    .step-card p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: #94a3b8;
+        margin: 0;
+    }
+
+    .tech-tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1rem;
+    }
+
+    .tech-tags-list .badge-tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.85rem;
+    }
+
+    .case-cta-box {
+        padding: 3rem 2.25rem;
+        background: linear-gradient(135deg, rgba(16, 19, 29, 0.85), rgba(11, 13, 20, 0.95));
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 1.25rem;
+    }
+
+    .case-cta-box h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .cta-text {
+        font-size: 1.05rem;
+        color: #cbd5e1;
+        margin-bottom: 1.75rem;
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+    .mb-0 { margin-bottom: 0 !important; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+
+    @media (max-width: 768px) {
+        .steps-grid {
+            grid-template-columns: 1fr;
+        }
+        .section-box {
+            padding: 2rem 1.5rem;
+        }
+        .case-cta-box {
+            padding: 2rem 1.5rem;
+        }
+    }
+</style>

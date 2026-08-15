@@ -1,11 +1,10 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
-import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE } from '../consts';
-import { Font } from 'astro:assets';
+import "../styles/global.css";
+import type { ImageMetadata } from "astro";
+import FallbackImage from "../assets/blog-placeholder-1.jpg";
+import { SITE_TITLE } from "../consts";
 
 interface Props {
 	title: string;
@@ -28,11 +27,17 @@ const { title, description, image = FallbackImage } = Astro.props;
 	rel="alternate"
 	type="application/rss+xml"
 	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
+	href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
 
-<Font cssVariable="--font-atkinson" preload />
+<!-- Google Fonts Preconnect & Load -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+	rel="stylesheet"
+/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -50,3 +55,86 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
+
+<!-- Interactive Ambient Canvas & Mouse Glow Script -->
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Spotlight cursor effect for all cards
+		const initSpotlight = () => {
+			document.querySelectorAll('.spotlight-card').forEach(card => {
+				card.addEventListener('mousemove', e => {
+					const rect = card.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+					card.style.setProperty('--mouse-x', `${x}px`);
+					card.style.setProperty('--mouse-y', `${y}px`);
+				});
+			});
+		};
+		initSpotlight();
+
+		// Particle Canvas Mesh Background
+		const canvas = document.getElementById('bg-canvas');
+		if (canvas) {
+			const ctx = canvas.getContext('2d');
+			let width, height, particles = [];
+
+			const resize = () => {
+				width = canvas.width = window.innerWidth;
+				height = canvas.height = window.innerHeight;
+			};
+			window.addEventListener('resize', resize);
+			resize();
+
+			class Particle {
+				constructor() {
+					this.x = Math.random() * width;
+					this.y = Math.random() * height;
+					this.vx = (Math.random() - 0.5) * 0.35;
+					this.vy = (Math.random() - 0.5) * 0.35;
+					this.radius = Math.random() * 1.5 + 0.8;
+				}
+				update() {
+					this.x += this.vx;
+					this.y += this.vy;
+					if (this.x < 0 || this.x > width) this.vx *= -1;
+					if (this.y < 0 || this.y > height) this.vy *= -1;
+				}
+				draw() {
+					ctx.beginPath();
+					ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(99, 102, 241, 0.35)';
+					ctx.fill();
+				}
+			}
+
+			const count = Math.min(40, Math.floor(window.innerWidth / 35));
+			for (let i = 0; i < count; i++) {
+				particles.push(new Particle());
+			}
+
+			const animate = () => {
+				ctx.clearRect(0, 0, width, height);
+				for (let i = 0; i < particles.length; i++) {
+					particles[i].update();
+					particles[i].draw();
+					for (let j = i + 1; j < particles.length; j++) {
+						const dx = particles[i].x - particles[j].x;
+						const dy = particles[i].y - particles[j].y;
+						const dist = Math.sqrt(dx * dx + dy * dy);
+						if (dist < 120) {
+							ctx.beginPath();
+							ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist / 120)})`;
+							ctx.lineWidth = 0.75;
+							ctx.moveTo(particles[i].x, particles[i].y);
+							ctx.lineTo(particles[j].x, particles[j].y);
+							ctx.stroke();
+						}
+					}
+				}
+				requestAnimationFrame(animate);
+			};
+			animate();
+		}
+	});
+</script>

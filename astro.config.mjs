@@ -31,5 +31,11 @@ export default defineConfig({
 				],
 			},
 		},
+		{
+			provider: fontProviders.google(),
+			name: 'JetBrains Mono',
+			cssVariable: '--font-mono',
+			weights: [400, 500, 600],
+		},
 	],
 });
