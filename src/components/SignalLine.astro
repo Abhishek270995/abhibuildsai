@@ -1,86 +1,270 @@
 ---
+// 4-Step Process Visual: Messy Data -> Clean & Structure -> Analyze & Extract -> Trusted Decisions
 ---
-<div class="signal-wrap" aria-hidden="true">
-    <svg class="signal-line" viewBox="0 0 800 120" preserveAspectRatio="none">
-        <defs>
-            <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#38bdf8" />
-                <stop offset="50%" stop-color="#6366f1" />
-                <stop offset="100%" stop-color="#c084fc" />
-            </linearGradient>
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#6366f1" flood-opacity="0.6"/>
-            </filter>
-        </defs>
-        <path
-            class="signal-noisy"
-            d="M0,60 L40,20 L80,95 L120,30 L160,80 L200,15 L240,90 L280,40 L320,70 L360,10 L400,100 L440,35 L480,75 L520,20 L560,85 L600,45 L640,65 L680,25 L720,80 L760,50 L800,60"
-            fill="none"
-            stroke="rgba(255,255,255,0.18)"
-            stroke-width="1.75"
-            stroke-dasharray="3, 3"></path>
-        <path
-            class="signal-smooth"
-            d="M0,70 C100,50 150,40 200,45 C300,55 350,35 400,40 C500,45 550,50 600,42 C700,32 750,38 800,35"
-            fill="none"
-            stroke="url(#neonGradient)"
-            stroke-width="3.5"
-            filter="url(#glow)"></path>
-    </svg>
+
+<div class="process-flow-container" aria-label="Data to decision transformation workflow">
+	<div class="process-track">
+		<!-- STEP 1: Messy Data -->
+		<div class="process-step">
+			<div class="circle-badge badge-messy">
+				<svg width="42" height="42" viewBox="0 0 44 44" fill="none" class="badge-icon-svg">
+					<circle cx="22" cy="8" r="1.6" fill="#a5b4fc" opacity="0.85" />
+					<circle cx="12" cy="14" r="1.8" fill="#38bdf8" opacity="0.9" />
+					<circle cx="27" cy="13" r="1.5" fill="#c084fc" opacity="0.8" />
+					<circle cx="33" cy="19" r="1.3" fill="#93c5fd" opacity="0.6" />
+					<rect x="18" y="19" width="3.5" height="3.5" rx="0.75" fill="#818cf8" opacity="0.9" />
+					<circle cx="10" cy="24" r="1.6" fill="#67e8f9" opacity="0.75" />
+					<rect x="25" y="23" width="3" height="3" rx="0.5" fill="#c084fc" opacity="0.8" />
+					<circle cx="31" cy="28" r="1.5" fill="#a5b4fc" opacity="0.7" />
+					<circle cx="14" cy="32" r="2" fill="#38bdf8" opacity="0.85" />
+					<circle cx="21" cy="30" r="1.3" fill="#e0e7ff" opacity="0.9" />
+					<circle cx="26" cy="35" r="1.6" fill="#818cf8" opacity="0.8" />
+				</svg>
+			</div>
+			<h3 class="step-title">Messy Data</h3>
+			<p class="step-desc">
+				Scattered sources.<br />
+				Inconsistent. Hard to use.
+			</p>
+		</div>
+
+		<!-- ARROW 1 -->
+		<div class="flow-arrow" aria-hidden="true">
+			<svg width="44" height="14" viewBox="0 0 44 14" fill="none" class="arrow-svg">
+				<line x1="0" y1="7" x2="40" y2="7" stroke="url(#arrGrad1)" stroke-width="1.75" stroke-linecap="round" />
+				<polyline points="35,2 40,7 35,12" stroke="url(#arrGrad1)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+				<defs>
+					<linearGradient id="arrGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+						<stop offset="0%" stop-color="#818cf8" stop-opacity="0.3" />
+						<stop offset="100%" stop-color="#818cf8" stop-opacity="0.95" />
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+
+		<!-- STEP 2: Clean & Structure -->
+		<div class="process-step">
+			<div class="circle-badge badge-clean">
+				<svg width="42" height="42" viewBox="0 0 44 44" fill="none" class="badge-icon-svg">
+					<circle cx="16" cy="7" r="1.2" fill="#38bdf8" opacity="0.8" />
+					<circle cx="22" cy="5" r="1.5" fill="#818cf8" opacity="0.9" />
+					<circle cx="28" cy="8" r="1.2" fill="#38bdf8" opacity="0.8" />
+					<circle cx="22" cy="11" r="1.4" fill="#38bdf8" opacity="0.95" />
+					
+					<path d="M11 14h22l-7.5 10v6l-7-3v-3L11 14z" stroke="#38bdf8" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" />
+					<line x1="11" y1="14" x2="33" y2="14" stroke="#38bdf8" stroke-width="1.75" stroke-linecap="round" />
+					
+					<circle cx="22" cy="37" r="1.8" fill="#38bdf8" />
+				</svg>
+			</div>
+			<h3 class="step-title">Clean & Structure</h3>
+			<p class="step-desc">
+				Remove noise. Standardize.<br />
+				Bring clarity.
+			</p>
+		</div>
+
+		<!-- ARROW 2 -->
+		<div class="flow-arrow" aria-hidden="true">
+			<svg width="44" height="14" viewBox="0 0 44 14" fill="none" class="arrow-svg">
+				<line x1="0" y1="7" x2="40" y2="7" stroke="url(#arrGrad2)" stroke-width="1.75" stroke-linecap="round" />
+				<polyline points="35,2 40,7 35,12" stroke="url(#arrGrad2)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+				<defs>
+					<linearGradient id="arrGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+						<stop offset="0%" stop-color="#818cf8" stop-opacity="0.5" />
+						<stop offset="100%" stop-color="#38bdf8" stop-opacity="0.95" />
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+
+		<!-- STEP 3: Analyze & Extract -->
+		<div class="process-step">
+			<div class="circle-badge badge-analyze">
+				<svg width="42" height="42" viewBox="0 0 44 44" fill="none" class="badge-icon-svg">
+					<rect x="11" y="24" width="4" height="10" rx="1" stroke="#38bdf8" stroke-width="1.5" />
+					<rect x="18" y="19" width="4" height="15" rx="1" stroke="#38bdf8" stroke-width="1.5" />
+					<rect x="25" y="15" width="4" height="19" rx="1" stroke="#38bdf8" stroke-width="1.5" />
+					<rect x="32" y="10" width="4" height="24" rx="1" stroke="#38bdf8" stroke-width="1.5" />
+
+					<path d="M10 20l8-6 7 5 9-11" stroke="#818cf8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+					<circle cx="34" cy="8" r="2.2" stroke="#818cf8" stroke-width="1.5" fill="#0b0d14" />
+				</svg>
+			</div>
+			<h3 class="step-title">Analyze & Extract</h3>
+			<p class="step-desc">
+				Find patterns. Deep insights.<br />
+				Answer the right questions.
+			</p>
+		</div>
+
+		<!-- ARROW 3 -->
+		<div class="flow-arrow" aria-hidden="true">
+			<svg width="44" height="14" viewBox="0 0 44 14" fill="none" class="arrow-svg">
+				<line x1="0" y1="7" x2="40" y2="7" stroke="url(#arrGrad3)" stroke-width="1.75" stroke-linecap="round" />
+				<polyline points="35,2 40,7 35,12" stroke="url(#arrGrad3)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+				<defs>
+					<linearGradient id="arrGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+						<stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5" />
+						<stop offset="100%" stop-color="#c084fc" stop-opacity="0.95" />
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+
+		<!-- STEP 4: Trusted Decisions -->
+		<div class="process-step">
+			<div class="circle-badge badge-trusted">
+				<svg width="42" height="42" viewBox="0 0 44 44" fill="none" class="badge-icon-svg">
+					<circle cx="22" cy="22" r="16" stroke="#a855f7" stroke-width="1.75" />
+					<polyline points="15,22 20,27 29,17" stroke="#c084fc" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</div>
+			<h3 class="step-title">Trusted Decisions</h3>
+			<p class="step-desc">
+				Reliable insights. Confident<br />
+				decisions. Real impact.
+			</p>
+		</div>
+	</div>
 </div>
 
 <style>
-    .signal-wrap {
-        width: 100%;
-        max-width: 680px;
-        margin: 1.75rem 0 2.25rem 0;
-        padding: 0.75rem 1rem;
-        border-radius: 1rem;
-        background: rgba(16, 19, 29, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-    }
-    .signal-line {
-        width: 100%;
-        height: 64px;
-        display: block;
-    }
-    .signal-noisy {
-        animation: fade-out 2s ease-in forwards;
-    }
-    .signal-smooth {
-        opacity: 0;
-        stroke-dasharray: 900;
-        stroke-dashoffset: 900;
-        animation:
-            fade-in 1s ease-out 0.8s forwards,
-            draw 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
-    }
-    @keyframes fade-out {
-        0% { opacity: 0.6; }
-        100% { opacity: 0.2; }
-    }
-    @keyframes fade-in {
-        to {
-            opacity: 1;
-        }
-    }
-    @keyframes draw {
-        to {
-            stroke-dashoffset: 0;
-        }
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .signal-noisy,
-        .signal-smooth {
-            animation: none;
-        }
-        .signal-noisy {
-            opacity: 0.2;
-        }
-        .signal-smooth {
-            opacity: 1;
-            stroke-dashoffset: 0;
-        }
-    }
+	.process-flow-container {
+		width: 100%;
+		max-width: 980px;
+		margin: 2.25rem 0 3rem 0;
+		position: relative;
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.process-track {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: flex-start !important;
+		justify-content: space-between !important;
+		gap: 0.5rem;
+		width: 100%;
+		min-width: 640px;
+		padding: 0.5rem 0;
+	}
+
+	.process-step {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		flex: 1 1 0;
+		min-width: 130px;
+	}
+
+	/* Circle Badges */
+	.circle-badge {
+		width: 82px;
+		height: 82px;
+		min-width: 82px;
+		min-height: 82px;
+		border-radius: 50%;
+		background: radial-gradient(circle at 35% 35%, rgba(20, 26, 40, 0.95) 0%, rgba(9, 12, 18, 0.98) 100%);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+		flex-shrink: 0;
+	}
+
+	.circle-badge:hover {
+		transform: translateY(-3px);
+	}
+
+	.badge-messy {
+		border-color: rgba(129, 140, 248, 0.3);
+	}
+	.badge-messy:hover {
+		border-color: rgba(129, 140, 248, 0.6);
+		box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.7), 0 0 18px rgba(99, 102, 241, 0.3);
+	}
+
+	.badge-clean {
+		border-color: rgba(56, 189, 248, 0.3);
+	}
+	.badge-clean:hover {
+		border-color: rgba(56, 189, 248, 0.6);
+		box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.7), 0 0 18px rgba(56, 189, 248, 0.3);
+	}
+
+	.badge-analyze {
+		border-color: rgba(56, 189, 248, 0.3);
+	}
+	.badge-analyze:hover {
+		border-color: rgba(56, 189, 248, 0.6);
+		box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.7), 0 0 18px rgba(56, 189, 248, 0.3);
+	}
+
+	.badge-trusted {
+		border: 1.5px solid #a855f7;
+		box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), 0 0 18px rgba(168, 85, 247, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+	}
+	.badge-trusted:hover {
+		border-color: #c084fc;
+		box-shadow: 0 14px 30px -6px rgba(0, 0, 0, 0.7), 0 0 24px rgba(168, 85, 247, 0.5);
+	}
+
+	.badge-icon-svg {
+		display: block;
+	}
+
+	/* Titles & Descriptions */
+	.step-title {
+		font-family: var(--font-sans);
+		font-size: 0.98rem;
+		font-weight: 600;
+		color: #ffffff;
+		margin: 0.9rem 0 0.35rem 0;
+		letter-spacing: -0.01em;
+	}
+
+	.step-desc {
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		color: #94a3b8;
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	/* Flow Arrows */
+	.flow-arrow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 34px;
+		flex-shrink: 0;
+		padding: 0 0.25rem;
+		opacity: 0.8;
+	}
+
+	.arrow-svg {
+		display: block;
+	}
+
+	@media (max-width: 700px) {
+		.process-track {
+			min-width: 580px;
+		}
+
+		.circle-badge {
+			width: 72px;
+			height: 72px;
+			min-width: 72px;
+			min-height: 72px;
+		}
+
+		.flow-arrow {
+			margin-top: 29px;
+		}
+	}
 </style>
