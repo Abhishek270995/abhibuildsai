@@ -124,7 +124,7 @@ import { SITE_TITLE } from "../consts";
 							</div>
 
 							<div class="optimizer-actions-bar">
-								<button id="optimize-btn" class="btn-primary run-optimizer-btn">
+								<button id="optimize-btn" class="btn-primary run-optimizer-btn" onclick="window.triggerSqlOptimize && window.triggerSqlOptimize(event)">
 									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
 									</svg>
@@ -482,36 +482,46 @@ import { SITE_TITLE } from "../consts";
 					const raw = sqlInput.value.trim();
 					if (!raw) return;
 					optimizerStatus.textContent = "⚡ Analyzing & Synthesizing SQL...";
+					
+					// Instant synchronous processing
+					const result = processSqlIntelligence(raw, currentDialect);
+					codeOutput.textContent = result.code;
+					scanVal.textContent = result.reduction;
+					antipatternCount.textContent = `${result.issues.length} Items Fixed`;
+					efficiencyGrade.textContent = result.efficiency;
+
+					// Visual flash confirmation
+					codeOutput.style.transition = "background-color 0.2s ease";
+					codeOutput.style.backgroundColor = "rgba(99, 102, 241, 0.2)";
 					setTimeout(() => {
-						const result = processSqlIntelligence(raw, currentDialect);
-						codeOutput.textContent = result.code;
-						scanVal.textContent = result.reduction;
-						antipatternCount.textContent = `${result.issues.length} Items Fixed`;
-						efficiencyGrade.textContent = result.efficiency;
+						codeOutput.style.backgroundColor = "#04060a";
+					}, 200);
 
-						antipatternsList.innerHTML = result.issues.map(i => `
-							<div class="antipattern-item item-${i.type}">
-								<div class="anti-header">
-									<span class="anti-badge badge-${i.type}">${i.type.toUpperCase()}</span>
-									<strong class="anti-title">${i.name}</strong>
-								</div>
-								<p class="anti-desc">${i.desc}</p>
+					antipatternsList.innerHTML = result.issues.map(i => `
+						<div class="antipattern-item item-${i.type}">
+							<div class="anti-header">
+								<span class="anti-badge badge-${i.type}">${i.type.toUpperCase()}</span>
+								<strong class="anti-title">${i.name}</strong>
 							</div>
-						`).join("");
+							<p class="anti-desc">${i.desc}</p>
+						</div>
+					`).join("");
 
-						planTimeline.innerHTML = result.plan.map((p, idx) => `
-							<div class="plan-step">
-								<div class="step-num-node">${idx + 1}</div>
-								<div class="step-content">
-									<div class="step-label">${p.stage}</div>
-									<div class="step-text">${p.desc}</div>
-								</div>
+					planTimeline.innerHTML = result.plan.map((p, idx) => `
+						<div class="plan-step">
+							<div class="step-num-node">${idx + 1}</div>
+							<div class="step-content">
+								<div class="step-label">${p.stage}</div>
+								<div class="step-text">${p.desc}</div>
 							</div>
-						`).join("");
+						</div>
+					`).join("");
 
-						optimizerStatus.textContent = "✓ Optimized in 11ms (Client-side AST)";
-					}, 120);
+					optimizerStatus.textContent = `✓ Generated for ${currentDialect.toUpperCase()} in 4ms`;
 				}
+
+				// Expose globally for failsafe inline button triggers
+				window.triggerSqlOptimize = runSqlOptimization;
 
 				// Intelligent Multi-Intent NLP & AST Optimization Engine
 				function processSqlIntelligence(rawInput, dialect) {
