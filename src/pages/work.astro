@@ -7,331 +7,525 @@ import { SITE_TITLE } from "../consts";
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <BaseHead
-            title={`Work | ${SITE_TITLE}`}
-            description="Case study: Revenue Data Reconciliation & Anomaly Agent."
-        />
-    </head>
-    <body class="bg-grid">
-        <canvas id="bg-canvas" class="fixed-canvas" aria-hidden="true"></canvas>
-        <div class="ambient-glow-1" aria-hidden="true"></div>
-        <div class="ambient-glow-2" aria-hidden="true"></div>
+	<head>
+		<BaseHead
+			title={`Work & Production Impact | ${SITE_TITLE}`}
+			description="Selected case studies and data systems built during 6.5+ years across ad-tech, ed-tech, and digital commerce."
+		/>
+	</head>
+	<body class="bg-grid">
+		<canvas id="bg-canvas" class="fixed-canvas" aria-hidden="true"></canvas>
+		<div class="ambient-glow-1" aria-hidden="true"></div>
+		<div class="ambient-glow-2" aria-hidden="true"></div>
 
-        <Header />
-        <main>
-            <div class="case-study-container">
-                <div class="badge-pill mb-4">
-                    <span class="pulse-dot"></span>
-                    <span>PRODUCTION CASE STUDY</span>
-                </div>
+		<Header />
+		<main>
+			<div class="case-study-container">
+				<!-- Page Header -->
+				<div class="badge-pill mb-4">
+					<span class="pulse-dot"></span>
+					<span>PRODUCTION WORK &amp; IMPACT</span>
+				</div>
 
-                <h1 class="gradient-text case-title">
-                    Revenue Data Reconciliation &amp; Anomaly Agent
-                </h1>
-                
-                <p class="case-tagline">
-                    <em>Catching bad data before it reaches a dashboard — with a
-                    system that explains why, not just what.</em>
-                </p>
+				<h1 class="gradient-text case-title">
+					Featured Work &amp; Data Systems
+				</h1>
+				
+				<p class="case-tagline">
+					<em>A selection of data systems, revenue analytics frameworks, and optimization engines built over 6.5+ years across ad-tech, ed-tech, and high-growth digital commerce.</em>
+				</p>
 
-                <!-- Problem Card -->
-                <div class="spotlight-card glass-panel section-box mb-8">
-                    <div class="box-header">
-                        <div class="box-icon icon-indigo">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="12" y1="8" x2="12" y2="12"></line>
-                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                            </svg>
-                        </div>
-                        <h2>The Problem</h2>
-                    </div>
-                    <p>
-                        Revenue teams don't lose trust in their data all at once — it
-                        erodes one silent error at a time. A single mis-flagged row in a
-                        source sheet can ripple into a forecast, a board deck, or a KPI
-                        review before anyone notices. Most monitoring stops at
-                        "something's wrong" — it rarely tells you what, why, or how
-                        urgent.
-                    </p>
-                    <p class="mb-0">
-                        This project started as a simple monitoring workflow and grew
-                        into a full reconciliation and anomaly-detection system — one
-                        that doesn't just flag issues, but explains them in plain
-                        language.
-                    </p>
-                </div>
+				<!-- =========================================================================
+				     SECTION 1: SELECTED CAREER HIGHLIGHTS & IMPACT
+				========================================================================= -->
+				<div class="work-section-header mb-6">
+					<div class="box-icon icon-cyan">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+						</svg>
+					</div>
+					<h2>Selected Impact &amp; Domain Work</h2>
+				</div>
 
-                <!-- What I Built: Architecture Breakdown -->
-                <div class="section-box mb-8">
-                    <div class="box-header mb-6">
-                        <div class="box-icon icon-cyan">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                            </svg>
-                        </div>
-                        <h2>What I Built</h2>
-                    </div>
+				<div class="impact-cards-grid mb-10">
+					<!-- Project 1: Revenue Forecasting -->
+					<div class="spotlight-card glass-panel glass-panel-hover impact-card">
+						<div class="card-top-meta">
+							<span class="mono-label">Ad-Tech · Client-Facing Analytics</span>
+						</div>
+						<h3>1. Revenue Forecasting &amp; Pipeline Intelligence</h3>
+						<p class="card-body-text">
+							Built a comprehensive variance-analysis framework comparing Actuals vs. Booked revenue vs. Pipeline to detect quota risks early via pipeline coverage ratios. Delivered actionable share-of-wallet analysis and cross-platform spend benchmarking across major advertiser accounts.
+						</p>
+						<div class="impact-summary-box">
+							<span class="impact-lead-label">Key Impact:</span>
+							<div class="impact-pills-row">
+								<span class="impact-pill">Improved Forecasting Accuracy</span>
+								<span class="impact-pill">Enabled Proactive Quarterly Interventions</span>
+							</div>
+						</div>
+					</div>
 
-                    <div class="steps-grid">
-                        <!-- Step 1 -->
-                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
-                            <div class="step-badge">LAYER 01</div>
-                            <h3>1. A rule-based detection layer</h3>
-                            <p>
-                                A monitoring workflow built on Google Apps Script that watches a
-                                live revenue extract sheet, flags rows failing validation
-                                checks, and highlights them directly in the source — no separate
-                                tool for the team to check.
-                            </p>
-                        </div>
+					<!-- Project 2: Learner Journey Optimization -->
+					<div class="spotlight-card glass-panel glass-panel-hover impact-card">
+						<div class="card-top-meta">
+							<span class="mono-label">EdTech · Novatr</span>
+						</div>
+						<h3>2. Learner Journey Optimization</h3>
+						<p class="card-body-text">
+							Conducted behavioral drop-off analysis across the LMS funnel to identify critical churn points and deploy targeted interventions. Executed end-to-end course audits and master data management (MDM) cleanups to establish a reliable, single-source-of-truth curriculum catalog.
+						</p>
+						<div class="impact-summary-box">
+							<span class="impact-lead-label">Key Impact:</span>
+							<div class="impact-pills-row">
+								<span class="impact-pill metric-highlight">+25% Course Completion</span>
+								<span class="impact-pill metric-highlight">+15% Engagement</span>
+								<span class="impact-pill metric-highlight">+30% Course Variety</span>
+								<span class="impact-pill metric-highlight">-20% Data Discrepancies</span>
+							</div>
+						</div>
+					</div>
 
-                        <!-- Step 2 -->
-                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
-                            <div class="step-badge">LAYER 02</div>
-                            <h3>2. A synthetic test dataset with planted anomalies</h3>
-                            <p>
-                                To validate detection accuracy without touching real business
-                                data, I built a synthetic dataset with known, deliberately
-                                planted errors — then scored the detection layer against that
-                                ground truth to measure precision and recall.
-                            </p>
-                        </div>
+					<!-- Project 3: Multi-Brand Growth Analytics -->
+					<div class="spotlight-card glass-panel glass-panel-hover impact-card">
+						<div class="card-top-meta">
+							<span class="mono-label">Digital Commerce · magicpin</span>
+						</div>
+						<h3>3. Multi-Brand Growth Analytics at Scale</h3>
+						<p class="card-body-text">
+							Engineered automated SQL and BigQuery reporting pipelines tracking unit economics, customer demand, and market share across 50+ enterprise brands. Eliminated key operational bottlenecks by redesigning the automated lead-distribution engine across a 75-agent sales team.
+						</p>
+						<div class="impact-summary-box">
+							<span class="impact-lead-label">Key Impact:</span>
+							<div class="impact-pills-row">
+								<span class="impact-pill metric-highlight">+22% Revenue Growth</span>
+								<span class="impact-pill metric-highlight">+15% Market Share</span>
+								<span class="impact-pill metric-highlight">+25% Agent Productivity</span>
+								<span class="impact-pill metric-highlight">+10% Conversions</span>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                        <!-- Step 3 -->
-                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
-                            <div class="step-badge">LAYER 03</div>
-                            <h3>3. An AI reasoning layer</h3>
-                            <p>
-                                On top of rule-based detection, I added a narrative layer that
-                                explains why a flagged row looks anomalous in plain language —
-                                turning a red cell into an actual explanation a non-technical
-                                stakeholder can act on.
-                            </p>
-                        </div>
+				<!-- =========================================================================
+				     SECTION 2: FEATURED DEEP-DIVE CASE STUDY
+				========================================================================= -->
+				<div class="work-section-header mb-6">
+					<div class="box-icon icon-indigo">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+							<line x1="8" y1="21" x2="16" y2="21"></line>
+							<line x1="12" y1="17" x2="12" y2="21"></line>
+						</svg>
+					</div>
+					<h2>Deep Dive Case Study: Revenue Data Reconciliation &amp; Anomaly Agent</h2>
+				</div>
 
-                        <!-- Step 4 -->
-                        <div class="spotlight-card glass-panel glass-panel-hover step-card">
-                            <div class="step-badge">LAYER 04</div>
-                            <h3>4. Automated delivery</h3>
-                            <p>
-                                Alerts route to Slack and email automatically, so the right
-                                people see issues the moment they're detected — not during a
-                                weekly review when the damage is already done.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+				<!-- Problem Card -->
+				<div class="spotlight-card glass-panel section-box mb-8">
+					<div class="box-header">
+						<div class="box-icon icon-indigo">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="10"></circle>
+								<line x1="12" y1="8" x2="12" y2="12"></line>
+								<line x1="12" y1="16" x2="12.01" y2="16"></line>
+							</svg>
+						</div>
+						<h2>The Problem</h2>
+					</div>
+					<p>
+						Revenue teams don't lose trust in their data all at once — it
+						erodes one silent error at a time. A single mis-flagged row in a
+						source sheet can ripple into a forecast, a board deck, or a KPI
+						review before anyone notices. Most monitoring stops at
+						"something's wrong" — it rarely tells you what, why, or how
+						urgent.
+					</p>
+					<p class="mb-0">
+						This project started as a simple monitoring workflow and grew
+						into a full reconciliation and anomaly-detection system — one
+						that doesn't just flag issues, but explains them in plain
+						language.
+					</p>
+				</div>
 
-                <!-- Why It Matters -->
-                <div class="spotlight-card glass-panel section-box mb-8">
-                    <div class="box-header">
-                        <div class="box-icon icon-emerald">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                        <h2>Why It Matters</h2>
-                    </div>
-                    <p class="mb-0">
-                        This isn't a proof-of-concept — it's built the way I'd want a
-                        production data-quality system to work: rule-based checks you
-                        can fully trust, paired with AI-generated explanations that save
-                        someone the job of digging through rows manually. It's the same
-                        discipline I bring to revenue analytics work day to day —
-                        <strong class="text-white">validate first, automate second, explain always.</strong>
-                    </p>
-                </div>
+				<!-- What I Built: Architecture Breakdown -->
+				<div class="section-box mb-8">
+					<div class="box-header mb-6">
+						<div class="box-icon icon-cyan">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+								<path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+							</svg>
+						</div>
+						<h2>What I Built</h2>
+					</div>
 
-                <!-- Tech Stack Bar -->
-                <div class="spotlight-card glass-panel section-box mb-8">
-                    <h2>Tech Stack</h2>
-                    <div class="tech-tags-list">
-                        <span class="badge-tag">Google Apps Script</span>
-                        <span class="badge-tag">Python</span>
-                        <span class="badge-tag">Claude (Reasoning Layer)</span>
-                        <span class="badge-tag">Slack API</span>
-                        <span class="badge-tag">Email APIs</span>
-                    </div>
-                </div>
+					<div class="steps-grid">
+						<!-- Step 1 -->
+						<div class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">LAYER 01</div>
+							<h3>1. A rule-based detection layer</h3>
+							<p>
+								A monitoring workflow built on Google Apps Script that watches a
+								live revenue extract sheet, flags rows failing validation
+								checks, and highlights them directly in the source — no separate
+								tool for the team to check.
+							</p>
+						</div>
 
-                <!-- CTA Banner -->
-                <div class="glass-panel case-cta-box">
-                    <h2>Have a similar data trust problem?</h2>
-                    <p class="cta-text">
-                        Whether it's a revenue sheet, a pipeline dashboard, or a KPI
-                        that nobody fully trusts anymore — this is exactly the kind of
-                        problem I like solving.
-                    </p>
-                    <a href="mailto:abhiibuildsai@gmail.com" class="btn-primary">
-                        <span>Get in touch →</span>
-                    </a>
-                </div>
-            </div>
-        </main>
-        <Footer />
-    </body>
+						<!-- Step 2 -->
+						<div class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">LAYER 02</div>
+							<h3>2. A synthetic test dataset with planted anomalies</h3>
+							<p>
+								To validate detection accuracy without touching real business
+								data, I built a synthetic dataset with known, deliberately
+								planted errors — then scored the detection layer against that
+								ground truth to measure precision and recall.
+							</p>
+						</div>
+
+						<!-- Step 3 -->
+						<div class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">LAYER 03</div>
+							<h3>3. An AI reasoning layer</h3>
+							<p>
+								On top of rule-based detection, I added a narrative layer that
+								explains why a flagged row looks anomalous in plain language —
+								turning a red cell into an actual explanation a non-technical
+								stakeholder can act on.
+							</p>
+						</div>
+
+						<!-- Step 4 -->
+						<div class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">LAYER 04</div>
+							<h3>4. Automated delivery</h3>
+							<p>
+								Alerts route to Slack and email automatically, so the right
+								people see issues the moment they're detected — not during a
+								weekly review when the damage is already done.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Why It Matters -->
+				<div class="spotlight-card glass-panel section-box mb-8">
+					<div class="box-header">
+						<div class="box-icon icon-emerald">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="20 6 9 17 4 12"></polyline>
+							</svg>
+						</div>
+						<h2>Why It Matters</h2>
+					</div>
+					<p class="mb-0">
+						This isn't a proof-of-concept — it's built the way I'd want a
+						production data-quality system to work: rule-based checks you
+						can fully trust, paired with AI-generated explanations that save
+						someone the job of digging through rows manually. It's the same
+						discipline I bring to revenue analytics work day to day —
+						<strong class="text-white">validate first, automate second, explain always.</strong>
+					</p>
+				</div>
+
+				<!-- Tech Stack Bar -->
+				<div class="spotlight-card glass-panel section-box mb-8">
+					<h2>Core Technologies &amp; Tools</h2>
+					<div class="tech-tags-list">
+						<span class="badge-tag">SQL (BigQuery, Snowflake, Postgres)</span>
+						<span class="badge-tag">Python</span>
+						<span class="badge-tag">dbt</span>
+						<span class="badge-tag">Google Apps Script</span>
+						<span class="badge-tag">Claude &amp; LLM Reasoning</span>
+						<span class="badge-tag">Tableau / Power BI</span>
+						<span class="badge-tag">Slack &amp; Webhook Automations</span>
+					</div>
+				</div>
+
+				<!-- CTA Banner -->
+				<div class="glass-panel case-cta-box">
+					<h2>Have a similar data or revenue challenge?</h2>
+					<p class="cta-text">
+						Whether it's optimizing a pipeline forecast, auditing messy cross-platform logs, or building systems that stop "whose number is right?", let's connect.
+					</p>
+					<a href="mailto:abhiibuildsai@gmail.com" class="btn-primary">
+						<span>Get in touch →</span>
+					</a>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
 </html>
 
 <style>
-    .fixed-canvas {
-        position: fixed;
-        inset: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        z-index: 0;
-        opacity: 0.5;
-    }
+	.fixed-canvas {
+		position: fixed;
+		inset: 0;
+		width: 100vw;
+		height: 100vh;
+		pointer-events: none;
+		z-index: 0;
+		opacity: 0.5;
+	}
 
-    .case-study-container {
-        max-width: 920px;
-        margin: 0 auto;
-    }
+	.case-study-container {
+		max-width: 960px;
+		margin: 0 auto;
+		padding-bottom: 3.5rem;
+	}
 
-    .case-title {
-        margin-bottom: 0.75rem;
-        line-height: 1.15;
-    }
+	.case-title {
+		margin-bottom: 0.75rem;
+		line-height: 1.15;
+	}
 
-    .case-tagline {
-        font-size: 1.2rem;
-        color: var(--brand-cyan-light);
-        margin-bottom: 2.75rem;
-    }
+	.case-tagline {
+		font-size: 1.12rem;
+		line-height: 1.65;
+		color: #94a3b8;
+		margin-bottom: 2.75rem;
+	}
 
-    .section-box {
-        padding: 2.75rem 2.25rem;
-    }
+	.work-section-header {
+		display: flex;
+		align-items: center;
+		gap: 0.85rem;
+	}
 
-    .box-header {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-        margin-bottom: 1.25rem;
-    }
+	.work-section-header h2 {
+		margin: 0;
+		font-size: 1.45rem;
+		color: #ffffff;
+	}
 
-    .box-header h2 {
-        margin: 0;
-        font-size: 1.5rem;
-    }
+	/* Impact Cards Grid */
+	.impact-cards-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
 
-    .box-icon {
-        width: 38px;
-        height: 38px;
-        border-radius: 0.65rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	.impact-card {
+		padding: 2rem 2.25rem;
+		display: flex;
+		flex-direction: column;
+		border-radius: 1rem;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(14, 18, 28, 0.75);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
 
-    .icon-indigo {
-        background: rgba(99, 102, 241, 0.15);
-        border: 1px solid rgba(99, 102, 241, 0.3);
-        color: var(--brand-400);
-    }
+	.impact-card:hover {
+		transform: translateY(-2px);
+		border-color: rgba(99, 102, 241, 0.35);
+		box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6);
+	}
 
-    .icon-cyan {
-        background: rgba(6, 182, 212, 0.15);
-        border: 1px solid rgba(6, 182, 212, 0.3);
-        color: var(--brand-cyan-light);
-    }
+	.card-top-meta {
+		margin-bottom: 0.65rem;
+	}
 
-    .icon-emerald {
-        background: rgba(16, 185, 129, 0.15);
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        color: var(--brand-emerald);
-    }
+	.impact-card h3 {
+		font-size: 1.35rem;
+		font-weight: 700;
+		color: #ffffff;
+		margin-bottom: 0.75rem;
+	}
 
-    .section-box p {
-        font-size: 1.05rem;
-        line-height: 1.75;
-        color: #cbd5e1;
-    }
+	.card-body-text {
+		font-size: 0.98rem;
+		line-height: 1.7;
+		color: #cbd5e1;
+		margin-bottom: 1.25rem;
+	}
 
-    .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
+	.impact-summary-box {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+	}
 
-    .step-card {
-        padding: 2rem 1.75rem;
-        display: flex;
-        flex-direction: column;
-    }
+	.impact-lead-label {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: #94a3b8;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-weight: 600;
+	}
 
-    .step-badge {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        font-weight: 700;
-        color: var(--brand-400);
-        letter-spacing: 0.08em;
-        margin-bottom: 0.75rem;
-    }
+	.impact-pills-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
 
-    .step-card h3 {
-        font-size: 1.18rem;
-        margin-bottom: 0.75rem;
-        color: #ffffff;
-    }
+	.impact-pill {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.3rem 0.75rem;
+		border-radius: 0.45rem;
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		font-weight: 500;
+		background: rgba(99, 102, 241, 0.1);
+		border: 1px solid rgba(99, 102, 241, 0.25);
+		color: #a5b4fc;
+	}
 
-    .step-card p {
-        font-size: 0.95rem;
-        line-height: 1.65;
-        color: #94a3b8;
-        margin: 0;
-    }
+	.metric-highlight {
+		background: rgba(16, 185, 129, 0.1);
+		border-color: rgba(16, 185, 129, 0.3);
+		color: #6ee7b7;
+		font-weight: 600;
+	}
 
-    .tech-tags-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.65rem;
-        margin-top: 1rem;
-    }
+	/* Section Boxes */
+	.section-box {
+		padding: 2.5rem 2.25rem;
+	}
 
-    .tech-tags-list .badge-tag {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.85rem;
-    }
+	.box-header {
+		display: flex;
+		align-items: center;
+		gap: 0.85rem;
+		margin-bottom: 1.25rem;
+	}
 
-    .case-cta-box {
-        padding: 3rem 2.25rem;
-        background: linear-gradient(135deg, rgba(16, 19, 29, 0.85), rgba(11, 13, 20, 0.95));
-        border: 1px solid rgba(99, 102, 241, 0.3);
-        border-radius: 1.25rem;
-    }
+	.box-header h2 {
+		margin: 0;
+		font-size: 1.5rem;
+	}
 
-    .case-cta-box h2 {
-        font-size: 1.5rem;
-        margin-bottom: 0.75rem;
-    }
+	.box-icon {
+		width: 38px;
+		height: 38px;
+		border-radius: 0.65rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
 
-    .cta-text {
-        font-size: 1.05rem;
-        color: #cbd5e1;
-        margin-bottom: 1.75rem;
-    }
+	.icon-indigo {
+		background: rgba(99, 102, 241, 0.15);
+		border: 1px solid rgba(99, 102, 241, 0.3);
+		color: var(--brand-400);
+	}
 
-    .text-white {
-        color: #ffffff;
-    }
+	.icon-cyan {
+		background: rgba(6, 182, 212, 0.15);
+		border: 1px solid rgba(6, 182, 212, 0.3);
+		color: var(--brand-cyan-light);
+	}
 
-    .mb-0 { margin-bottom: 0 !important; }
-    .mb-6 { margin-bottom: 1.5rem; }
-    .mb-8 { margin-bottom: 2rem; }
+	.icon-emerald {
+		background: rgba(16, 185, 129, 0.15);
+		border: 1px solid rgba(16, 185, 129, 0.3);
+		color: var(--brand-emerald);
+	}
 
-    @media (max-width: 768px) {
-        .steps-grid {
-            grid-template-columns: 1fr;
-        }
-        .section-box {
-            padding: 2rem 1.5rem;
-        }
-        .case-cta-box {
-            padding: 2rem 1.5rem;
-        }
-    }
+	.section-box p {
+		font-size: 1.05rem;
+		line-height: 1.75;
+		color: #cbd5e1;
+	}
+
+	.steps-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.step-card {
+		padding: 2rem 1.75rem;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.step-badge {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		font-weight: 700;
+		color: var(--brand-400);
+		letter-spacing: 0.08em;
+		margin-bottom: 0.75rem;
+	}
+
+	.step-card h3 {
+		font-size: 1.18rem;
+		margin-bottom: 0.75rem;
+		color: #ffffff;
+	}
+
+	.step-card p {
+		font-size: 0.95rem;
+		line-height: 1.65;
+		color: #94a3b8;
+		margin: 0;
+	}
+
+	.tech-tags-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.65rem;
+		margin-top: 1rem;
+	}
+
+	.tech-tags-list .badge-tag {
+		font-size: 0.85rem;
+		padding: 0.4rem 0.85rem;
+	}
+
+	.case-cta-box {
+		padding: 3rem 2.25rem;
+		background: linear-gradient(135deg, rgba(16, 19, 29, 0.85), rgba(11, 13, 20, 0.95));
+		border: 1px solid rgba(99, 102, 241, 0.3);
+		border-radius: 1.25rem;
+	}
+
+	.case-cta-box h2 {
+		font-size: 1.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.cta-text {
+		font-size: 1.05rem;
+		color: #cbd5e1;
+		margin-bottom: 1.75rem;
+	}
+
+	.text-white {
+		color: #ffffff;
+	}
+
+	.mb-0 { margin-bottom: 0 !important; }
+	.mb-4 { margin-bottom: 1rem; }
+	.mb-6 { margin-bottom: 1.5rem; }
+	.mb-8 { margin-bottom: 2rem; }
+	.mb-10 { margin-bottom: 2.75rem; }
+
+	@media (max-width: 768px) {
+		.impact-card {
+			padding: 1.5rem 1.25rem;
+		}
+
+		.steps-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.section-box {
+			padding: 2rem 1.5rem;
+		}
+
+		.case-cta-box {
+			padding: 2rem 1.5rem;
+		}
+	}
 </style>

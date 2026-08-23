@@ -230,6 +230,16 @@ main {
 	color: #d1d5db;
 }
 
+.mono-label {
+	font-family: var(--font-mono);
+	font-size: 0.78rem;
+	color: var(--brand-cyan-light);
+	letter-spacing: 0.04em;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
 .badge-category {
 	display: inline-block;
 	padding: 0.2rem 0.6rem;
