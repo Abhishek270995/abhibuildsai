@@ -10,7 +10,7 @@ import { SITE_TITLE } from "../consts";
     <head>
         <BaseHead
             title={`Services & Engagements | ${SITE_TITLE}`}
-            description="Fixed-scope data engineering sprints and custom analytics advisory by Abhishek Kumar Singh."
+            description="Fixed-scope data engineering sprints and bespoke analytics advisory by Abhishek Kumar Singh."
         />
     </head>
     <body class="bg-grid">
@@ -21,11 +21,11 @@ import { SITE_TITLE } from "../consts";
         <Header />
         <main>
             <div class="services-container">
-                <!-- Page Header -->
+                <!-- Page Top Header -->
                 <div class="header-section">
                     <div class="badge-pill mb-4">
                         <span class="pulse-dot"></span>
-                        <span>FIXED-SCOPE SPRINTS &amp; ADVISORY</span>
+                        <span>SPRINTS &amp; BESPOKE ADVISORY</span>
                     </div>
 
                     <h1 class="gradient-text page-title">Services &amp; Engagements</h1>
@@ -37,7 +37,7 @@ import { SITE_TITLE } from "../consts";
                 <!-- SECTION 1: FIXED-SCOPE PACKAGES -->
                 <section class="packages-section mb-16">
                     <div class="section-heading-wrap">
-                        <div class="section-badge">PRODUCTIZED PACKAGES</div>
+                        <div class="section-badge">PRODUCTIZED SPRINTS</div>
                         <h2 class="section-title">Fixed-Scope Engagements</h2>
                         <p class="section-subtitle">
                             Predictable pricing, concrete deliverables, and rapid turnaround. Zero scope creep or surprise billing.
@@ -45,11 +45,11 @@ import { SITE_TITLE } from "../consts";
                     </div>
 
                     <div class="packages-grid">
-                        <!-- Package 1 -->
-                        <div class="spotlight-card glass-panel glass-panel-hover package-card">
+                        <!-- Package 1: Data Quality Audit -->
+                        <div class="package-card glass-panel glass-panel-hover">
                             <div class="package-header">
                                 <div class="package-tag-row">
-                                    <span class="badge-category pkg-category-emerald">AUDIT &amp; DIAGNOSTIC</span>
+                                    <span class="badge-category pkg-cat-emerald">DATA AUDIT</span>
                                     <span class="timeline-badge">
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <circle cx="12" cy="12" r="10"></circle>
@@ -64,7 +64,7 @@ import { SITE_TITLE } from "../consts";
                                 </p>
                                 <div class="price-box">
                                     <div class="price-value">$2,400</div>
-                                    <div class="price-meta">Fixed price · Complete delivery</div>
+                                    <div class="price-meta">Fixed Price · Complete Delivery</div>
                                 </div>
                             </div>
 
@@ -105,12 +105,16 @@ import { SITE_TITLE } from "../consts";
                             </a>
                         </div>
 
-                        <!-- Package 2 (Featured) -->
-                        <div class="spotlight-card glass-panel glass-panel-hover package-card featured-package">
-                            <div class="featured-badge">MOST POPULAR</div>
+                        <!-- Package 2: SSOT Sprint (Featured) -->
+                        <div class="package-card glass-panel glass-panel-hover featured-package">
+                            <div class="featured-top-banner">
+                                <span class="featured-sparkle">✦</span>
+                                <span>MOST POPULAR · FOUNDATIONAL</span>
+                            </div>
+
                             <div class="package-header">
                                 <div class="package-tag-row">
-                                    <span class="badge-category pkg-category-indigo">SSOT &amp; DATA MODELING</span>
+                                    <span class="badge-category pkg-cat-indigo">SSOT ARCHITECTURE</span>
                                     <span class="timeline-badge timeline-highlight">
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <circle cx="12" cy="12" r="10"></circle>
@@ -125,7 +129,7 @@ import { SITE_TITLE } from "../consts";
                                 </p>
                                 <div class="price-box">
                                     <div class="price-value">$4,800</div>
-                                    <div class="price-meta">Fixed price · Complete delivery</div>
+                                    <div class="price-meta">Fixed Price · Complete Delivery</div>
                                 </div>
                             </div>
 
@@ -138,7 +142,7 @@ import { SITE_TITLE } from "../consts";
                                         <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                         </svg>
-                                        <span><strong>Unified Data Modeling Layer:</strong> Clean dimensional schema &amp; modular dbt SQL transformations.</span>
+                                        <span><strong>Unified Modeling Layer:</strong> Clean dimensional schema &amp; modular dbt SQL transformations.</span>
                                     </li>
                                     <li>
                                         <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
@@ -150,13 +154,13 @@ import { SITE_TITLE } from "../consts";
                                         <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                         </svg>
-                                        <span><strong>Automated Slack/Email Alerts:</strong> Real-time notifications on anomaly threshold breaches or failed syncs.</span>
+                                        <span><strong>Automated Alerts:</strong> Real-time Slack/Email alerts on anomaly threshold breaches or failed syncs.</span>
                                     </li>
                                     <li>
                                         <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                         </svg>
-                                        <span><strong>Documentation &amp; Handover:</strong> Clean data dictionary, schema diagram, and async training videos.</span>
+                                        <span><strong>Documentation &amp; Handover:</strong> Clean data dictionary, schema diagram, and async team walkthrough.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -166,11 +170,11 @@ import { SITE_TITLE } from "../consts";
                             </a>
                         </div>
 
-                        <!-- Package 3 -->
-                        <div class="spotlight-card glass-panel glass-panel-hover package-card">
+                        <!-- Package 3: Revenue Intelligence Engine -->
+                        <div class="package-card glass-panel glass-panel-hover">
                             <div class="package-header">
                                 <div class="package-tag-row">
-                                    <span class="badge-category pkg-category-cyan">REVENUE INTELLIGENCE</span>
+                                    <span class="badge-category pkg-cat-cyan">REVENUE INTELLIGENCE</span>
                                     <span class="timeline-badge">
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <circle cx="12" cy="12" r="10"></circle>
@@ -185,7 +189,7 @@ import { SITE_TITLE } from "../consts";
                                 </p>
                                 <div class="price-box">
                                     <div class="price-value">$6,500</div>
-                                    <div class="price-meta">Fixed price · Complete delivery</div>
+                                    <div class="price-meta">Fixed Price · Complete Delivery</div>
                                 </div>
                             </div>
 
@@ -398,8 +402,9 @@ import { SITE_TITLE } from "../consts";
     }
 
     .services-container {
-        max-width: 1100px;
+        max-width: 1120px;
         margin: 0 auto;
+        padding-top: 1rem;
     }
 
     .header-section {
@@ -407,14 +412,16 @@ import { SITE_TITLE } from "../consts";
     }
 
     .page-title {
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.85rem;
+        line-height: 1.15;
     }
 
     .page-intro {
         font-size: 1.15rem;
         color: var(--text-secondary);
-        max-width: 800px;
+        max-width: 820px;
         line-height: 1.7;
+        margin-bottom: 0;
     }
 
     /* Section Headings */
@@ -441,7 +448,7 @@ import { SITE_TITLE } from "../consts";
     .section-subtitle {
         font-size: 1.05rem;
         color: var(--text-secondary);
-        max-width: 680px;
+        max-width: 700px;
         margin-bottom: 0;
     }
 
@@ -454,36 +461,44 @@ import { SITE_TITLE } from "../consts";
     }
 
     .package-card {
-        padding: 2rem 1.75rem;
+        padding: 2.25rem 1.75rem;
         display: flex;
         flex-direction: column;
         position: relative;
         background: rgba(16, 19, 29, 0.75);
         border: 1px solid var(--border-subtle);
         border-radius: 16px;
+        overflow: visible;
     }
 
     .featured-package {
-        border-color: rgba(99, 102, 241, 0.5);
-        background: linear-gradient(180deg, rgba(26, 31, 51, 0.85) 0%, rgba(16, 19, 29, 0.9) 100%);
-        box-shadow: 0 0 35px -10px rgba(99, 102, 241, 0.35);
-        transform: translateY(-4px);
+        border-color: rgba(99, 102, 241, 0.55);
+        background: linear-gradient(180deg, rgba(26, 31, 52, 0.9) 0%, rgba(16, 19, 29, 0.92) 100%);
+        box-shadow: 0 0 40px -8px rgba(99, 102, 241, 0.35);
+        padding-top: 1.75rem;
     }
 
-    .featured-badge {
-        position: absolute;
-        top: -12px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, var(--brand-500), var(--brand-600));
-        color: #ffffff;
+    .featured-top-banner {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        align-self: flex-start;
+        background: rgba(99, 102, 241, 0.2);
+        border: 1px solid rgba(99, 102, 241, 0.45);
+        color: #c7d2fe;
         font-family: var(--font-mono);
-        font-size: 0.7rem;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.08em;
-        padding: 0.25rem 0.85rem;
+        letter-spacing: 0.06em;
+        padding: 0.3rem 0.75rem;
         border-radius: 9999px;
-        box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+        margin-bottom: 1.25rem;
+        box-shadow: 0 2px 10px rgba(99, 102, 241, 0.2);
+    }
+
+    .featured-sparkle {
+        color: var(--brand-cyan-light);
+        font-size: 0.8rem;
     }
 
     .package-header {
@@ -496,25 +511,30 @@ import { SITE_TITLE } from "../consts";
         justify-content: space-between;
         gap: 0.5rem;
         margin-bottom: 1rem;
-        flex-wrap: wrap;
     }
 
-    .pkg-category-emerald {
+    .pkg-cat-emerald {
         background: rgba(16, 185, 129, 0.12);
         color: #34d399;
         border: 1px solid rgba(16, 185, 129, 0.25);
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
     }
 
-    .pkg-category-indigo {
+    .pkg-cat-indigo {
         background: rgba(99, 102, 241, 0.15);
         color: #a5b4fc;
         border: 1px solid rgba(99, 102, 241, 0.3);
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
     }
 
-    .pkg-category-cyan {
+    .pkg-cat-cyan {
         background: rgba(6, 182, 212, 0.12);
         color: #67e8f9;
         border: 1px solid rgba(6, 182, 212, 0.25);
+        font-size: 0.7rem;
+        padding: 0.25rem 0.6rem;
     }
 
     .timeline-badge {
@@ -526,15 +546,17 @@ import { SITE_TITLE } from "../consts";
         font-weight: 600;
         color: #94a3b8;
         background: rgba(255, 255, 255, 0.05);
-        padding: 0.2rem 0.6rem;
+        padding: 0.25rem 0.6rem;
         border-radius: 6px;
         border: 1px solid rgba(255, 255, 255, 0.08);
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .timeline-highlight {
-        color: var(--brand-100);
-        background: rgba(99, 102, 241, 0.2);
-        border-color: rgba(99, 102, 241, 0.35);
+        color: #e0e7ff;
+        background: rgba(99, 102, 241, 0.22);
+        border-color: rgba(99, 102, 241, 0.4);
     }
 
     .package-name {
@@ -553,8 +575,8 @@ import { SITE_TITLE } from "../consts";
     }
 
     .price-box {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 10px;
         padding: 0.85rem 1rem;
         margin-bottom: 0.5rem;
@@ -571,7 +593,7 @@ import { SITE_TITLE } from "../consts";
     .price-meta {
         font-family: var(--font-mono);
         font-size: 0.72rem;
-        color: var(--text-muted);
+        color: #94a3b8;
         text-transform: uppercase;
         letter-spacing: 0.04em;
         margin-top: 0.25rem;
@@ -810,9 +832,6 @@ import { SITE_TITLE } from "../consts";
             max-width: 600px;
             margin: 0 auto;
         }
-        .featured-package {
-            transform: none;
-        }
         .process-steps-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -834,4 +853,3 @@ import { SITE_TITLE } from "../consts";
         }
     }
 </style>
-
