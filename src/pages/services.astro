@@ -9,8 +9,8 @@ import { SITE_TITLE } from "../consts";
 <html lang="en">
     <head>
         <BaseHead
-            title={`Services | ${SITE_TITLE}`}
-            description="What I can help with — data quality, analytics, and applied AI."
+            title={`Services & Engagements | ${SITE_TITLE}`}
+            description="Fixed-scope data engineering sprints and custom analytics advisory by Abhishek Kumar Singh."
         />
     </head>
     <body class="bg-grid">
@@ -21,122 +21,319 @@ import { SITE_TITLE } from "../consts";
         <Header />
         <main>
             <div class="services-container">
-                <div class="badge-pill mb-4">
-                    <span class="pulse-dot"></span>
-                    <span>CORE OFFERINGS</span>
+                <!-- Page Header -->
+                <div class="header-section">
+                    <div class="badge-pill mb-4">
+                        <span class="pulse-dot"></span>
+                        <span>FIXED-SCOPE SPRINTS &amp; ADVISORY</span>
+                    </div>
+
+                    <h1 class="gradient-text page-title">Services &amp; Engagements</h1>
+                    <p class="page-intro">
+                        High-conviction data engineering, single-source-of-truth architectures, and revenue analytics. Choose a fixed-scope productized sprint or partner on a bespoke advisory basis.
+                    </p>
                 </div>
 
-                <h1 class="gradient-text page-title">What I can help with</h1>
-                <p class="page-intro">
-                    Specialized analytics, data integrity engineering, and practical AI tooling tailored to fast-moving teams.
-                </p>
-
-                <!-- 4 Service Spotlight Cards Grid -->
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
-                        <div class="service-icon-wrap icon-indigo">
-                            <span class="service-num">01</span>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
-                        </div>
-                        <span class="badge-category">REVENUE &amp; PIPELINE</span>
-                        <h2>1. Revenue &amp; Pipeline Analytics</h2>
-                        <p>
-                            Forecasting models, variance analysis (Actual vs. Booked vs.
-                            Pipeline), and KPI dashboards built in SQL, BigQuery, Power BI,
-                            and Metabase — the same frameworks I use to catch quota
-                            shortfall risk before it costs a quarter.
+                <!-- SECTION 1: FIXED-SCOPE PACKAGES -->
+                <section class="packages-section mb-16">
+                    <div class="section-heading-wrap">
+                        <div class="section-badge">PRODUCTIZED PACKAGES</div>
+                        <h2 class="section-title">Fixed-Scope Engagements</h2>
+                        <p class="section-subtitle">
+                            Predictable pricing, concrete deliverables, and rapid turnaround. Zero scope creep or surprise billing.
                         </p>
-                        <div class="tags-row">
-                            <span class="badge-tag">SQL</span>
-                            <span class="badge-tag">BigQuery</span>
-                            <span class="badge-tag">Power BI</span>
-                            <span class="badge-tag">Metabase</span>
-                        </div>
                     </div>
 
-                    <!-- Service 2 -->
-                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
-                        <div class="service-icon-wrap icon-emerald">
-                            <span class="service-num">02</span>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
+                    <div class="packages-grid">
+                        <!-- Package 1 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover package-card">
+                            <div class="package-header">
+                                <div class="package-tag-row">
+                                    <span class="badge-category pkg-category-emerald">AUDIT &amp; DIAGNOSTIC</span>
+                                    <span class="timeline-badge">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 14 14"></polyline>
+                                        </svg>
+                                        1–2 Weeks
+                                    </span>
+                                </div>
+                                <h3 class="package-name">Data Quality &amp; Anomaly Audit</h3>
+                                <p class="package-summary">
+                                    Root-cause diagnostic for broken metrics, silent pipeline failures, and warehouse discrepancies.
+                                </p>
+                                <div class="price-box">
+                                    <div class="price-value">$2,400</div>
+                                    <div class="price-meta">Fixed price · Complete delivery</div>
+                                </div>
+                            </div>
+
+                            <div class="deliverables-divider"></div>
+
+                            <div class="deliverables-section">
+                                <div class="deliverables-title">WHAT'S INCLUDED:</div>
+                                <ul class="deliverables-list">
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Full Warehouse Diagnostic:</strong> Scan BigQuery, Snowflake, or PostgreSQL tables for nulls, duplicates &amp; orphan keys.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Automated Anomaly Tests:</strong> Production-ready SQL/dbt assertion suite targeting critical data models.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Health Scorecard &amp; Roadmap:</strong> Prioritized action matrix of high, medium, and low severity data risks.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Executive Readout Call:</strong> 60-min walkthrough with engineering and analytics stakeholders.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="mailto:abhiibuildsai@gmail.com?subject=Get%20Started%20-%20Data%20Quality%20Audit%20Package" class="btn-outline-pkg">
+                                <span>Get Started with Audit →</span>
+                            </a>
                         </div>
-                        <span class="badge-category">SSOT &amp; MONITORING</span>
-                        <h2>2. Data Quality &amp; SSOT Systems</h2>
-                        <p>
-                            Stop firefighting conflicting numbers. I design automated
-                            validation and reconciliation workflows that establish a single
-                            source of truth — cutting manual reporting effort and catching
-                            errors before they reach a dashboard.
-                        </p>
-                        <div class="tags-row">
-                            <span class="badge-tag">Single Source of Truth</span>
-                            <span class="badge-tag">Anomaly Detection</span>
-                            <span class="badge-tag">Automated Auditing</span>
+
+                        <!-- Package 2 (Featured) -->
+                        <div class="spotlight-card glass-panel glass-panel-hover package-card featured-package">
+                            <div class="featured-badge">MOST POPULAR</div>
+                            <div class="package-header">
+                                <div class="package-tag-row">
+                                    <span class="badge-category pkg-category-indigo">SSOT &amp; DATA MODELING</span>
+                                    <span class="timeline-badge timeline-highlight">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 14 14"></polyline>
+                                        </svg>
+                                        2–3 Weeks
+                                    </span>
+                                </div>
+                                <h3 class="package-name">SSOT Implementation Sprint</h3>
+                                <p class="package-summary">
+                                    Establish a trusted Single Source of Truth architecture eliminating conflicting numbers across teams.
+                                </p>
+                                <div class="price-box">
+                                    <div class="price-value">$4,800</div>
+                                    <div class="price-meta">Fixed price · Complete delivery</div>
+                                </div>
+                            </div>
+
+                            <div class="deliverables-divider"></div>
+
+                            <div class="deliverables-section">
+                                <div class="deliverables-title">WHAT'S INCLUDED:</div>
+                                <ul class="deliverables-list">
+                                    <li>
+                                        <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Unified Data Modeling Layer:</strong> Clean dimensional schema &amp; modular dbt SQL transformations.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Canonical Metric Definitions:</strong> Standardized logic for Revenue, Retention, CAC, LTV &amp; Active Users.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Automated Slack/Email Alerts:</strong> Real-time notifications on anomaly threshold breaches or failed syncs.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon text-indigo" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Documentation &amp; Handover:</strong> Clean data dictionary, schema diagram, and async training videos.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="mailto:abhiibuildsai@gmail.com?subject=Get%20Started%20-%20SSOT%20Implementation%20Sprint" class="btn-primary-pkg">
+                                <span>Get Started with SSOT Sprint →</span>
+                            </a>
+                        </div>
+
+                        <!-- Package 3 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover package-card">
+                            <div class="package-header">
+                                <div class="package-tag-row">
+                                    <span class="badge-category pkg-category-cyan">REVENUE INTELLIGENCE</span>
+                                    <span class="timeline-badge">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 14 14"></polyline>
+                                        </svg>
+                                        3–4 Weeks
+                                    </span>
+                                </div>
+                                <h3 class="package-name">Revenue &amp; Pipeline Engine</h3>
+                                <p class="package-summary">
+                                    Variance analytics, quota-risk detection, and executive forecasting to protect quarterly targets.
+                                </p>
+                                <div class="price-box">
+                                    <div class="price-value">$6,500</div>
+                                    <div class="price-meta">Fixed price · Complete delivery</div>
+                                </div>
+                            </div>
+
+                            <div class="deliverables-divider"></div>
+
+                            <div class="deliverables-section">
+                                <div class="deliverables-title">WHAT'S INCLUDED:</div>
+                                <ul class="deliverables-list">
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Variance Analysis Framework:</strong> Automated Actuals vs. Booked vs. Pipeline reconciliation model.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Quota Risk Detection:</strong> Pipeline coverage ratio models flagging at-risk revenue weeks before quarter close.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>Executive BI Suite:</strong> Interactive dashboards in Power BI, Metabase, or Tableau for leadership.</span>
+                                    </li>
+                                    <li>
+                                        <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span><strong>2-Week Post-Launch Support:</strong> Continuous tuning, threshold recalibration, and team enablement.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="mailto:abhiibuildsai@gmail.com?subject=Get%20Started%20-%20Revenue%20Intelligence%20Package" class="btn-outline-pkg">
+                                <span>Get Started with Revenue Engine →</span>
+                            </a>
                         </div>
                     </div>
+                </section>
 
-                    <!-- Service 3 -->
-                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
-                        <div class="service-icon-wrap icon-cyan">
-                            <span class="service-num">03</span>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                        <span class="badge-category">USER BEHAVIOR</span>
-                        <h2>3. Product &amp; Behavioral Analytics</h2>
-                        <p>
-                            Funnel analysis, cohort tracking, and drop-off diagnostics — the
-                            kind of work that took course completion from stalled to +25% by
-                            finding exactly where users disengage and why.
+                <!-- SECTION 2: CUSTOM & BROADER SERVICES -->
+                <section class="custom-services-section mb-16">
+                    <div class="section-heading-wrap">
+                        <div class="section-badge">CUSTOM SCOPES &amp; ADVISORY</div>
+                        <h2 class="section-title">Bespoke Analytics &amp; Applied AI</h2>
+                        <p class="section-subtitle">
+                            For complex multi-touch models, proprietary warehouse architectures, or fractional analytics leadership.
                         </p>
-                        <div class="tags-row">
-                            <span class="badge-tag">Cohort Tracking</span>
-                            <span class="badge-tag">Funnel Optimization</span>
-                            <span class="badge-tag">Drop-off Diagnostics</span>
-                        </div>
                     </div>
 
-                    <!-- Service 4 -->
-                    <div class="spotlight-card glass-panel glass-panel-hover service-card">
-                        <div class="service-icon-wrap icon-violet">
-                            <span class="service-num">04</span>
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                                <rect x="9" y="9" width="6" height="6"></rect>
-                                <line x1="9" y1="1" x2="9" y2="4"></line>
-                                <line x1="15" y1="1" x2="15" y2="4"></line>
-                                <line x1="9" y1="20" x2="9" y2="23"></line>
-                                <line x1="15" y1="20" x2="15" y2="23"></line>
-                            </svg>
+                    <!-- 4 Service Spotlight Cards Grid -->
+                    <div class="services-grid">
+                        <!-- Service 1 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                            <div class="service-icon-wrap icon-indigo">
+                                <span class="service-num">01</span>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <span class="badge-category">REVENUE &amp; PIPELINE</span>
+                            <h2>Revenue &amp; Commercial Analytics</h2>
+                            <p>
+                                Custom forecasting models, cross-platform spend benchmarking, and executive dashboards built across SQL, BigQuery, Power BI, and Metabase — tailored to unique sales cycles and contract structures.
+                            </p>
+                            <div class="tags-row">
+                                <span class="badge-tag">SQL</span>
+                                <span class="badge-tag">BigQuery</span>
+                                <span class="badge-tag">Power BI</span>
+                                <span class="badge-tag">Metabase</span>
+                            </div>
                         </div>
-                        <span class="badge-category">PRACTICAL AI</span>
-                        <h2>4. Applied AI Tooling</h2>
-                        <p>
-                            Practical AI agents and utilities — not proofs-of-concept that
-                            never ship. Backed by Anthropic's AI Fluency and Claude 101
-                            certifications, focused on tools that turn manual processes into
-                            automated ones.
-                        </p>
-                        <div class="tags-row">
-                            <span class="badge-tag">Claude 101 Certified</span>
-                            <span class="badge-tag">Agentic Workflows</span>
-                            <span class="badge-tag">Process Automation</span>
+
+                        <!-- Service 2 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                            <div class="service-icon-wrap icon-emerald">
+                                <span class="service-num">02</span>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <span class="badge-category">SSOT &amp; MONITORING</span>
+                            <h2>Data Integrity &amp; Warehousing</h2>
+                            <p>
+                                Elimination of conflicting numbers and manual firefighting. Custom ELT pipelines, automated reconciliation workflows, and robust audit mechanisms that safeguard data pipelines before it reaches decision-makers.
+                            </p>
+                            <div class="tags-row">
+                                <span class="badge-tag">dbt Core</span>
+                                <span class="badge-tag">Anomaly Detection</span>
+                                <span class="badge-tag">Data Governance</span>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                            <div class="service-icon-wrap icon-cyan">
+                                <span class="service-num">03</span>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <span class="badge-category">USER BEHAVIOR</span>
+                            <h2>Product &amp; Behavioral Analytics</h2>
+                            <p>
+                                Funnel drop-off diagnostics, retention cohort modeling, and feature engagement telemetry. The analytical foundation that lifted Novatr course completion by +25% by isolating exact friction points.
+                            </p>
+                            <div class="tags-row">
+                                <span class="badge-tag">Cohort Analysis</span>
+                                <span class="badge-tag">Funnel Optimization</span>
+                                <span class="badge-tag">User Retention</span>
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="spotlight-card glass-panel glass-panel-hover service-card">
+                            <div class="service-icon-wrap icon-violet">
+                                <span class="service-num">04</span>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                                    <rect x="9" y="9" width="6" height="6"></rect>
+                                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                                    <line x1="15" y1="20" x2="15" y2="23"></line>
+                                </svg>
+                            </div>
+                            <span class="badge-category">PRACTICAL AI</span>
+                            <h2>Applied AI &amp; Agentic Workflows</h2>
+                            <p>
+                                Production AI utilities, automated SQL copilots, and intelligent data cleansing agents. Backed by Anthropic's AI Fluency and Claude 101 credentials, built to turn time-intensive manual workflows into instant automated systems.
+                            </p>
+                            <div class="tags-row">
+                                <span class="badge-tag">Claude 101 Certified</span>
+                                <span class="badge-tag">Agentic Workflows</span>
+                                <span class="badge-tag">AI Copilots</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- HOW WE'D WORK TOGETHER SECTION -->
+                <!-- SECTION 3: HOW WE'D WORK TOGETHER -->
                 <div class="spotlight-card glass-panel collaboration-card">
                     <div class="badge-pill mb-3">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -145,18 +342,41 @@ import { SITE_TITLE } from "../consts";
                         </svg>
                         <span>ENGAGEMENT PROCESS</span>
                     </div>
-                    <h2>How we'd work together</h2>
+                    <h2>How We'll Work Together</h2>
                     <p class="collab-desc">
-                        Every engagement starts with a short intro call to understand
-                        the actual problem — not just the dashboard request on the
-                        surface. From there, I typically work project-based for defined
-                        builds (a dashboard, an SSOT system, an audit) or on a part-time
-                        retainer for ongoing analytics support.
+                        Every collaboration begins with a concise 30-minute discovery call to unpack your actual bottleneck — not just the surface symptoms. From there, we select the right model: a fixed-scope sprint for immediate impact, a bespoke build, or a fractional retainer for continuous high-leverage data execution.
                     </p>
+
+                    <div class="process-steps-grid">
+                        <div class="step-item">
+                            <span class="step-num">01</span>
+                            <h4>Discovery Call</h4>
+                            <p>Map core metrics, warehouse stack, and key friction points.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">02</span>
+                            <h4>Sprint Scope</h4>
+                            <p>Agree on fixed deliverables, exact timeline, and milestone check-ins.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">03</span>
+                            <h4>Rapid Execution</h4>
+                            <p>Direct SQL/dbt builds, dashboard delivery, and daily async updates.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">04</span>
+                            <h4>Handover &amp; Enablement</h4>
+                            <p>Walkthrough calls, documented schemas, and post-launch monitoring.</p>
+                        </div>
+                    </div>
+
                     <div class="collab-action">
-                        <span>Not sure which of these fits your problem?</span>
-                        <a href="mailto:abhiibuildsai@gmail.com" class="btn-primary">
-                            <span>Get in touch →</span>
+                        <div>
+                            <span class="action-question">Need a custom scope or have questions about a package?</span>
+                            <span class="action-sub">Let's talk through your data architecture.</span>
+                        </div>
+                        <a href="mailto:abhiibuildsai@gmail.com?subject=Consulting%20Inquiry%20-%20Custom%20Scope%20or%20Package" class="btn-primary">
+                            <span>Get in Touch →</span>
                         </a>
                     </div>
                 </div>
@@ -178,8 +398,12 @@ import { SITE_TITLE } from "../consts";
     }
 
     .services-container {
-        max-width: 1000px;
+        max-width: 1100px;
         margin: 0 auto;
+    }
+
+    .header-section {
+        margin-bottom: 3.5rem;
     }
 
     .page-title {
@@ -189,35 +413,287 @@ import { SITE_TITLE } from "../consts";
     .page-intro {
         font-size: 1.15rem;
         color: var(--text-secondary);
-        max-width: 750px;
-        margin-bottom: 3rem;
+        max-width: 800px;
+        line-height: 1.7;
     }
 
+    /* Section Headings */
+    .section-heading-wrap {
+        margin-bottom: 2.25rem;
+    }
+
+    .section-badge {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--brand-400);
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+    }
+
+    .section-subtitle {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        max-width: 680px;
+        margin-bottom: 0;
+    }
+
+    /* Fixed-Scope Packages Grid */
+    .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+
+    .package-card {
+        padding: 2rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background: rgba(16, 19, 29, 0.75);
+        border: 1px solid var(--border-subtle);
+        border-radius: 16px;
+    }
+
+    .featured-package {
+        border-color: rgba(99, 102, 241, 0.5);
+        background: linear-gradient(180deg, rgba(26, 31, 51, 0.85) 0%, rgba(16, 19, 29, 0.9) 100%);
+        box-shadow: 0 0 35px -10px rgba(99, 102, 241, 0.35);
+        transform: translateY(-4px);
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, var(--brand-500), var(--brand-600));
+        color: #ffffff;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 0.25rem 0.85rem;
+        border-radius: 9999px;
+        box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+    }
+
+    .package-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .package-tag-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .pkg-category-emerald {
+        background: rgba(16, 185, 129, 0.12);
+        color: #34d399;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .pkg-category-indigo {
+        background: rgba(99, 102, 241, 0.15);
+        color: #a5b4fc;
+        border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .pkg-category-cyan {
+        background: rgba(6, 182, 212, 0.12);
+        color: #67e8f9;
+        border: 1px solid rgba(6, 182, 212, 0.25);
+    }
+
+    .timeline-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #94a3b8;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .timeline-highlight {
+        color: var(--brand-100);
+        background: rgba(99, 102, 241, 0.2);
+        border-color: rgba(99, 102, 241, 0.35);
+    }
+
+    .package-name {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.65rem;
+        line-height: 1.3;
+    }
+
+    .package-summary {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: #cbd5e1;
+        margin-bottom: 1.25rem;
+    }
+
+    .price-box {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+        padding: 0.85rem 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .price-value {
+        font-family: var(--font-display);
+        font-size: 1.85rem;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1.1;
+    }
+
+    .price-meta {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-top: 0.25rem;
+    }
+
+    .deliverables-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+        margin: 1.25rem 0;
+    }
+
+    .deliverables-section {
+        flex-grow: 1;
+        margin-bottom: 1.75rem;
+    }
+
+    .deliverables-title {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: #94a3b8;
+        margin-bottom: 0.85rem;
+    }
+
+    .deliverables-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .deliverables-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: #cbd5e1;
+    }
+
+    .deliverables-list li strong {
+        color: #ffffff;
+    }
+
+    .check-icon {
+        width: 16px;
+        height: 16px;
+        color: var(--brand-emerald);
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+    }
+
+    .check-icon.text-indigo {
+        color: var(--brand-400);
+    }
+
+    /* Buttons */
+    .btn-outline-pkg, .btn-primary-pkg {
+        display: block;
+        text-align: center;
+        padding: 0.85rem 1.25rem;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.25s ease;
+    }
+
+    .btn-outline-pkg {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+    }
+
+    .btn-outline-pkg:hover {
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .btn-primary-pkg {
+        background: linear-gradient(135deg, var(--brand-500), var(--brand-600));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-primary-pkg:hover {
+        background: linear-gradient(135deg, var(--brand-400), var(--brand-500));
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        transform: translateY(-2px);
+    }
+
+    /* Custom Services Grid */
     .services-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.75rem;
+        gap: 1.5rem;
         margin-bottom: 3.5rem;
     }
 
     .service-card {
-        padding: 2.5rem 2rem;
+        padding: 2.25rem 2rem;
         display: flex;
         flex-direction: column;
     }
 
     .service-card h2 {
-        font-size: 1.45rem;
-        margin-bottom: 1rem;
+        font-size: 1.35rem;
+        margin-bottom: 0.85rem;
         color: #ffffff;
     }
 
     .service-card p {
-        font-size: 1rem;
-        line-height: 1.7;
+        font-size: 0.96rem;
+        line-height: 1.65;
         color: #cbd5e1;
         flex-grow: 1;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
     }
 
     .service-icon-wrap {
@@ -229,9 +705,9 @@ import { SITE_TITLE } from "../consts";
 
     .service-num {
         font-family: var(--font-mono);
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 700;
-        color: rgba(255, 255, 255, 0.4);
+        color: rgba(255, 255, 255, 0.35);
     }
 
     .icon-indigo svg { color: var(--brand-400); }
@@ -247,39 +723,115 @@ import { SITE_TITLE } from "../consts";
         border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    /* Collaboration / Process Section */
     .collaboration-card {
         padding: 3rem 2.5rem;
-        background: linear-gradient(135deg, rgba(16, 19, 29, 0.85), rgba(11, 13, 20, 0.95));
+        background: linear-gradient(135deg, rgba(16, 19, 29, 0.9), rgba(11, 13, 20, 0.98));
         border: 1px solid rgba(99, 102, 241, 0.3);
+        margin-bottom: 3rem;
     }
 
     .collab-desc {
-        font-size: 1.1rem;
+        font-size: 1.08rem;
         line-height: 1.75;
         color: #e2e8f0;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        max-width: 900px;
+    }
+
+    .process-steps-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .step-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        padding: 1.25rem 1rem;
+    }
+
+    .step-num {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--brand-400);
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    .step-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.35rem;
+        color: #ffffff;
+    }
+
+    .step-item p {
+        font-size: 0.84rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin: 0;
     }
 
     .collab-action {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
         gap: 1.5rem;
-        padding-top: 1.5rem;
+        padding-top: 1.75rem;
         border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .action-question {
+        display: block;
         font-size: 1.05rem;
+        font-weight: 600;
+        color: #ffffff;
+    }
+
+    .action-sub {
+        display: block;
+        font-size: 0.92rem;
         color: var(--text-secondary);
+        margin-top: 0.2rem;
+    }
+
+    .mb-16 {
+        margin-bottom: 4.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .packages-grid {
+            grid-template-columns: 1fr;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .featured-package {
+            transform: none;
+        }
+        .process-steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media (max-width: 768px) {
         .services-grid {
             grid-template-columns: 1fr;
         }
-        .service-card {
-            padding: 2rem 1.5rem;
+        .process-steps-grid {
+            grid-template-columns: 1fr;
         }
-        .collaboration-card {
-            padding: 2rem 1.5rem;
+        .collab-action {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .package-card, .service-card, .collaboration-card {
+            padding: 1.75rem 1.25rem;
         }
     }
 </style>
+
