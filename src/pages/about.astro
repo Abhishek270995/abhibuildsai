@@ -65,15 +65,35 @@ import { SITE_TITLE } from "../consts";
 					</p>
 
 					<div class="action-banner glass-panel">
+						<div class="badge-pill mb-1">
+							<span class="pulse-dot"></span>
+							<span>LET'S CONNECT</span>
+						</div>
 						<p class="banner-text">
 							If you're dealing with a revenue number nobody fully trusts, a
 							dashboard that's gone stale, or a process that's still manual
 							because "we haven't gotten to automating it yet" — that's
 							exactly the kind of problem I like solving.
 						</p>
-						<a href="/services" class="btn-primary">
-							<span>See how I can help →</span>
-						</a>
+						<div class="banner-actions-row">
+							<a
+								href="https://calendly.com/abhiibuildsai/30min"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn-primary"
+							>
+								<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+									<line x1="16" y1="2" x2="16" y2="6"></line>
+									<line x1="8" y1="2" x2="8" y2="6"></line>
+									<line x1="3" y1="10" x2="21" y2="10"></line>
+								</svg>
+								<span>Book 30-Min Call ($75) →</span>
+							</a>
+							<a href="/services" class="btn-outline-about">
+								<span>View Fixed Packages &amp; Services</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -168,12 +188,51 @@ import { SITE_TITLE } from "../consts";
 		color: #e2e8f0 !important;
 	}
 
+	.banner-actions-row {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		width: 100%;
+	}
+
+	.btn-outline-about {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.75rem 1.4rem;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		color: #ffffff;
+		border-radius: 0.65rem;
+		font-weight: 600;
+		font-size: 0.92rem;
+		text-decoration: none;
+		transition: all 0.25s ease;
+	}
+
+	.btn-outline-about:hover {
+		background: rgba(255, 255, 255, 0.09);
+		border-color: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+		color: #ffffff;
+	}
+
 	@media (max-width: 640px) {
 		.about-card {
 			padding: 2rem 1.5rem;
 		}
 		.action-banner {
 			padding: 1.5rem;
+		}
+		.banner-actions-row {
+			flex-direction: column;
+			align-items: stretch;
+		}
+		.banner-actions-row .btn-primary,
+		.btn-outline-about {
+			width: 100%;
+			text-align: center;
+			justify-content: center;
 		}
 	}
 </style>

@@ -251,23 +251,36 @@ import SignalLine from "../components/SignalLine.astro";
 				<div class="glass-panel contact-cta-card">
 					<div class="contact-cta-content">
 						<div class="badge-pill mb-3">
-							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-							</svg>
-							<span>DIRECT COLLABORATION</span>
+							<span class="pulse-dot"></span>
+							<span>LET'S WORK TOGETHER</span>
 						</div>
-						<h2>Let's Talk</h2>
+						<h2>Ready to Solve a Data Problem?</h2>
 						<p class="contact-desc">
-							Working on a data problem, or want a second pair of eyes on
-							your analytics stack?
+							Book 30 minutes to untangle a specific SQL, pipeline, or architecture bottleneck — or send an email to discuss a larger project.
 						</p>
-						<a href="mailto:abhiibuildsai@gmail.com" class="btn-primary email-btn">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-								<polyline points="22,6 12,13 2,6"></polyline>
-							</svg>
-							<span>abhiibuildsai@gmail.com</span>
-						</a>
+						<div class="cta-actions-row">
+							<a
+								href="https://calendly.com/abhiibuildsai/30min"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn-primary"
+							>
+								<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+									<line x1="16" y1="2" x2="16" y2="6"></line>
+									<line x1="8" y1="2" x2="8" y2="6"></line>
+									<line x1="3" y1="10" x2="21" y2="10"></line>
+								</svg>
+								<span>Book 30-Min Call ($75) →</span>
+							</a>
+							<a href="mailto:abhiibuildsai@gmail.com" class="btn-outline-cta">
+								<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+									<polyline points="22,6 12,13 2,6"></polyline>
+								</svg>
+								<span>Send an Email</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -487,9 +500,34 @@ import SignalLine from "../components/SignalLine.astro";
 		margin-bottom: 2rem;
 	}
 
-	.email-btn {
-		font-size: 1.05rem;
-		padding: 0.9rem 2rem;
+	.cta-actions-row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.btn-outline-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.85rem 1.6rem;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		color: #ffffff;
+		border-radius: 0.75rem;
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: all 0.25s ease;
+	}
+
+	.btn-outline-cta:hover {
+		background: rgba(255, 255, 255, 0.09);
+		border-color: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+		color: #ffffff;
 	}
 
 	@media (max-width: 860px) {

@@ -247,13 +247,37 @@ import { SITE_TITLE } from "../consts";
 
 				<!-- CTA Banner -->
 				<div class="glass-panel case-cta-box">
-					<h2>Have a similar data or revenue challenge?</h2>
+					<div class="badge-pill mb-3">
+						<span class="pulse-dot"></span>
+						<span>1-ON-1 DATA ADVISORY</span>
+					</div>
+					<h2>Facing similar data or revenue bottlenecks?</h2>
 					<p class="cta-text">
-						Whether it's optimizing a pipeline forecast, auditing messy cross-platform logs, or building systems that stop "whose number is right?", let's connect.
+						Book 30 minutes to review your warehouse setup, metrics disagreement, or reporting pipelines — or send an email to discuss a bespoke project.
 					</p>
-					<a href="mailto:abhiibuildsai@gmail.com" class="btn-primary">
-						<span>Get in touch →</span>
-					</a>
+					<div class="cta-actions-row">
+						<a
+							href="https://calendly.com/abhiibuildsai/30min"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn-primary"
+						>
+							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+								<line x1="16" y1="2" x2="16" y2="6"></line>
+								<line x1="8" y1="2" x2="8" y2="6"></line>
+								<line x1="3" y1="10" x2="21" y2="10"></line>
+							</svg>
+							<span>Book 30-Min Call ($75) →</span>
+						</a>
+						<a href="mailto:abhiibuildsai@gmail.com" class="btn-outline-cta">
+							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+								<polyline points="22,6 12,13 2,6"></polyline>
+							</svg>
+							<span>Send an Email</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -499,6 +523,36 @@ import { SITE_TITLE } from "../consts";
 		font-size: 1.05rem;
 		color: #cbd5e1;
 		margin-bottom: 1.75rem;
+	}
+
+	.cta-actions-row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.btn-outline-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.85rem 1.6rem;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		color: #ffffff;
+		border-radius: 0.75rem;
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: all 0.25s ease;
+	}
+
+	.btn-outline-cta:hover {
+		background: rgba(255, 255, 255, 0.09);
+		border-color: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+		color: #ffffff;
 	}
 
 	.text-white {
