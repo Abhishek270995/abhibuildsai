@@ -38,10 +38,9 @@ import SignalLine from "../components/SignalLine.astro";
 				<p class="hero-bio">
 					I'm Abhishek — a Senior Data Analyst with 6.5+ years driving
 					measurable growth across ad-tech, ed-tech, and digital
-					commerce. I've helped teams grow revenue by 22%, lift course
-					completion by 25%, and build the single-source-of-truth
-					systems that make those numbers trustworthy in the first
-					place.
+					commerce. I've helped teams grow revenue by 22%, automate
+					reporting across 50+ enterprise brands, eliminate 20% of data discrepancies,
+					and build the single-source-of-truth systems that make numbers trustworthy in the first place.
 				</p>
 
 				<div class="hero-actions">
@@ -59,21 +58,25 @@ import SignalLine from "../components/SignalLine.astro";
 
 				<!-- Metrics Bar -->
 				<div class="metrics-grid">
-					<div class="metric-card glass-panel">
+					<div class="metric-card glass-panel glass-panel-hover">
 						<div class="metric-value text-emerald">+22%</div>
-						<div class="metric-label">Revenue Growth Supported</div>
+						<div class="metric-label">Revenue Growth</div>
+						<div class="metric-sub">Variance &amp; Quota Modeling</div>
 					</div>
-					<div class="metric-card glass-panel">
-						<div class="metric-value text-cyan">+25%</div>
-						<div class="metric-label">Course Completion Lift</div>
+					<div class="metric-card glass-panel glass-panel-hover">
+						<div class="metric-value text-indigo">50+</div>
+						<div class="metric-label">Brands Automated</div>
+						<div class="metric-sub">SQL / BigQuery Views</div>
 					</div>
-					<div class="metric-card glass-panel">
-						<div class="metric-value text-indigo">6.5+</div>
-						<div class="metric-label">Years of Experience</div>
+					<div class="metric-card glass-panel glass-panel-hover">
+						<div class="metric-value text-cyan">-20%</div>
+						<div class="metric-label">Discrepancies</div>
+						<div class="metric-sub">SSOT &amp; Anomaly Detection</div>
 					</div>
-					<div class="metric-card glass-panel">
-						<div class="metric-value text-violet">100%</div>
-						<div class="metric-label">Client-Side AI Tooling</div>
+					<div class="metric-card glass-panel glass-panel-hover">
+						<div class="metric-value text-violet">+25%</div>
+						<div class="metric-label">Completion Lift</div>
+						<div class="metric-sub">LMS Funnel Telemetry</div>
 					</div>
 				</div>
 			</section>
@@ -338,16 +341,18 @@ import SignalLine from "../components/SignalLine.astro";
 	}
 
 	.metric-card {
-		padding: 1.25rem 1rem;
+		padding: 1.35rem 1.15rem;
 		text-align: left;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.metric-value {
 		font-family: var(--font-display);
-		font-size: 2rem;
+		font-size: 2.15rem;
 		font-weight: 800;
-		line-height: 1.1;
-		margin-bottom: 0.35rem;
+		line-height: 1.05;
+		margin-bottom: 0.4rem;
 	}
 
 	.text-emerald { color: var(--brand-emerald); }
@@ -356,8 +361,17 @@ import SignalLine from "../components/SignalLine.astro";
 	.text-violet { color: var(--brand-violet-light); }
 
 	.metric-label {
+		font-family: var(--font-sans);
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: #ffffff;
+		line-height: 1.25;
+		margin-bottom: 0.2rem;
+	}
+
+	.metric-sub {
 		font-family: var(--font-mono);
-		font-size: 0.75rem;
+		font-size: 0.68rem;
 		color: var(--text-muted);
 		line-height: 1.3;
 	}
