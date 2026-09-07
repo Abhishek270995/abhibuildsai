@@ -244,6 +244,34 @@ import { SITE_TITLE } from "../consts";
                         </svg>
                         <span>Scope beyond what's listed above is quoted separately — no surprise fees, just a clear conversation first.</span>
                     </div>
+
+                    <!-- 1-on-1 Advisory Call Block -->
+                    <div class="advisory-call-card glass-panel spotlight-card glass-panel-hover">
+                        <div class="advisory-left">
+                            <div class="advisory-badge">
+                                <span class="pulse-dot"></span>
+                                <span>1-ON-1 PROBLEM SOLVING</span>
+                            </div>
+                            <h3 class="advisory-heading">Not ready for a full engagement?</h3>
+                            <p class="advisory-body">
+                                Book 30 minutes to talk through a specific data or AI problem — no commitment beyond the call.
+                            </p>
+                        </div>
+                        <div class="advisory-right">
+                            <div class="advisory-price-tag">
+                                <span class="advisory-price">$75</span>
+                                <span class="advisory-duration">· 30 minutes</span>
+                            </div>
+                            <a
+                                href="https://calendly.com/abhiibuildsai/30min"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-primary advisory-btn"
+                            >
+                                <span>Book 30-Min Call →</span>
+                            </a>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- SECTION 2: CUSTOM & BROADER SERVICES -->
@@ -705,6 +733,90 @@ import { SITE_TITLE } from "../consts";
         flex-shrink: 0;
     }
 
+    /* 1-on-1 Advisory Call Block */
+    .advisory-call-card {
+        margin-top: 2rem;
+        padding: 2.25rem 2.5rem;
+        background: linear-gradient(135deg, rgba(20, 24, 38, 0.9), rgba(12, 15, 24, 0.95));
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        position: relative;
+    }
+
+    .advisory-left {
+        max-width: 600px;
+    }
+
+    .advisory-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.25rem 0.65rem;
+        border-radius: 9999px;
+        background: rgba(99, 102, 241, 0.15);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: var(--brand-400);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+    }
+
+    .advisory-heading {
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+    }
+
+    .advisory-body {
+        font-size: 0.98rem;
+        color: #cbd5e1;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .advisory-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.85rem;
+        flex-shrink: 0;
+    }
+
+    .advisory-price-tag {
+        display: flex;
+        align-items: baseline;
+        gap: 0.4rem;
+    }
+
+    .advisory-price {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        font-weight: 800;
+        color: #ffffff;
+        line-height: 1;
+    }
+
+    .advisory-duration {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .advisory-btn {
+        padding: 0.75rem 1.4rem;
+        font-size: 0.92rem;
+        white-space: nowrap;
+    }
+
     .check-icon {
         width: 16px;
         height: 16px;
@@ -908,6 +1020,21 @@ import { SITE_TITLE } from "../consts";
     }
 
     @media (max-width: 768px) {
+        .advisory-call-card {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.75rem 1.25rem;
+            gap: 1.5rem;
+        }
+        .advisory-right {
+            align-items: flex-start;
+            width: 100%;
+        }
+        .advisory-btn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
         .services-grid {
             grid-template-columns: 1fr;
         }
