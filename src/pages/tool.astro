@@ -385,30 +385,40 @@ import { SITE_TITLE } from "../consts";
 		</main>
 		<Footer />
 
-		<script is:inline>
-			document.addEventListener("DOMContentLoaded", () => {
-				// Tool Switcher Navigation
-				const navSql = document.getElementById("nav-btn-sql");
-				const navAuditor = document.getElementById("nav-btn-auditor");
-				const viewSql = document.getElementById("tool-view-sql");
-				const viewAuditor = document.getElementById("tool-view-auditor");
+		<script is:inline data-astro-rerun>
+			(function () {
+				function initTools() {
+					const navSql = document.getElementById("nav-btn-sql");
+					if (!navSql) return;
+					if (navSql.dataset.toolInit === "true") return;
+					navSql.dataset.toolInit = "true";
 
-				navSql.addEventListener("click", () => {
-					navSql.classList.add("active");
-					navAuditor.classList.remove("active");
-					viewSql.classList.add("active");
-					viewAuditor.classList.remove("active");
-				});
+					// Tool Switcher Navigation
+					const navAuditor = document.getElementById("nav-btn-auditor");
+					const viewSql = document.getElementById("tool-view-sql");
+					const viewAuditor = document.getElementById("tool-view-auditor");
 
-				navAuditor.addEventListener("click", () => {
-					navAuditor.classList.add("active");
-					navSql.classList.remove("active");
-					viewAuditor.classList.add("active");
-					viewSql.classList.remove("active");
-					if (!document.getElementById("csv-input").value.trim()) {
-						loadAuditorPreset("adspend");
+					if (navSql && navAuditor && viewSql && viewAuditor) {
+						navSql.addEventListener("click", () => {
+							navSql.classList.add("active");
+							navAuditor.classList.remove("active");
+							viewSql.classList.add("active");
+							viewAuditor.classList.remove("active");
+						});
+
+						navAuditor.addEventListener("click", () => {
+							navAuditor.classList.add("active");
+							navSql.classList.remove("active");
+							viewAuditor.classList.add("active");
+							viewSql.classList.remove("active");
+							const csvInputEl = document.getElementById("csv-input");
+							if (csvInputEl && !csvInputEl.value.trim()) {
+								loadAuditorPreset("adspend");
+							}
+						});
 					}
-				});
+
+
 
 				// =========================================================
 				// TOOL 1: SQL OPTIMIZER LOGIC (AST & Multi-Intent NLP Engine)
@@ -1078,34 +1088,56 @@ import { SITE_TITLE } from "../consts";
 				}
 
 				// Copy & Download Handlers
-				copyCleanCsvBtn.addEventListener("click", () => {
-					let csvContent = latestCleanedHeaders.join(",") + "\n" + latestCleanedRows.map(r => r.join(",")).join("\n");
-					navigator.clipboard.writeText(csvContent).then(() => {
-						copyCleanCsvBtn.textContent = "Copied! ✓";
-						setTimeout(() => (copyCleanCsvBtn.textContent = "Copy Clean CSV"), 2000);
+				if (copyCleanCsvBtn) {
+					copyCleanCsvBtn.addEventListener("click", () => {
+						let csvContent = latestCleanedHeaders.join(",") + "\n" + latestCleanedRows.map(r => r.join(",")).join("\n");
+						navigator.clipboard.writeText(csvContent).then(() => {
+							copyCleanCsvBtn.textContent = "Copied! ✓";
+							setTimeout(() => (copyCleanCsvBtn.textContent = "Copy Clean CSV"), 2000);
+						});
 					});
-				});
+				}
 
-				downloadCleanCsvBtn.addEventListener("click", () => {
-					let csvContent = latestCleanedHeaders.join(",") + "\n" + latestCleanedRows.map(r => r.join(",")).join("\n");
-					const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-					const url = URL.createObjectURL(blob);
-					const link = document.createElement("a");
-					link.setAttribute("href", url);
-					link.setAttribute("download", "cleaned_dataset_ssot.csv");
-					document.body.appendChild(link);
-					link.click();
-					document.body.removeChild(link);
-				});
-
-				copyCleanSqlBtn.addEventListener("click", () => {
-					navigator.clipboard.writeText(cleanSqlCode.textContent).then(() => {
-						copyCleanSqlBtn.textContent = "Copied! ✓";
-						setTimeout(() => (copyCleanSqlBtn.textContent = "Copy SQL"), 2000);
+				if (downloadCleanCsvBtn) {
+					downloadCleanCsvBtn.addEventListener("click", () => {
+						let csvContent = latestCleanedHeaders.join(",") + "\n" + latestCleanedRows.map(r => r.join(",")).join("\n");
+						const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+						const url = URL.createObjectURL(blob);
+						const link = document.createElement("a");
+						link.setAttribute("href", url);
+						link.setAttribute("download", "cleaned_dataset_ssot.csv");
+						document.body.appendChild(link);
+						link.click();
+						document.body.removeChild(link);
 					});
+				}
+
+				if (copyCleanSqlBtn) {
+					copyCleanSqlBtn.addEventListener("click", () => {
+						navigator.clipboard.writeText(cleanSqlCode.textContent).then(() => {
+							copyCleanSqlBtn.textContent = "Copied! ✓";
+							setTimeout(() => (copyCleanSqlBtn.textContent = "Copy SQL"), 2000);
+						});
+					});
+				}
+			}
+
+			window.__initToolPage = initTools;
+
+			if (document.getElementById("nav-btn-sql")) {
+				initTools();
+			} else if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", initTools, { once: true });
+			}
+
+			if (!window.__toolPageLoadListenerAttached) {
+				window.__toolPageLoadListenerAttached = true;
+				document.addEventListener("astro:page-load", () => {
+					if (window.__initToolPage) window.__initToolPage();
 				});
-			});
-		</script>
+			}
+		})();
+	</script>
 	</body>
 </html>
 
