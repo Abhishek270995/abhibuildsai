@@ -8,6 +8,10 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
 	site: 'https://www.abhibuildsai.com',
 	integrations: [mdx(), sitemap()],
+	prefetch: {
+		prefetchAll: true,
+		defaultStrategy: 'hover',
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),

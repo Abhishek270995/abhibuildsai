@@ -3,6 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
 import type { ImageMetadata } from "astro";
+import { ClientRouter } from "astro:transitions";
 import FallbackImage from "../assets/og-image.jpg";
 import { SITE_TITLE } from "../consts";
 
@@ -30,6 +31,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 	href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
+<ClientRouter />
 
 <!-- Google Fonts Preconnect & Load -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,7 +72,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Interactive Ambient Canvas & Mouse Glow Script -->
 <script is:inline>
-	document.addEventListener('DOMContentLoaded', () => {
+	const setupPageInteractions = () => {
 		// Spotlight cursor effect for all cards
 		const initSpotlight = () => {
 			document.querySelectorAll('.spotlight-card').forEach(card => {
@@ -85,9 +87,13 @@ const { title, description, image = FallbackImage } = Astro.props;
 		};
 		initSpotlight();
 
-		// Particle Canvas Mesh Background
-		const canvas = document.getElementById('bg-canvas');
-		if (canvas) {
+		// Particle Canvas Mesh Background (initialized once and persists)
+		const initCanvas = () => {
+			if (window.__bgCanvasRunning) return;
+			const canvas = document.getElementById('bg-canvas');
+			if (!canvas) return;
+			window.__bgCanvasRunning = true;
+
 			const ctx = canvas.getContext('2d');
 			let width, height, particles = [];
 
@@ -147,7 +153,8 @@ const { title, description, image = FallbackImage } = Astro.props;
 				requestAnimationFrame(animate);
 			};
 			animate();
-		}
+		};
+		initCanvas();
 
 		// Universal Lightbox for Visual Case Studies & Architecture Frames
 		const initLightbox = () => {
@@ -189,14 +196,17 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 			document.querySelectorAll('.visual-showcase-frame').forEach(frame => {
 				frame.classList.add('zoomable-frame');
-				frame.addEventListener('click', (e) => {
-					// Avoid intercepting clicks on interactive buttons or links
+				// Remove existing listener clone to avoid duplicate listeners
+				const newFrame = frame.cloneNode(true);
+				frame.parentNode.replaceChild(newFrame, frame);
+
+				newFrame.addEventListener('click', (e) => {
 					if (e.target.closest('a') || e.target.closest('button')) return;
-					const img = frame.querySelector('.visual-showcase-img');
+					const img = newFrame.querySelector('.visual-showcase-img');
 					if (!img) return;
 
-					const captionTitle = frame.querySelector('.visual-caption-title')?.textContent || '';
-					const captionDesc = frame.querySelector('.visual-caption-desc')?.textContent || '';
+					const captionTitle = newFrame.querySelector('.visual-caption-title')?.textContent || '';
+					const captionDesc = newFrame.querySelector('.visual-caption-desc')?.textContent || '';
 					const alt = img.getAttribute('alt') || '';
 
 					imgElement.src = img.src;
@@ -209,5 +219,8 @@ const { title, description, image = FallbackImage } = Astro.props;
 			});
 		};
 		initLightbox();
-	});
+	};
+
+	document.addEventListener('DOMContentLoaded', setupPageInteractions);
+	document.addEventListener('astro:page-load', setupPageInteractions);
 </script>
