@@ -630,3 +630,113 @@ section {
 		margin-bottom: 3rem;
 	}
 }
+
+/* =========================================================================
+   Rich Media & Visual Image Showcase Enhancements
+========================================================================= */
+.visual-showcase-frame {
+	position: relative;
+	border-radius: 1.25rem;
+	overflow: hidden;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(11, 13, 20, 0.8);
+	box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), 0 0 30px -5px rgba(99, 102, 241, 0.15);
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visual-showcase-frame:hover {
+	border-color: rgba(99, 102, 241, 0.4);
+	box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 40px 0 rgba(99, 102, 241, 0.25);
+	transform: translateY(-3px);
+}
+
+.visual-showcase-img {
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
+	transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visual-showcase-frame:hover .visual-showcase-img {
+	transform: scale(1.02);
+}
+
+.visual-showcase-overlay {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	right: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.visual-pill-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.35rem 0.85rem;
+	background: rgba(11, 13, 20, 0.85);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 9999px;
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #ffffff;
+	letter-spacing: 0.04em;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.visual-pill-accent {
+	border-color: rgba(56, 189, 248, 0.4);
+	color: #38bdf8;
+}
+
+.visual-pill-emerald {
+	border-color: rgba(16, 185, 129, 0.4);
+	color: #34d399;
+}
+
+.visual-caption-bar {
+	padding: 1.25rem 1.5rem;
+	background: rgba(16, 19, 29, 0.95);
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.visual-caption-title {
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: #ffffff;
+	margin: 0;
+}
+
+.visual-caption-desc {
+	font-size: 0.85rem;
+	color: var(--text-secondary);
+	margin: 0.25rem 0 0 0;
+}
+
+/* Featured Split Showcase */
+.featured-showcase-split {
+	display: grid;
+	grid-template-columns: 1fr 1.25fr;
+	gap: 2.5rem;
+	align-items: center;
+}
+
+@media (max-width: 900px) {
+	.featured-showcase-split {
+		grid-template-columns: 1fr;
+		gap: 1.75rem;
+	}
+}
