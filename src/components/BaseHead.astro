@@ -148,5 +148,66 @@ const { title, description, image = FallbackImage } = Astro.props;
 			};
 			animate();
 		}
+
+		// Universal Lightbox for Visual Case Studies & Architecture Frames
+		const initLightbox = () => {
+			let modal = document.getElementById('global-lightbox-modal');
+			if (!modal) {
+				modal = document.createElement('div');
+				modal.id = 'global-lightbox-modal';
+				modal.className = 'lightbox-modal';
+				modal.setAttribute('role', 'dialog');
+				modal.setAttribute('aria-modal', 'true');
+				modal.innerHTML = `
+					<div class="lightbox-content">
+						<button class="lightbox-close-btn" aria-label="Close modal">&times;</button>
+						<img class="lightbox-image" src="" alt="Expanded View" />
+						<div class="lightbox-caption-text"></div>
+					</div>
+				`;
+				document.body.appendChild(modal);
+
+				const closeBtn = modal.querySelector('.lightbox-close-btn');
+				const closeModal = () => {
+					modal.classList.remove('active');
+					document.body.style.overflow = '';
+				};
+
+				closeBtn?.addEventListener('click', closeModal);
+				modal.addEventListener('click', (e) => {
+					if (e.target === modal) closeModal();
+				});
+				document.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape' && modal.classList.contains('active')) {
+						closeModal();
+					}
+				});
+			}
+
+			const imgElement = modal.querySelector('.lightbox-image');
+			const captionElement = modal.querySelector('.lightbox-caption-text');
+
+			document.querySelectorAll('.visual-showcase-frame').forEach(frame => {
+				frame.classList.add('zoomable-frame');
+				frame.addEventListener('click', (e) => {
+					// Avoid intercepting clicks on interactive buttons or links
+					if (e.target.closest('a') || e.target.closest('button')) return;
+					const img = frame.querySelector('.visual-showcase-img');
+					if (!img) return;
+
+					const captionTitle = frame.querySelector('.visual-caption-title')?.textContent || '';
+					const captionDesc = frame.querySelector('.visual-caption-desc')?.textContent || '';
+					const alt = img.getAttribute('alt') || '';
+
+					imgElement.src = img.src;
+					imgElement.alt = alt;
+					captionElement.textContent = captionTitle ? `${captionTitle} — ${captionDesc}` : alt;
+
+					modal.classList.add('active');
+					document.body.style.overflow = 'hidden';
+				});
+			});
+		};
+		initLightbox();
 	});
 </script>

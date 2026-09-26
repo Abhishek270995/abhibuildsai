@@ -740,3 +740,212 @@ section {
 		gap: 1.75rem;
 	}
 }
+
+/* =========================================================================
+   P1: Client Logo Bar & Authority Badges
+========================================================================= */
+.client-logos-section {
+	margin-top: 3rem;
+	margin-bottom: 2.5rem;
+	text-align: center;
+}
+
+.client-logos-label {
+	font-family: var(--font-mono);
+	font-size: 0.72rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #64748b;
+	margin-bottom: 1.25rem;
+}
+
+.client-logos-grid {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem 1.75rem;
+}
+
+.client-logo-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.65rem;
+	padding: 0.55rem 1.15rem;
+	background: rgba(16, 20, 31, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 9999px;
+	color: #94a3b8;
+	font-family: var(--font-sans);
+	font-size: 0.92rem;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+.client-logo-item:hover {
+	color: #ffffff;
+	border-color: rgba(99, 102, 241, 0.45);
+	background: rgba(24, 30, 48, 0.85);
+	box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.35);
+	transform: translateY(-2px);
+}
+
+.client-logo-item svg {
+	opacity: 0.75;
+	transition: opacity 0.3s ease;
+}
+
+.client-logo-item:hover svg {
+	opacity: 1;
+}
+
+/* =========================================================================
+   P2: Window Chrome & Lightbox Click-to-Zoom
+========================================================================= */
+.window-chrome-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.65rem 1.25rem;
+	background: rgba(14, 18, 28, 0.95);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	color: #94a3b8;
+	user-select: none;
+}
+
+.window-controls {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.window-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.2);
+	transition: background 0.2s ease;
+}
+
+.window-chrome-bar:hover .window-dot:nth-child(1) { background: #ff5f56; }
+.window-chrome-bar:hover .window-dot:nth-child(2) { background: #ffbd2e; }
+.window-chrome-bar:hover .window-dot:nth-child(3) { background: #27c93f; }
+
+.window-title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	letter-spacing: 0.03em;
+	color: #cbd5e1;
+}
+
+.window-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
+	color: #64748b;
+	font-size: 0.72rem;
+	transition: color 0.2s ease;
+}
+
+.visual-showcase-frame:hover .window-actions {
+	color: #94a3b8;
+}
+
+.zoom-trigger-hint {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	cursor: zoom-in;
+}
+
+/* Zoomable image frame interaction */
+.zoomable-frame {
+	cursor: zoom-in;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(6, 7, 10, 0.94);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	padding: 1.5rem;
+}
+
+.lightbox-modal.active {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.lightbox-content {
+	position: relative;
+	max-width: 94vw;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transform: scale(0.96);
+	transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-modal.active .lightbox-content {
+	transform: scale(1);
+}
+
+.lightbox-image {
+	max-width: 100%;
+	max-height: 80vh;
+	border-radius: 0.85rem;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	box-shadow: 0 25px 80px -10px rgba(0, 0, 0, 0.95), 0 0 50px rgba(99, 102, 241, 0.25);
+	object-fit: contain;
+}
+
+.lightbox-caption-text {
+	margin-top: 1rem;
+	text-align: center;
+	color: #f1f5f9;
+	font-size: 0.95rem;
+	font-family: var(--font-sans);
+	font-weight: 500;
+	max-width: 800px;
+}
+
+.lightbox-close-btn {
+	position: absolute;
+	top: -2.75rem;
+	right: 0;
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+	border-radius: 9999px;
+	width: 2.25rem;
+	height: 2.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	font-size: 1.25rem;
+	line-height: 1;
+}
+
+.lightbox-close-btn:hover {
+	background: rgba(255, 255, 255, 0.25);
+	transform: scale(1.08);
+}
