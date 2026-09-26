@@ -1,0 +1,230 @@
+---
+// Floating Quick-Action Booking Pill (P4)
+// Automatically appears on scroll on high-intent content pages (Work, Services, Case Studies, Home)
+---
+
+<div id="floating-booking-pill" class="floating-booking-pill" aria-hidden="true">
+	<div class="pill-inner glass-panel spotlight-card">
+		<div class="pill-status-dot">
+			<span class="pulse-dot"></span>
+		</div>
+		<a
+			href="https://calendly.com/abhiibuildsai/30min"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="pill-action-link"
+			id="floating-pill-cta-link"
+		>
+			<div class="pill-text-content">
+				<span class="pill-eyebrow">LIMITED AVAILABILITY · LIVE 1-ON-1</span>
+				<span class="pill-main-text">Book 30-Min Strategy Call <span class="pill-price">($75)</span> →</span>
+			</div>
+		</a>
+		<button
+			type="button"
+			id="dismiss-booking-pill-btn"
+			class="pill-dismiss-btn"
+			aria-label="Dismiss booking reminder"
+			title="Dismiss reminder"
+		>
+			<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</button>
+	</div>
+</div>
+
+<script is:inline data-astro-rerun>
+	(function () {
+		function setupFloatingPill() {
+			const pill = document.getElementById("floating-booking-pill");
+			const dismissBtn = document.getElementById("dismiss-booking-pill-btn");
+			if (!pill) return;
+
+			// Do not show on interactive tool console or if user dismissed in this session
+			const isToolPage = window.location.pathname.startsWith("/tool");
+			const isDismissed = sessionStorage.getItem("dismiss_booking_pill") === "true";
+
+			if (isToolPage || isDismissed) {
+				pill.classList.remove("is-visible");
+				pill.setAttribute("aria-hidden", "true");
+				return;
+			}
+
+			function handleScroll() {
+				// Show after scrolling past 360px down the page
+				const scrollY = window.scrollY || document.documentElement.scrollTop;
+				if (scrollY > 360) {
+					if (!pill.classList.contains("is-visible") && sessionStorage.getItem("dismiss_booking_pill") !== "true") {
+						pill.classList.add("is-visible");
+						pill.setAttribute("aria-hidden", "false");
+					}
+				} else {
+					if (pill.classList.contains("is-visible")) {
+						pill.classList.remove("is-visible");
+						pill.setAttribute("aria-hidden", "true");
+					}
+				}
+			}
+
+			// Clean previous listener if re-running
+			window.removeEventListener("scroll", handleScroll);
+			window.addEventListener("scroll", handleScroll, { passive: true });
+			// Initial check in case user loaded page mid-scroll
+			handleScroll();
+
+			if (dismissBtn) {
+				dismissBtn.onclick = function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+					pill.classList.remove("is-visible");
+					pill.setAttribute("aria-hidden", "true");
+					sessionStorage.setItem("dismiss_booking_pill", "true");
+				};
+			}
+		}
+
+		if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", setupFloatingPill, { once: true });
+		} else {
+			setupFloatingPill();
+		}
+
+		document.addEventListener("astro:page-load", setupFloatingPill);
+	})();
+</script>
+
+<style>
+	.floating-booking-pill {
+		position: fixed;
+		bottom: 1.75rem;
+		right: 1.75rem;
+		z-index: 99;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(24px) scale(0.96);
+		transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+			transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+			visibility 0.35s;
+		pointer-events: none;
+	}
+
+	.floating-booking-pill.is-visible {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0) scale(1);
+		pointer-events: auto;
+	}
+
+	.pill-inner {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.65rem 0.85rem 0.65rem 1.1rem;
+		border-radius: 9999px;
+		background: rgba(13, 17, 23, 0.92);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid rgba(99, 102, 241, 0.4);
+		box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55),
+			0 0 25px rgba(99, 102, 241, 0.25),
+			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+	}
+
+	.pill-inner:hover {
+		border-color: rgba(99, 102, 241, 0.7);
+		box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65),
+			0 0 35px rgba(99, 102, 241, 0.4),
+			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+		transform: translateY(-2px);
+	}
+
+	.pill-status-dot {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+	}
+
+	.pill-action-link {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
+
+	.pill-text-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		text-align: left;
+	}
+
+	.pill-eyebrow {
+		font-family: var(--font-mono);
+		font-size: 0.625rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		color: #34d399;
+		line-height: 1;
+	}
+
+	.pill-main-text {
+		font-family: var(--font-heading);
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: #ffffff;
+		line-height: 1.25;
+		white-space: nowrap;
+	}
+
+	.pill-price {
+		color: var(--color-accent-light);
+		font-weight: 700;
+	}
+
+	.pill-dismiss-btn {
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 50%;
+		width: 22px;
+		height: 22px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		padding: 0;
+		margin-left: 0.25rem;
+		transition: all 0.2s ease;
+		flex-shrink: 0;
+	}
+
+	.pill-dismiss-btn:hover {
+		background: rgba(244, 63, 94, 0.2);
+		border-color: rgba(244, 63, 94, 0.4);
+		color: #fb7185;
+	}
+
+	@media (max-width: 640px) {
+		.floating-booking-pill {
+			right: 1rem;
+			left: 1rem;
+			bottom: 1.25rem;
+			display: flex;
+			justify-content: center;
+		}
+
+		.pill-inner {
+			width: 100%;
+			max-width: 360px;
+			justify-content: space-between;
+			padding: 0.6rem 0.85rem 0.6rem 1rem;
+		}
+
+		.pill-main-text {
+			font-size: 0.825rem;
+		}
+	}
+</style>

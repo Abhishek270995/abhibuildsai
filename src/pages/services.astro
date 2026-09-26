@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { SITE_TITLE } from "../consts";
+import BeforeAfterSection from "../components/BeforeAfterSection.astro";
 ---
 
 <!doctype html>
@@ -273,6 +274,13 @@ import { SITE_TITLE } from "../consts";
                         </div>
                     </div>
                 </section>
+
+                <!-- THE TRANSFORMATION: BEFORE VS AFTER (P3) -->
+                <BeforeAfterSection 
+                    title="What Changes: Before vs. After the Sprint"
+                    subtitle="Concrete business and technical outcomes delivered when you move from manual data firefighting to an engineered semantic system."
+                    showCta={false}
+                />
 
                 <!-- ARCHITECTURE BLUEPRINT: HOW THE SPRINTS FIT YOUR STACK -->
                 <section class="packages-section mb-16">

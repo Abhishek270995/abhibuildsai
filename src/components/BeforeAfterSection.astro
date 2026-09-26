@@ -1,0 +1,534 @@
+---
+interface Props {
+	title?: string;
+	subtitle?: string;
+	showCta?: boolean;
+}
+
+const {
+	title = "The Transformation: Before vs. After",
+	subtitle = "What happens when you replace spreadsheet firefighting and silent warehouse discrepancies with automated, production-grade analytics.",
+	showCta = true
+} = Astro.props;
+
+const comparisons = [
+	{
+		category: "METRIC GOVERNANCE & SSOT",
+		icon: "ssot",
+		before: {
+			title: "Conflicting Numbers & Disputed Dashboards",
+			desc: "Three different teams bring three different revenue numbers to Monday leadership meetings. Executive time is wasted debating whose spreadsheet is right.",
+			badge: "TRADITIONAL CHAOS"
+		},
+		after: {
+			title: "Unified Semantic Layer & Single Source of Truth",
+			desc: "Automated dbt metric models serving one canonical definition. Product, Finance, and Exec dashboards pull from the exact same audited data contracts.",
+			badge: "ENGINEERED SSOT"
+		}
+	},
+	{
+		category: "PIPELINE RELIABILITY & ANOMALIES",
+		icon: "alert",
+		before: {
+			title: "Silent Failures Discovered by Angry Stakeholders",
+			desc: "Upstream API schema shifts or missing values corrupt downstream metrics unnoticed for days or weeks until a VP spots a broken graph.",
+			badge: "REACTIVE FIREFIGHTING"
+		},
+		after: {
+			title: "Automated Anomaly Tests & Slack Alerts in 2 Mins",
+			desc: "Automated row-count, null-percentage, and distribution checks trigger instantaneous Slack alerts with root-cause diagnostic queries before reports publish.",
+			badge: "PROACTIVE TELEMETRY"
+		}
+	},
+	{
+		category: "ANALYST & TEAM VELOCITY",
+		icon: "speed",
+		before: {
+			title: "60% of Senior Analyst Time Trapped in Ad-Hoc SQL",
+			desc: "High-paid analytics engineers drown in repetitive 'Can you pull this CSV?' requests, creating multi-day bottlenecks for product and marketing.",
+			badge: "MANUAL DRAG"
+		},
+		after: {
+			title: "Self-Serve Semantic Models & Agentic AI Tooling",
+			desc: "Self-serve exploration layers and in-browser AI assistants allow business users to safely answer 80% of routine questions autonomously.",
+			badge: "10X LEVERAGE"
+		}
+	},
+	{
+		category: "WAREHOUSE COMPUTE & CLOUD BILLING",
+		icon: "cloud",
+		before: {
+			title: "Unbounded Full-Table Scans Wasting Cloud Budget",
+			desc: "Unpartitioned legacy queries scan terabytes of historical events repeatedly, burning through thousands in Snowflake credits and BigQuery query quotas.",
+			badge: "SILENT CLOUD BURN"
+		},
+		after: {
+			title: "Optimized Partition Pruning & 70–85% Less Scan",
+			desc: "Partition clustering, incremental materialization, and query refactoring eliminate redundant warehouse scans and drastically slash monthly compute bills.",
+			badge: "COST OPTIMIZED"
+		}
+	}
+];
+---
+
+<section class="before-after-section mb-16">
+	<div class="section-heading-wrap text-center mb-8">
+		<div class="badge-pill mb-3 inline-flex">
+			<span class="pulse-dot"></span>
+			<span>BUSINESS IMPACT &amp; ROI</span>
+		</div>
+		<h2 class="section-title gradient-text">{title}</h2>
+		<p class="section-subtitle">
+			{subtitle}
+		</p>
+	</div>
+
+	<div class="transformations-container">
+		{comparisons.map((item, index) => (
+			<div class="transformation-card spotlight-card glass-panel">
+				<div class="transformation-category-bar">
+					<div class="category-tag">
+						<span class="category-index">0{index + 1}</span>
+						<span class="category-name">{item.category}</span>
+					</div>
+					<div class="transformation-delta-pill">
+						<span>DIRECT UPGRADE</span>
+					</div>
+				</div>
+
+				<div class="comparison-grid">
+					<!-- BEFORE STATE -->
+					<div class="state-col state-before">
+						<div class="state-header">
+							<div class="state-icon-wrap icon-rose">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<line x1="18" y1="6" x2="6" y2="18"></line>
+									<line x1="6" y1="6" x2="18" y2="18"></line>
+								</svg>
+							</div>
+							<div class="state-label-group">
+								<span class="state-tag tag-rose">{item.before.badge}</span>
+								<h3 class="state-title text-rose-title">{item.before.title}</h3>
+							</div>
+						</div>
+						<p class="state-desc">{item.before.desc}</p>
+					</div>
+
+					<!-- DIVIDER NODE -->
+					<div class="comparison-divider">
+						<div class="divider-line"></div>
+						<div class="divider-node">
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="9 18 15 12 9 6"></polyline>
+							</svg>
+						</div>
+						<div class="divider-line"></div>
+					</div>
+
+					<!-- AFTER STATE -->
+					<div class="state-col state-after">
+						<div class="state-header">
+							<div class="state-icon-wrap icon-emerald">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+									<polyline points="20 6 9 17 4 12"></polyline>
+								</svg>
+							</div>
+							<div class="state-label-group">
+								<span class="state-tag tag-emerald">{item.after.badge}</span>
+								<h3 class="state-title text-emerald-title">{item.after.title}</h3>
+							</div>
+						</div>
+						<p class="state-desc">{item.after.desc}</p>
+					</div>
+				</div>
+			</div>
+		))}
+	</div>
+
+	<!-- ROI SUMMARY CALLOUT BANNER -->
+	<div class="roi-summary-card glass-panel spotlight-card mt-8">
+		<div class="roi-stats-grid">
+			<div class="roi-stat-item">
+				<div class="roi-number gradient-text">10–15 hrs</div>
+				<div class="roi-label">Saved per analyst / week on manual ad-hoc requests</div>
+			</div>
+			<div class="roi-stat-item">
+				<div class="roi-number text-emerald">70–85%</div>
+				<div class="roi-label">Reduction in warehouse compute &amp; full-table scan waste</div>
+			</div>
+			<div class="roi-stat-item">
+				<div class="roi-number text-cyan">&lt; 2 mins</div>
+				<div class="roi-label">Anomaly isolation and automated team notification</div>
+			</div>
+		</div>
+
+		{showCta && (
+			<div class="roi-cta-bar">
+				<div class="roi-cta-text">
+					<strong>Ready to eliminate silent data risks and streamline your reporting?</strong>
+					<span>Choose a fixed-scope sprint or book a 30-minute diagnosis call.</span>
+				</div>
+				<div class="roi-cta-buttons">
+					<a href="/services" class="btn-primary">
+						<span>Explore Services &amp; Sprints →</span>
+					</a>
+					<a href="https://calendly.com/abhiibuildsai/30min" target="_blank" rel="noopener noreferrer" class="btn-outline">
+						<span>Book 30-Min Call ($75)</span>
+					</a>
+				</div>
+			</div>
+		)}
+	</div>
+</section>
+
+<style>
+	.before-after-section {
+		position: relative;
+		width: 100%;
+	}
+
+	.section-heading-wrap {
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	.section-heading-wrap .badge-pill {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.section-title {
+		font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		margin-bottom: 0.75rem;
+		line-height: 1.2;
+	}
+
+	.section-subtitle {
+		font-size: 1.05rem;
+		color: var(--color-text-secondary);
+		max-width: 680px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.transformations-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.transformation-card {
+		padding: 1.75rem;
+		border-radius: var(--radius-lg);
+		background: rgba(13, 17, 23, 0.6);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.transformation-card:hover {
+		transform: translateY(-2px);
+		border-color: rgba(99, 102, 241, 0.3);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.08);
+	}
+
+	.transformation-category-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 1rem;
+		margin-bottom: 1.25rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+	}
+
+	.category-tag {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+
+	.category-index {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: var(--color-accent-light);
+		background: rgba(99, 102, 241, 0.15);
+		padding: 0.15rem 0.45rem;
+		border-radius: var(--radius-sm);
+		border: 1px solid rgba(99, 102, 241, 0.3);
+	}
+
+	.category-name {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		color: var(--color-text-secondary);
+	}
+
+	.transformation-delta-pill {
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		color: var(--color-emerald);
+		background: rgba(16, 185, 129, 0.1);
+		border: 1px solid rgba(16, 185, 129, 0.25);
+		padding: 0.2rem 0.5rem;
+		border-radius: 9999px;
+	}
+
+	.comparison-grid {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		gap: 1.5rem;
+		align-items: stretch;
+	}
+
+	.state-col {
+		padding: 1.25rem;
+		border-radius: var(--radius-md);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		transition: background 0.2s ease, border-color 0.2s ease;
+	}
+
+	.state-before {
+		background: rgba(244, 63, 94, 0.03);
+		border: 1px solid rgba(244, 63, 94, 0.15);
+	}
+
+	.state-after {
+		background: rgba(16, 185, 129, 0.04);
+		border: 1px solid rgba(16, 185, 129, 0.22);
+		box-shadow: 0 4px 20px rgba(16, 185, 129, 0.04);
+	}
+
+	.state-header {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.state-icon-wrap {
+		flex-shrink: 0;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0.15rem;
+	}
+
+	.icon-rose {
+		background: rgba(244, 63, 94, 0.15);
+		color: #fb7185;
+		border: 1px solid rgba(244, 63, 94, 0.35);
+	}
+
+	.icon-emerald {
+		background: rgba(16, 185, 129, 0.15);
+		color: #34d399;
+		border: 1px solid rgba(16, 185, 129, 0.35);
+	}
+
+	.state-label-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.state-tag {
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		width: fit-content;
+	}
+
+	.tag-rose {
+		color: #f43f5e;
+	}
+
+	.tag-emerald {
+		color: #10b981;
+	}
+
+	.state-title {
+		font-size: 1.05rem;
+		font-weight: 700;
+		line-height: 1.35;
+		letter-spacing: -0.01em;
+		margin: 0;
+	}
+
+	.text-rose-title {
+		color: #fda4af;
+	}
+
+	.text-emerald-title {
+		color: #ffffff;
+	}
+
+	.state-desc {
+		font-size: 0.925rem;
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+		margin: 0;
+	}
+
+	.comparison-divider {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+
+	.divider-line {
+		flex: 1;
+		width: 1px;
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.divider-node {
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		background: rgba(17, 24, 39, 0.9);
+		border: 1px solid rgba(99, 102, 241, 0.4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-accent-light);
+		margin: 0.5rem 0;
+		box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+	}
+
+	/* ROI SUMMARY CARD */
+	.roi-summary-card {
+		padding: 2.25rem;
+		border-radius: var(--radius-lg);
+		background: linear-gradient(135deg, rgba(13, 17, 23, 0.9) 0%, rgba(20, 27, 45, 0.85) 100%);
+		border: 1px solid rgba(99, 102, 241, 0.25);
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(99, 102, 241, 0.1);
+	}
+
+	.roi-stats-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.roi-stat-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.roi-number {
+		font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+		font-family: var(--font-heading);
+	}
+
+	.text-emerald {
+		color: #10b981;
+	}
+
+	.text-cyan {
+		color: #06b6d4;
+	}
+
+	.roi-label {
+		font-size: 0.875rem;
+		line-height: 1.5;
+		color: var(--color-text-secondary);
+	}
+
+	.roi-cta-bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-top: 1.75rem;
+		flex-wrap: wrap;
+	}
+
+	.roi-cta-text {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.roi-cta-text strong {
+		font-size: 1.05rem;
+		color: #ffffff;
+		font-weight: 600;
+	}
+
+	.roi-cta-text span {
+		font-size: 0.9rem;
+		color: var(--color-text-secondary);
+	}
+
+	.roi-cta-buttons {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 840px) {
+		.comparison-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+		}
+
+		.comparison-divider {
+			flex-direction: row;
+			width: 100%;
+			height: 24px;
+			margin: 0.25rem 0;
+		}
+
+		.divider-line {
+			width: 100%;
+			height: 1px;
+		}
+
+		.divider-node {
+			transform: rotate(90deg);
+			margin: 0 0.5rem;
+		}
+
+		.roi-stats-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.roi-cta-bar {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.roi-cta-buttons {
+			width: 100%;
+		}
+
+		.roi-cta-buttons .btn-primary,
+		.roi-cta-buttons .btn-outline {
+			width: 100%;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+</style>
