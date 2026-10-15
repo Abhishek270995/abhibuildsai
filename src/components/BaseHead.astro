@@ -33,14 +33,6 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 <ClientRouter />
 
-<!-- Google Fonts Preconnect & Load -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-	rel="stylesheet"
-/>
-
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
@@ -70,157 +62,123 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="twitter:image" content={new URL(image.src, Astro.site)} />
 <meta name="twitter:image:alt" content="Abhishek — Data & AI | Turning messy data into decisions you can trust." />
 
-<!-- Interactive Ambient Canvas & Mouse Glow Script -->
+<!-- Page interactions use delegated handlers so Astro page swaps do not retain stale elements. -->
 <script is:inline>
-	const setupPageInteractions = () => {
-		// Spotlight cursor effect for all cards
-		const initSpotlight = () => {
-			document.querySelectorAll('.spotlight-card').forEach(card => {
-				card.addEventListener('mousemove', e => {
-					const rect = card.getBoundingClientRect();
-					const x = e.clientX - rect.left;
-					const y = e.clientY - rect.top;
-					card.style.setProperty('--mouse-x', `${x}px`);
-					card.style.setProperty('--mouse-y', `${y}px`);
-				});
-			});
-		};
-		initSpotlight();
+	(() => {
+		if (window.__siteInteractionsInitialized) return;
+		window.__siteInteractionsInitialized = true;
+		let lightboxTrigger = null;
 
-		// Particle Canvas Mesh Background (initialized once and persists)
-		const initCanvas = () => {
-			if (window.__bgCanvasRunning) return;
+		const closeLightbox = () => {
+			const modal = document.getElementById('global-lightbox-modal');
+			if (!modal) return;
+			modal.classList.remove('active');
+			document.body.style.overflow = '';
+			lightboxTrigger?.focus();
+		};
+
+		const setupPageInteractions = () => {
 			const canvas = document.getElementById('bg-canvas');
-			if (!canvas) return;
-			window.__bgCanvasRunning = true;
-
-			const ctx = canvas.getContext('2d');
-			let width, height, particles = [];
-
-			const resize = () => {
-				width = canvas.width = window.innerWidth;
-				height = canvas.height = window.innerHeight;
-			};
-			window.addEventListener('resize', resize);
-			resize();
-
-			class Particle {
-				constructor() {
-					this.x = Math.random() * width;
-					this.y = Math.random() * height;
-					this.vx = (Math.random() - 0.5) * 0.35;
-					this.vy = (Math.random() - 0.5) * 0.35;
-					this.radius = Math.random() * 1.5 + 0.8;
+			const current = window.__siteCanvasState;
+			if (current?.canvas !== canvas) {
+				if (current) {
+					cancelAnimationFrame(current.frame);
+					window.removeEventListener('resize', current.resize);
 				}
-				update() {
-					this.x += this.vx;
-					this.y += this.vy;
-					if (this.x < 0 || this.x > width) this.vx *= -1;
-					if (this.y < 0 || this.y > height) this.vy *= -1;
-				}
-				draw() {
-					ctx.beginPath();
-					ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-					ctx.fillStyle = 'rgba(99, 102, 241, 0.35)';
-					ctx.fill();
-				}
+				delete window.__siteCanvasState;
 			}
-
-			const count = Math.min(40, Math.floor(window.innerWidth / 35));
-			for (let i = 0; i < count; i++) {
-				particles.push(new Particle());
-			}
-
-			const animate = () => {
-				ctx.clearRect(0, 0, width, height);
-				for (let i = 0; i < particles.length; i++) {
-					particles[i].update();
-					particles[i].draw();
-					for (let j = i + 1; j < particles.length; j++) {
-						const dx = particles[i].x - particles[j].x;
-						const dy = particles[i].y - particles[j].y;
-						const dist = Math.sqrt(dx * dx + dy * dy);
-						if (dist < 120) {
-							ctx.beginPath();
-							ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - dist / 120)})`;
-							ctx.lineWidth = 0.75;
-							ctx.moveTo(particles[i].x, particles[i].y);
-							ctx.lineTo(particles[j].x, particles[j].y);
-							ctx.stroke();
+			if (canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !window.__siteCanvasState) {
+				const ctx = canvas.getContext('2d');
+				if (ctx) {
+					let width = 0;
+					let height = 0;
+					const particles = [];
+					const resize = () => {
+						const scale = Math.min(window.devicePixelRatio || 1, 2);
+						width = window.innerWidth;
+						height = window.innerHeight;
+						canvas.width = width * scale;
+						canvas.height = height * scale;
+						canvas.style.width = `${width}px`;
+						canvas.style.height = `${height}px`;
+						ctx.setTransform(scale, 0, 0, scale, 0, 0);
+					};
+					resize();
+					for (let i = 0; i < Math.min(40, Math.floor(width / 35)); i++) {
+						particles.push({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35, radius: Math.random() * 1.5 + 0.8 });
+					}
+					const state = { canvas, frame: 0, resize };
+					window.__siteCanvasState = state;
+					window.addEventListener('resize', resize, { passive: true });
+					const animate = () => {
+						ctx.clearRect(0, 0, width, height);
+						for (let i = 0; i < particles.length; i++) {
+							const p = particles[i];
+							p.x += p.vx; p.y += p.vy;
+							if (p.x < 0 || p.x > width) p.vx *= -1;
+							if (p.y < 0 || p.y > height) p.vy *= -1;
+							ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+							ctx.fillStyle = 'rgba(99, 102, 241, 0.35)'; ctx.fill();
+							for (let j = i + 1; j < particles.length; j++) {
+								const q = particles[j];
+								const dx = p.x - q.x; const dy = p.y - q.y; const distance = Math.hypot(dx, dy);
+								if (distance < 120) {
+									ctx.beginPath(); ctx.strokeStyle = `rgba(99, 102, 241, ${0.12 * (1 - distance / 120)})`;
+									ctx.lineWidth = 0.75; ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+								}
+							}
 						}
-					}
+						state.frame = requestAnimationFrame(animate);
+					};
+					state.frame = requestAnimationFrame(animate);
 				}
-				requestAnimationFrame(animate);
-			};
-			animate();
-		};
-		initCanvas();
-
-		// Universal Lightbox for Visual Case Studies & Architecture Frames
-		const initLightbox = () => {
-			let modal = document.getElementById('global-lightbox-modal');
-			if (!modal) {
-				modal = document.createElement('div');
-				modal.id = 'global-lightbox-modal';
-				modal.className = 'lightbox-modal';
-				modal.setAttribute('role', 'dialog');
-				modal.setAttribute('aria-modal', 'true');
-				modal.innerHTML = `
-					<div class="lightbox-content">
-						<button class="lightbox-close-btn" aria-label="Close modal">&times;</button>
-						<img class="lightbox-image" src="" alt="Expanded View" />
-						<div class="lightbox-caption-text"></div>
-					</div>
-				`;
-				document.body.appendChild(modal);
-
-				const closeBtn = modal.querySelector('.lightbox-close-btn');
-				const closeModal = () => {
-					modal.classList.remove('active');
-					document.body.style.overflow = '';
-				};
-
-				closeBtn?.addEventListener('click', closeModal);
-				modal.addEventListener('click', (e) => {
-					if (e.target === modal) closeModal();
-				});
-				document.addEventListener('keydown', (e) => {
-					if (e.key === 'Escape' && modal.classList.contains('active')) {
-						closeModal();
-					}
-				});
 			}
 
-			const imgElement = modal.querySelector('.lightbox-image');
-			const captionElement = modal.querySelector('.lightbox-caption-text');
-
-			document.querySelectorAll('.visual-showcase-frame').forEach(frame => {
-				frame.classList.add('zoomable-frame');
-				// Remove existing listener clone to avoid duplicate listeners
-				const newFrame = frame.cloneNode(true);
-				frame.parentNode.replaceChild(newFrame, frame);
-
-				newFrame.addEventListener('click', (e) => {
-					if (e.target.closest('a') || e.target.closest('button')) return;
-					const img = newFrame.querySelector('.visual-showcase-img');
-					if (!img) return;
-
-					const captionTitle = newFrame.querySelector('.visual-caption-title')?.textContent || '';
-					const captionDesc = newFrame.querySelector('.visual-caption-desc')?.textContent || '';
-					const alt = img.getAttribute('alt') || '';
-
-					imgElement.src = img.src;
-					imgElement.alt = alt;
-					captionElement.textContent = captionTitle ? `${captionTitle} — ${captionDesc}` : alt;
-
-					modal.classList.add('active');
-					document.body.style.overflow = 'hidden';
-				});
-			});
+			document.querySelectorAll('.visual-showcase-frame').forEach(frame => frame.classList.add('zoomable-frame'));
 		};
-		initLightbox();
-	};
 
-	document.addEventListener('DOMContentLoaded', setupPageInteractions);
-	document.addEventListener('astro:page-load', setupPageInteractions);
+		document.addEventListener('mousemove', event => {
+			const card = event.target.closest?.('.spotlight-card');
+			if (!card) return;
+			const rect = card.getBoundingClientRect();
+			card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
+			card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
+		});
+
+		document.addEventListener('click', event => {
+			const closeButton = event.target.closest?.('.lightbox-close-btn');
+			const modal = event.target.closest?.('#global-lightbox-modal');
+			if (closeButton || (modal && event.target === modal)) { closeLightbox(); return; }
+			const frame = event.target.closest?.('.visual-showcase-frame');
+			if (!frame || event.target.closest('a, button')) return;
+			const image = frame.querySelector('.visual-showcase-img');
+			if (!image) return;
+			let lightbox = document.getElementById('global-lightbox-modal');
+			if (!lightbox) {
+				lightbox = document.createElement('div');
+				lightbox.id = 'global-lightbox-modal'; lightbox.className = 'lightbox-modal';
+				lightbox.setAttribute('role', 'dialog'); lightbox.setAttribute('aria-modal', 'true');
+				lightbox.setAttribute('aria-label', 'Expanded image');
+				lightbox.innerHTML = '<div class="lightbox-content"><button class="lightbox-close-btn" aria-label="Close dialog">&times;</button><img class="lightbox-image" alt="" /><div class="lightbox-caption-text"></div></div>';
+				document.body.appendChild(lightbox);
+			}
+			const expandedImage = lightbox.querySelector('.lightbox-image');
+			lightboxTrigger = frame;
+			expandedImage.src = image.src; expandedImage.alt = image.alt;
+			const title = frame.querySelector('.visual-caption-title')?.textContent || '';
+			const description = frame.querySelector('.visual-caption-desc')?.textContent || '';
+			lightbox.querySelector('.lightbox-caption-text').textContent = [title, description].filter(Boolean).join(' — ');
+			lightbox.classList.add('active'); document.body.style.overflow = 'hidden';
+			lightbox.querySelector('.lightbox-close-btn').focus();
+		});
+		document.addEventListener('keydown', event => {
+			if (event.key === 'Escape') closeLightbox();
+			if (event.key === 'Tab' && document.getElementById('global-lightbox-modal')?.classList.contains('active')) {
+				event.preventDefault();
+				document.querySelector('#global-lightbox-modal .lightbox-close-btn')?.focus();
+			}
+		});
+		document.addEventListener('astro:page-load', setupPageInteractions);
+		setupPageInteractions();
+	})();
 </script>

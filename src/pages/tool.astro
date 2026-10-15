@@ -9,8 +9,8 @@ import { SITE_TITLE } from "../consts";
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Interactive AI & Data Tools | ${SITE_TITLE}`}
-			description="Free interactive client-side analytics tools: AI SQL Optimizer & Messy Data Health & Anomaly Auditor for modern data stacks."
+			title={`Interactive Data Tools | ${SITE_TITLE}`}
+			description="Free browser-based SQL pattern helper and CSV data quality auditor. Inputs are processed locally in your browser."
 		/>
 	</head>
 	<body class="bg-grid">
@@ -24,15 +24,15 @@ import { SITE_TITLE } from "../consts";
 				<!-- Top Header Badge & Titles -->
 				<div class="badge-pill mb-4">
 					<span class="pulse-dot"></span>
-					<span>100% CLIENT-SIDE • ZERO CLOUD EXPOSURE</span>
+					<span>LOCAL PROCESSING • NO AI API CALLS</span>
 				</div>
 
-				<h1 class="gradient-text tool-page-title">Interactive Data &amp; AI Tools</h1>
+						<h1 class="gradient-text tool-page-title">Interactive Data Tools</h1>
 
 				<div class="security-banner glass-panel mb-6">
 					<span class="lock-icon">🔒</span>
 					<div>
-						<strong class="text-white">Strict Local Processing:</strong> Your SQL queries, CSV datasets, and company metrics are parsed and analyzed entirely inside your browser's memory. Zero data is ever sent to or stored on any server.
+						<strong class="text-white">Local processing:</strong> This static demo uses browser-side rules and sample data; it does not call an AI service or send your input to a backend. Avoid entering sensitive information into any third-party website.
 					</div>
 				</div>
 
@@ -42,7 +42,7 @@ import { SITE_TITLE } from "../consts";
 						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 							<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
 						</svg>
-						<span>AI SQL Optimizer</span>
+						<span>SQL Pattern Helper</span>
 					</button>
 
 					<button class="tool-nav-btn" id="nav-btn-auditor" data-tool="auditor">
@@ -55,11 +55,11 @@ import { SITE_TITLE } from "../consts";
 				</div>
 
 				<!-- =========================================================================
-				     TOOL 1: AI SQL OPTIMIZER
+				     TOOL 1: RULE-BASED SQL PATTERN HELPER
 				========================================================================= -->
 				<div id="tool-view-sql" class="tool-view active">
 					<p class="tool-intro-text">
-						Turn slow, expensive, unindexed queries or plain English prompts into clean, production-grade SQL optimized for modern data warehouses like BigQuery, Snowflake, and PostgreSQL.
+						Try a small set of illustrative SQL rewrite and query-generation patterns for BigQuery, Snowflake, and PostgreSQL. The helper does not parse SQL, connect to a warehouse, or verify that a suggestion is valid for your schema.
 					</p>
 
 					<!-- 1-Click Sample Presets Bar -->
@@ -81,7 +81,7 @@ import { SITE_TITLE } from "../consts";
 						</div>
 					</div>
 
-					<!-- SQL Optimizer Console Card -->
+					<!-- SQL pattern helper console -->
 					<div class="spotlight-card glass-panel optimizer-card">
 						<div class="console-top-bar">
 							<div class="window-dots">
@@ -102,14 +102,14 @@ import { SITE_TITLE } from "../consts";
 
 							<div class="engine-badge">
 								<span class="engine-indicator"></span>
-								<span>AST &amp; NLP Engine v3.0</span>
+									<span>Browser Rules · Demo</span>
 							</div>
 						</div>
 
 						<div class="console-body">
 							<div class="editor-header">
 								<label for="sql-input" class="editor-label">
-									<span>INPUT SQL QUERY OR NATURAL LANGUAGE BUSINESS QUESTION</span>
+									<span>INPUT SQL QUERY OR EXAMPLE BUSINESS QUESTION</span>
 								</label>
 								<button id="clear-sql-btn" class="clear-btn" title="Clear Editor">Clear</button>
 							</div>
@@ -124,11 +124,11 @@ import { SITE_TITLE } from "../consts";
 							</div>
 
 							<div class="optimizer-actions-bar">
-								<button id="optimize-btn" class="btn-primary run-optimizer-btn" onclick="window.triggerSqlOptimize && window.triggerSqlOptimize(event)">
+								<button id="optimize-btn" class="btn-primary run-optimizer-btn">
 									<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 										<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
 									</svg>
-									<span>Optimize &amp; Audit SQL</span>
+								<span>Apply SQL Pattern Rules</span>
 								</button>
 								<span id="optimizer-status" class="optimizer-status-text">Ready for analysis</span>
 							</div>
@@ -147,14 +147,14 @@ import { SITE_TITLE } from "../consts";
 										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 											<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
 										</svg>
-										<span>Cost &amp; Antipattern Audit</span>
+						<span>Pattern Notes</span>
 									</button>
 									<button class="tab-btn" data-tab="query-plan">
 										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 											<rect x="3" y="3" width="18" height="18" rx="2"></rect>
 											<path d="M3 9h18M9 21V9"></path>
 										</svg>
-										<span>Execution Plan</span>
+						<span>Example Steps</span>
 									</button>
 								</div>
 
@@ -175,25 +175,26 @@ import { SITE_TITLE } from "../consts";
 								<div id="panel-cost-audit" class="tab-panel">
 									<div class="metrics-summary-row">
 										<div class="audit-kpi-card">
-											<span class="kpi-label">ESTIMATED DATA SCAN REDUCTION</span>
-											<span class="kpi-value text-emerald" id="scan-reduction-val">~70% - 85%</span>
-											<span class="kpi-sub">Via partition pruning & explicit projection</span>
+											<span class="kpi-label">SCAN IMPACT</span>
+											<span class="kpi-value text-emerald" id="scan-reduction-val">Not measured</span>
+											<span class="kpi-sub">Actual savings depend on your schema and query plan.</span>
 										</div>
 										<div class="audit-kpi-card">
-											<span class="kpi-label">ANTIPATTERNS ELIMINATED</span>
+											<span class="kpi-label">PATTERN NOTES</span>
 											<span class="kpi-value text-cyan" id="antipattern-count-val">3 Issues</span>
-											<span class="kpi-sub">Resolved automatically</span>
+											<span class="kpi-sub">Review each suggestion before use.</span>
 										</div>
 										<div class="audit-kpi-card">
-											<span class="kpi-label">EXECUTION EFFICIENCY</span>
-											<span class="kpi-value text-indigo" id="efficiency-grade-val">High (O(log N))</span>
-											<span class="kpi-sub">Optimized query cost tier</span>
+											<span class="kpi-label">QUERY PERFORMANCE</span>
+											<span class="kpi-value text-indigo" id="efficiency-grade-val">Not measured</span>
+											<span class="kpi-sub">No query is executed or benchmarked.</span>
 										</div>
 									</div>
 									<div class="antipatterns-list" id="antipatterns-list"></div>
 								</div>
 
 								<div id="panel-query-plan" class="tab-panel">
+									<p class="kpi-sub">Illustrative steps only; the helper does not run a query or inspect a database plan.</p>
 									<div class="plan-timeline" id="plan-timeline"></div>
 								</div>
 							</div>
@@ -397,6 +398,9 @@ import { SITE_TITLE } from "../consts";
 					const navAuditor = document.getElementById("nav-btn-auditor");
 					const viewSql = document.getElementById("tool-view-sql");
 					const viewAuditor = document.getElementById("tool-view-auditor");
+					const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({
+						"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+					})[character]);
 
 					if (navSql && navAuditor && viewSql && viewAuditor) {
 						navSql.addEventListener("click", () => {
@@ -421,7 +425,7 @@ import { SITE_TITLE } from "../consts";
 
 
 				// =========================================================
-				// TOOL 1: SQL OPTIMIZER LOGIC (AST & Multi-Intent NLP Engine)
+				// TOOL 1: RULE-BASED SQL PATTERN HELPER
 				// =========================================================
 				const sqlInput = document.getElementById("sql-input");
 				const optimizeBtn = document.getElementById("optimize-btn");
@@ -519,13 +523,13 @@ import { SITE_TITLE } from "../consts";
 				function runSqlOptimization() {
 					const raw = sqlInput.value.trim();
 					if (!raw) return;
-					optimizerStatus.textContent = "⚡ Analyzing & Synthesizing SQL...";
+					optimizerStatus.textContent = "Applying browser-based example rules...";
 					
 					// Instant synchronous processing
 					const result = processSqlIntelligence(raw, currentDialect);
 					codeOutput.textContent = result.code;
 					scanVal.textContent = result.reduction;
-					antipatternCount.textContent = `${result.issues.length} Items Fixed`;
+					antipatternCount.textContent = `${result.issues.length} Notes`;
 					efficiencyGrade.textContent = result.efficiency;
 
 					// Visual flash confirmation
@@ -555,11 +559,8 @@ import { SITE_TITLE } from "../consts";
 						</div>
 					`).join("");
 
-					optimizerStatus.textContent = `✓ Generated for ${currentDialect.toUpperCase()} in 4ms`;
+					optimizerStatus.textContent = `✓ Example generated for ${currentDialect.toUpperCase()}`;
 				}
-
-				// Expose globally for failsafe inline button triggers
-				window.triggerSqlOptimize = runSqlOptimization;
 
 				// Intelligent Multi-Intent NLP & AST Optimization Engine
 				function processSqlIntelligence(rawInput, dialect) {
@@ -569,8 +570,8 @@ import { SITE_TITLE } from "../consts";
 					let code = "";
 					let issues = [];
 					let plan = [];
-					let reduction = "~75% Data Scanned";
-					let efficiency = "High (O(log N))";
+					let reduction = "Not measured";
+					let efficiency = "Not measured";
 
 					// =========================================================================
 					// NATURAL LANGUAGE PROMPT PROCESSING (Multi-Intent Branching)
@@ -620,8 +621,8 @@ import { SITE_TITLE } from "../consts";
 								{ stage: "02. Parallel Aggregate", desc: `Compute ${metricAlias} and transaction counts grouped by ${entity}.` },
 								{ stage: "03. Dense Ranking Window", desc: `Filter top ${limitNum} records using in-memory window sorting.` }
 							];
-							reduction = "~80% Scan Savings";
-							efficiency = "Optimal (O(N log K))";
+							reduction = "Not measured";
+							efficiency = "Not measured";
 
 						// 2. CHURN / INACTIVITY INTENT (e.g. "Calculate monthly churn rate", "Find inactive users who haven't ordered in 60 days")
 						} else if (lower.includes("churn") || lower.includes("inactive") || lower.includes("dormant") || lower.includes("lost")) {
@@ -645,8 +646,8 @@ import { SITE_TITLE } from "../consts";
 								{ stage: "02. Status Bucketing", desc: `Tag users as CHURNED (>= ${days}d), AT_RISK, or ACTIVE.` },
 								{ stage: "03. Cohort Distribution", desc: "Aggregate segment volumes and percentage share of total user base." }
 							];
-							reduction = "~85% Scan Savings";
-							efficiency = "Linear (O(N))";
+							reduction = "Not measured";
+							efficiency = "Not measured";
 
 						// 3. DAU / MAU / ACTIVE USERS INTENT
 						} else if (lower.includes("dau") || lower.includes("mau") || lower.includes("active user") || lower.includes("daily user") || lower.includes("monthly user")) {
@@ -667,8 +668,8 @@ import { SITE_TITLE } from "../consts";
 								{ stage: "02. Rolling Window Computation", desc: "Compute rolling 30-day active window in memory." },
 								{ stage: "03. Stickiness Metric", desc: "Compute DAU / MAU ratio to measure product retention health." }
 							];
-							reduction = "~88% Scan Savings";
-							efficiency = "High (O(N))";
+							reduction = "Not measured";
+							efficiency = "Not measured";
 
 						// 4. RETENTION / COHORT INTENT (e.g. "Calculate 60-day user retention rate...")
 						} else if (lower.includes("retention") || lower.includes("cohort") || lower.includes("signup month")) {
@@ -694,8 +695,8 @@ import { SITE_TITLE } from "../consts";
 								{ stage: "02. Cohort Hash Join", desc: "Execute distributed hash join between cohorts and partitioned events." },
 								{ stage: "03. Vectorized Retention Calculation", desc: `Compute ${days}-day retention rates and sum cohort revenue in parallel.` }
 							];
-							reduction = "~85% Scan Savings";
-							efficiency = "Optimal (O(N))";
+							reduction = "Not measured";
+							efficiency = "Not measured";
 
 						// 5. GENERAL ANALYTICS QUERY GENERATOR (Extracts dimensions and metrics from user text)
 						} else {
@@ -722,8 +723,8 @@ import { SITE_TITLE } from "../consts";
 								{ stage: "02. Aggregation & Metrics", desc: `Compute customer volumes, revenue, and AOV grouped by ${groupDimension}.` },
 								{ stage: "03. Metric Ordering", desc: "Sort results by total revenue in descending order." }
 							];
-							reduction = "~80% Scan Savings";
-							efficiency = "High (O(N))";
+							reduction = "Not measured";
+							efficiency = "Not measured";
 						}
 
 					// =========================================================================
@@ -749,8 +750,8 @@ import { SITE_TITLE } from "../consts";
 							{ stage: "02. Attributed Spend Join", desc: "Inner join active ad spend records against the deduplicated user keys." },
 							{ stage: "03. ROAS Multiplier Aggregation", desc: "Aggregate total ad spend, revenue, and calculate blended ROAS." }
 						];
-						reduction = "~78% Scan Savings";
-						efficiency = "High (O(N))";
+						reduction = "Not measured";
+						efficiency = "Not measured";
 
 					} else if (lower.includes("orders") || lower.includes("total_amount") || (lower.includes("where") && lower.includes("avg"))) {
 						if (dialect === "snowflake" || dialect === "bigquery") {
@@ -770,8 +771,8 @@ import { SITE_TITLE } from "../consts";
 							{ stage: "02. In-Memory Predicate Filter", desc: "Filter rows where order amount exceeds the precomputed window average." },
 							{ stage: "03. Stream Sorting", desc: "Sort highest-value qualifying orders for decisive reporting." }
 						];
-						reduction = "~82% Faster Execution";
-						efficiency = "Linear (O(N))";
+						reduction = "Not measured";
+						efficiency = "Not measured";
 
 					} else {
 						if (dialect === "bigquery") {
@@ -793,8 +794,8 @@ import { SITE_TITLE } from "../consts";
 							{ stage: "02. Partition Key Pruning", desc: "Skip historical partition blocks prior to 2024-01-01." },
 							{ stage: "03. Two-Stage Aggregation", desc: "Compute unique user counts and aggregate volumes in distributed slots." }
 						];
-						reduction = "~75% Data Scanned";
-						efficiency = "High (O(log N))";
+						reduction = "Not measured";
+						efficiency = "Not measured";
 					}
 
 					return {
@@ -1046,7 +1047,7 @@ import { SITE_TITLE } from "../consts";
 					columnAuditGrid.innerHTML = res.colStats.map(c => `
 						<div class="col-audit-card ${c.nullRate > 0 || c.anomalies.length > 0 ? 'card-warning' : 'card-healthy'}">
 							<div class="col-card-head">
-								<strong class="col-name">${c.name}</strong>
+						<strong class="col-name">${escapeHtml(c.name)}</strong>
 								<span class="col-badge ${c.nullRate === 0 ? 'badge-clean-tag' : 'badge-null-tag'}">
 									${c.nullRate}% Nulls
 								</span>
@@ -1058,7 +1059,7 @@ import { SITE_TITLE } from "../consts";
 								</div>
 								${c.anomalies.length > 0 ? `
 									<div class="anomalies-tag-list">
-										${c.anomalies.map(a => `<span class="anomaly-mini-pill">${a}</span>`).join('')}
+										${c.anomalies.map(a => `<span class="anomaly-mini-pill">${escapeHtml(a)}</span>`).join('')}
 									</div>
 								` : `
 									<span class="status-clean-text">✓ Schema Validated</span>
@@ -1069,14 +1070,14 @@ import { SITE_TITLE } from "../consts";
 
 					// Render Cleaned Data Table
 					let tableHtml = `<table class="preview-data-table"><thead><tr>`;
-					res.headers.forEach(h => {
-						tableHtml += `<th>${h}</th>`;
+						res.headers.forEach(h => {
+							tableHtml += `<th>${escapeHtml(h)}</th>`;
 					});
 					tableHtml += `</tr></thead><tbody>`;
 					res.cleanedRows.forEach(row => {
 						tableHtml += `<tr>`;
 						row.forEach(cell => {
-							tableHtml += `<td>${cell}</td>`;
+							tableHtml += `<td>${escapeHtml(cell)}</td>`;
 						});
 						tableHtml += `</tr>`;
 					});
@@ -1088,9 +1089,10 @@ import { SITE_TITLE } from "../consts";
 				}
 
 				// Copy & Download Handlers
+				const serializeCsv = (rows) => rows.map(row => row.map(value => `"${String(value ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
 				if (copyCleanCsvBtn) {
 					copyCleanCsvBtn.addEventListener("click", () => {
-						let csvContent = latestCleanedHeaders.join(",") + "\n" + latestCleanedRows.map(r => r.join(",")).join("\n");
+						const csvContent = serializeCsv([latestCleanedHeaders, ...latestCleanedRows]);
 						navigator.clipboard.writeText(csvContent).then(() => {
 							copyCleanCsvBtn.textContent = "Copied! ✓";
 							setTimeout(() => (copyCleanCsvBtn.textContent = "Copy Clean CSV"), 2000);
@@ -1100,7 +1102,7 @@ import { SITE_TITLE } from "../consts";
 
 				if (downloadCleanCsvBtn) {
 					downloadCleanCsvBtn.addEventListener("click", () => {
-						let csvContent = latestCleanedHeaders.join(",") + "\n" + latestCleanedRows.map(r => r.join(",")).join("\n");
+						const csvContent = serializeCsv([latestCleanedHeaders, ...latestCleanedRows]);
 						const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
 						const url = URL.createObjectURL(blob);
 						const link = document.createElement("a");
