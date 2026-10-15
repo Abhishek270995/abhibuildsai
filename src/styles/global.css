@@ -23,8 +23,8 @@
 	--border-subtle: rgba(255, 255, 255, 0.08);
 	--border-focus: rgba(99, 102, 241, 0.35);
 
-	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-	--font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+	--font-sans: var(--font-atkinson), system-ui, -apple-system, sans-serif;
+	--font-display: var(--font-atkinson), system-ui, -apple-system, sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
 
 	--box-shadow-glow: 0 0 35px -8px rgba(99, 102, 241, 0.25);
@@ -626,6 +626,16 @@ section {
 	}
 	section {
 		margin-bottom: 3rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }
 

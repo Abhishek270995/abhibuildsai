@@ -1,63 +1,44 @@
-# Astro Starter Kit: Blog
+# Abhi Builds AI
+
+Portfolio and publishing site for Abhishek Kumar Singh, built with Astro and deployed to Vercel. It includes static portfolio pages, a Markdown blog with RSS and sitemap output, and browser-only SQL and CSV demonstrations.
+
+## Requirements
+
+- Node.js 22.12 or newer
+- npm
+
+## Develop
 
 ```sh
-npm create astro@latest -- --template blog
+npm ci
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro serves the local site at `http://localhost:4321`.
 
-Features:
+## Validate and build
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```sh
+npm run check
+npm run build
+npm run preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`check` runs Astro diagnostics and TypeScript checks. `build` creates the production site in `dist/`; `preview` serves that build locally.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+GitHub Actions runs the check and production build on pull requests and pushes to `main`. Vercel is connected to this repository for deployments. Production uses the `main` branch; pull requests should be reviewed in their Vercel preview before merge.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Site content
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Pages live in `src/pages/`.
+- Blog posts are Markdown or MDX files in `src/content/blog/` and use the schema in `src/content.config.ts`.
+- Shared components are in `src/components/`; global styling is in `src/styles/global.css`.
+- Public assets live in `public/`.
 
-## 🧞 Commands
+## Browser tools
 
-All commands are run from the root of the project, from a terminal:
+The SQL page is a deterministic, rule-based demonstration with sample patterns. It does not call an AI model, run SQL against a database, or measure query plans or cost savings. Review all generated examples and replace sample table and column names before use. The CSV auditor processes pasted data in the browser; the static site does not send that input to a backend.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Deployment notes
 
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+The canonical site URL is configured in `astro.config.mjs`. Vercel project settings and verified custom domains are managed in the Vercel dashboard. Do not commit credentials or environment files.
