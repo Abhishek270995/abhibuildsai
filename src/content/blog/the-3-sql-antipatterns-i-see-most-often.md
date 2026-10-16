@@ -28,4 +28,4 @@ Running a `GROUP BY` across an entire table and only filtering the result down a
 
 None of these are exotic problems. They're the kind of thing that creeps in gradually — a query written under deadline pressure, copied and extended six times, never revisited. The cost shows up quietly, in a warehouse bill or a dashboard that takes 40 seconds to load instead of 4.
 
-I built these exact checks into the [AI SQL Optimizer](/tool) on this site — paste in a query and it'll flag these patterns (and a few others) automatically, entirely in your browser. If you want to see what it catches in your own queries, it's free to try.
+I put a small set of illustrative, rule-based examples in the site's [SQL Pattern Helper](/tool). It applies predefined patterns to sample inputs in your browser; it does not parse arbitrary SQL, inspect a warehouse, benchmark a query, or guarantee that a suggested rewrite is valid for your schema. Treat the output as a starting point for review, not as an optimization result.

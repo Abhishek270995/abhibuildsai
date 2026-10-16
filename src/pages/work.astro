@@ -260,7 +260,7 @@ import { SITE_TITLE } from "../consts";
 							<line x1="12" y1="17" x2="12" y2="21"></line>
 						</svg>
 					</div>
-					<h2>Deep Dive Case Study: Revenue Data Reconciliation &amp; Anomaly Agent</h2>
+					<h2>Portfolio Build: Revenue Data Reconciliation &amp; Anomaly Agent</h2>
 				</div>
 
 				<!-- Problem Card -->
@@ -315,7 +315,7 @@ import { SITE_TITLE } from "../consts";
 					<div class="visual-showcase-overlay" style="top: 3.25rem;">
 						<div class="visual-pill-badge visual-pill-emerald">
 							<span class="pulse-dot"></span>
-							<span>AUTONOMOUS AGENTIC WORKFLOW</span>
+							<span>DATA QUALITY PORTFOLIO BUILD</span>
 						</div>
 						<div class="visual-pill-badge visual-pill-accent">
 							<span>CLAUDE LLM REASONING</span>
@@ -331,8 +331,8 @@ import { SITE_TITLE } from "../consts";
 					/>
 					<div class="visual-caption-bar">
 						<div>
-							<p class="visual-caption-title">Real-Time Ledger Discrepancy Detection &amp; Root-Cause Diagnostics</p>
-							<p class="visual-caption-desc">Identifies billing vs. CRM actuals drift, diagnoses unmapped account IDs, generates natural-language narrative, and routes actionable Slack notifications.</p>
+							<p class="visual-caption-title">Revenue Discrepancy Detection &amp; Triage</p>
+							<p class="visual-caption-desc">Illustrative interface for validation flags, generated explanations, and routed alerts. The displayed scenario uses synthetic data.</p>
 						</div>
 					</div>
 				</div>
@@ -356,7 +356,7 @@ import { SITE_TITLE } from "../consts";
 							<h3>1. A rule-based detection layer</h3>
 							<p>
 								A monitoring workflow built on Google Apps Script that watches a
-								live revenue extract sheet, flags rows failing validation
+								revenue extract sheet, flags rows failing validation
 								checks, and highlights them directly in the source — no separate
 								tool for the team to check.
 							</p>
@@ -367,10 +367,10 @@ import { SITE_TITLE } from "../consts";
 							<div class="step-badge">LAYER 02</div>
 							<h3>2. A synthetic test dataset with planted anomalies</h3>
 							<p>
-								To validate detection accuracy without touching real business
-								data, I built a synthetic dataset with known, deliberately
-								planted errors — then scored the detection layer against that
-								ground truth to measure precision and recall.
+								To validate detection logic without touching business data, I used
+								a synthetic dataset with known, deliberately planted errors. The
+								checks can be compared with that ground truth; no precision or
+								recall score is published for this build.
 							</p>
 						</div>
 
@@ -410,13 +410,20 @@ import { SITE_TITLE } from "../consts";
 						<h2>Why It Matters</h2>
 					</div>
 					<p class="mb-0">
-						This isn't a proof-of-concept — it's built the way I'd want a
-						production data-quality system to work: rule-based checks you
-						can fully trust, paired with AI-generated explanations that save
-						someone the job of digging through rows manually. It's the same
-						discipline I bring to revenue analytics work day to day —
+						This portfolio build demonstrates a data-quality workflow: rule-based
+						checks, AI-generated explanations, and alert routing. It has not been
+						measured against a live client deployment, so this page makes no claim
+						about hours saved, error reduction, or revenue impact. A production
+						rollout would require customer-specific data, thresholds, and validation.
+						The design principle is the same one I bring to revenue analytics work —
 						<strong class="text-white">validate first, automate second, explain always.</strong>
 					</p>
+				</div>
+
+				<div class="glass-panel case-cta-box mb-8">
+					<h2>Read the implementation case study</h2>
+					<p>See the workflow, validation approach, outputs, and current limits in one detailed write-up.</p>
+					<a class="btn-primary" href="/case-studies/revenue-data-reconciliation">Open the revenue data reconciliation case study →</a>
 				</div>
 
 				<!-- Tech Stack Bar -->
