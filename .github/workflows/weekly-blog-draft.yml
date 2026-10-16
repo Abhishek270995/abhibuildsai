@@ -27,24 +27,42 @@ jobs:
         with:
           node-version: 22
 
+      - name: Check for an existing draft this week
+        id: weekly
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          week="$(date -u +%G-W%V)"
+          branch="automation/weekly-blog-$week"
+          echo "week=$week" >> "$GITHUB_OUTPUT"
+          if gh pr view "$branch" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "A draft pull request already exists for $week; leaving it unchanged."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Research and write a sourced draft
+        if: steps.weekly.outputs.exists != 'true'
         run: node scripts/generate-weekly-blog.mjs
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           BLOG_MODEL: ${{ vars.BLOG_MODEL }}
 
       - name: Validate the site build
+        if: steps.weekly.outputs.exists != 'true'
         run: |
           npm ci
           npm run check
           npm run build
 
       - name: Open or update the weekly draft pull request
+        if: steps.weekly.outputs.exists != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          week="$(date -u +%G-W%V)"
+          week="${{ steps.weekly.outputs.week }}"
           branch="automation/weekly-blog-$week"
           title="Weekly AI and data analytics blog draft ($week)"
           body="## Weekly researched blog draft
