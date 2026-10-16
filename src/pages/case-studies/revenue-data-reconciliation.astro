@@ -1,0 +1,118 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE } from "../../consts";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Revenue Data Reconciliation & Anomaly Detection Case Study | ${SITE_TITLE}`}
+			description="A portfolio case study of a revenue data quality workflow using validation rules, synthetic anomaly testing, plain-language explanations, and alert routing."
+		/>
+	</head>
+	<body class="bg-grid">
+		<canvas id="bg-canvas" class="fixed-canvas" aria-hidden="true"></canvas>
+		<div class="ambient-glow-1" aria-hidden="true"></div>
+		<div class="ambient-glow-2" aria-hidden="true"></div>
+		<Header />
+		<main>
+			<article class="case-study-container">
+				<nav class="back-nav mb-6" aria-label="Breadcrumb">
+					<a class="back-link" href="/work">Work &amp; case studies</a>
+				</nav>
+
+				<header class="section-box mb-8">
+					<div class="badge-pill mb-4"><span class="pulse-dot"></span><span>PORTFOLIO BUILD · SYNTHETIC TEST DATA</span></div>
+					<h1 class="gradient-text case-title">Revenue Data Reconciliation &amp; Anomaly Detection</h1>
+					<p class="case-tagline">How I designed a workflow that turns validation failures into reviewable explanations and routed alerts.</p>
+					<p class="mb-0"><strong>Scope:</strong> This is a portfolio implementation tested with synthetic data. It is not presented as a live client deployment, and no commercial impact is claimed.</p>
+				</header>
+
+				<figure class="visual-showcase-frame mb-8">
+					<img
+						src="/images/case-study-anomaly-agent.webp"
+						alt="Illustrative revenue reconciliation dashboard showing anomaly flags and alert details with synthetic data"
+						class="visual-showcase-img"
+						width="1200"
+						height="675"
+						fetchpriority="high"
+					/>
+					<figcaption class="visual-caption-bar">Illustrative portfolio interface; displayed scenario uses synthetic data.</figcaption>
+				</figure>
+
+				<section class="section-box mb-8">
+					<h2>The problem</h2>
+					<p>Revenue reporting can lose trust when inconsistent identifiers, missing values, or unexpected amounts pass from an extract into a forecast or leadership report. A useful monitor needs to show which records failed a check and give the owner enough context to investigate.</p>
+					<p class="mb-0">The goal for this build was to demonstrate a small, understandable path from a data quality rule to a human review—not to make an autonomous financial decision.</p>
+				</section>
+
+				<section class="section-box mb-8">
+					<h2>What the workflow does</h2>
+					<ol class="steps-grid">
+						<li class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">01 · CHECK</div>
+							<h3>Apply explicit validation rules</h3>
+							<p>Google Apps Script checks a revenue extract for configured conditions and marks rows that need review.</p>
+						</li>
+						<li class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">02 · TEST</div>
+							<h3>Exercise known anomalies</h3>
+							<p>A synthetic dataset contains deliberately planted errors, so expected detections can be compared with actual flags without exposing business records.</p>
+						</li>
+						<li class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">03 · EXPLAIN</div>
+							<h3>Add a readable explanation</h3>
+							<p>An AI reasoning layer drafts a plain-language explanation for a flagged row. The explanation supports investigation; it does not replace the underlying rule or human review.</p>
+						</li>
+						<li class="spotlight-card glass-panel glass-panel-hover step-card">
+							<div class="step-badge">04 · ROUTE</div>
+							<h3>Send the alert to an owner</h3>
+							<p>Slack and email routing are included in the design so a finding can reach the people responsible for resolving it.</p>
+						</li>
+					</ol>
+				</section>
+
+				<section class="spotlight-card glass-panel section-box mb-8">
+					<h2>What is demonstrated—and what is not</h2>
+					<p>The documented outputs are a rule-based detection flow, an anomaly test dataset, a generated explanation, and an alert path. These are implementation details a reader can inspect in the accompanying portfolio material.</p>
+					<p class="mb-0">No precision or recall score, time saved, reduction in data errors, or revenue lift is published for this build. Those results would need a recorded test report or a customer-approved production baseline before being stated as measured outcomes.</p>
+				</section>
+
+				<section class="section-box mb-8">
+					<h2>What a production rollout would require</h2>
+					<ul>
+						<li>Agree on trusted source tables, definitions, and data owners.</li>
+						<li>Set thresholds with business owners and test false positives against historical examples.</li>
+						<li>Restrict data access and avoid sending sensitive values to an external model.</li>
+						<li>Record a baseline and monitor precision, time to resolution, and downstream impact.</li>
+					</ul>
+				</section>
+
+				<aside class="glass-panel case-cta-box">
+					<div class="badge-pill mb-3"><span class="pulse-dot"></span><span>DATA QUALITY &amp; REVENUE ANALYTICS</span></div>
+					<h2>Working through a reconciliation problem?</h2>
+					<p>Explore the broader <a href="/services">analytics services</a> or get in touch to discuss a specific data quality workflow.</p>
+					<a class="btn-primary" href="mailto:abhiibuildsai@gmail.com?subject=Data%20quality%20workflow">Discuss a data quality project →</a>
+				</aside>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.case-study-container { max-width: 900px; margin: 0 auto; }
+	.case-study-container h2 { margin-top: 0; }
+	.case-study-container p, .case-study-container li { line-height: 1.75; }
+	.case-study-container ul { padding-left: 1.25rem; }
+	.steps-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+	.step-card { padding: 1.5rem; }
+	.case-study-container a:not(.btn-primary) { color: var(--brand-400); }
+	@media (max-width: 768px) {
+		.case-study-container .section-box { padding: 2rem 1.5rem; }
+		.steps-grid { grid-template-columns: 1fr; }
+	}
+</style>
