@@ -46,8 +46,7 @@ jobs:
         if: steps.weekly.outputs.exists != 'true'
         run: node scripts/generate-weekly-blog.mjs
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          BLOG_MODEL: ${{ vars.BLOG_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Validate the site build
         if: steps.weekly.outputs.exists != 'true'
