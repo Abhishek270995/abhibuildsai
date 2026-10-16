@@ -1,0 +1,68 @@
+name: Weekly blog draft
+
+on:
+  schedule:
+    - cron: '30 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-blog-draft
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Research and write a sourced draft
+        run: node scripts/generate-weekly-blog.mjs
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          BLOG_MODEL: ${{ vars.BLOG_MODEL }}
+
+      - name: Validate the site build
+        run: |
+          npm ci
+          npm run check
+          npm run build
+
+      - name: Open or update the weekly draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          week="$(date -u +%G-W%V)"
+          branch="automation/weekly-blog-$week"
+          title="Weekly AI and data analytics blog draft ($week)"
+          body="## Weekly researched blog draft
+
+          This draft was generated from current web research and added to the Astro blog collection.
+
+          Please verify the claims and source links, edit the article as needed, and merge when it is ready to publish. Merging triggers the site's normal production deployment."
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch --create "$branch"
+          git add -- src/content/blog/
+          git diff --cached --check
+          git commit -m "Add weekly analytics blog draft ($week)"
+          git push --set-upstream origin "$branch"
+
+          if gh pr view "$branch" >/dev/null 2>&1; then
+            gh pr edit "$branch" --title "$title" --body "$body"
+          else
+            gh pr create --draft --base main --head "$branch" --title "$title" --body "$body"
+          fi
